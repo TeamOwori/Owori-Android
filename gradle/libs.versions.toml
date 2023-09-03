@@ -1,0 +1,70 @@
+[versions]
+agp = "8.2.0-alpha03"
+kotlin = "1.8.0"
+kotlinxCoroutines = "1.6.4"
+core-ktx = "1.9.0"
+lifecycle-ktx = "2.6.1"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+appcompat = "1.6.1"
+material = "1.8.0"
+constraintlayout = "2.1.4"
+kotlinxSerializationJson = "1.5.0"
+okhttp = "4.11.0"
+retrofit = "2.9.0"
+retrofitKotlinxSerializationJson = "1.0.0"
+work-runtime = "2.5.0"
+support-compat = "28.0.0"
+coroutines-core = "1.6.1"
+fragment-ktx = "1.5.5"
+navigation-fragment-ktx = "2.5.3"
+navigation-ui-ktx = "2.5.3"
+lifecycle-version = "2.6.1"
+koin-version = "3.1.5"
+glide-version = "4.13.0"
+lottie-version = "5.2.0"
+workRuntimeKtx = "2.8.1"
+gms = "4.3.15"
+
+[libraries]
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+lifecycle-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp"}
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
+retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
+work-runtime = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work-runtime" }
+support-compat = { group = "com.android.support", name = "support-compat", version.ref = "support-compat" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines-core" }
+fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment-ktx" }
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation-ui-ktx" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-version" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-version" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-version" }
+lifecycle-viewmodel-savedstate = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "lifecycle-version" }
+lifecycle-compiler = { group = "androidx.lifecycle", name = "lifecycle-compiler", version.ref = "lifecycle-version" }
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin-version" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin-version" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide-version" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide-version" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie-version" }
+androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workRuntimeKtx" }
+identity-credential = { group = "com.android.identity", name = "identity-credential", version = "20230420" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+
+[bundles]
+

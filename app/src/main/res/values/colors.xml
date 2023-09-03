@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="owori_red">#FA7B53</color>
+    <color name="owori_sub_red">#F26E45</color>
+    <color name="owori_light">#FFE9E2</color>
+
+    <color name="grey_f2f2f2">#F2F2F2</color>
+    <color name="grey_909090">#909090</color>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_navigation"
+    app:startDestination="@id/SplashFragment">
+
+    <fragment
+        android:id="@+id/SplashFragment"
+        android:name="com.owrori.android.ui.auth.view.SplashFragment">
+
+        <action
+            android:id="@+id/action_splashFragment_to_onboardingFragment"
+            app:destination="@id/OnBoardingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/OnBoardingFragment"
+        android:name="com.owrori.android.ui.auth.view.OnBoardingFragment">
+
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/LoginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.owrori.android.ui.auth.view.LoginFragment">
+
+    </fragment>
+
+</navigation>

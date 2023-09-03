@@ -1,0 +1,90 @@
+@Suppress("DSL_SCOPE_VIOLATION")
+plugins {
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kapt)
+}
+
+android {
+    namespace = "com.owrori.android"
+    compileSdk = 33
+
+    defaultConfig {
+        applicationId = "com.owrori.android"
+        minSdk = 24
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
+    }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+}
+
+dependencies {
+
+    implementation(libs.core.ktx)
+    implementation(libs.lifecycle.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.constraintlayout)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.identity.credential)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.okhttp.logging)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlin.serialization)
+
+    implementation(libs.coroutines.core)
+    implementation(libs.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
+    implementation(libs.navigation.fragment.ktx)
+
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.viewmodel.savedstate)
+    kapt(libs.lifecycle.compiler)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.glide)
+    implementation(libs.glide.compiler)
+    implementation(libs.lottie)
+}

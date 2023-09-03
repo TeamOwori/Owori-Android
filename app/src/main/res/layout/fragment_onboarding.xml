@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/onboarding_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="106dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:textColor="@color/black"
+            android:textSize="26dp"
+            android:text="@string/onboarding_first_title"
+            app:layout_constraintBottom_toTopOf="@+id/subtitle"
+            app:layout_constraintStart_toStartOf="parent"
+
+            tools:text="@string/onboarding_first_title" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:textColor="@color/grey_909090"
+            android:textSize="16dp"
+            android:text="@string/onboarding_first_subtitle"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/onboarding_viewpager"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/onboarding_first_subtitle" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/onboarding_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="375dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/indicator_layout"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onboarding_viewpager"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/viewpager_button"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@color/owori_red"
+            tools:text="@string/onboarding_next"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendard_bold"
+            android:textSize="18dp"
+            android:text="@string/onboarding_next"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
