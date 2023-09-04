@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.owrori.android"
+    namespace = "com.owori.android"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.owrori.android"
+        applicationId = "com.owori.android"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

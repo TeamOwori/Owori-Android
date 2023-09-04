@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="black_050708">#050708</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="owori_red">#FA7B53</color>
@@ -9,4 +10,8 @@
 
     <color name="grey_f2f2f2">#F2F2F2</color>
     <color name="grey_909090">#909090</color>
+    <color name="grey_626262">#626262</color>
+
+    <color name="yellow_fee500">#FEE500</color>
+
 </resources>
