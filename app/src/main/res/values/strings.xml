@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">오월이</string>
+
+    <!-- 로그인 + 가입 -->
     <string name="owori_splash_subtitle">모여봐요 우리 가족</string>
     <string name="onboarding_first_title">우리 가족 소통해요</string>
     <string name="onboarding_first_subtitle">‘감정뱃지’로 나의 기분을 표현하고\n‘서로에게 한마디’를 나눠봐요</string>
@@ -9,4 +11,8 @@
     <string name="onboarding_last_subtitle">사진과 함께 그날의 이야기를 공유할 수 있어요\n하루하루를 가족과 함께해요</string>
     <string name="onboarding_next">다음</string>
     <string name="onboarding_login">로그인하기</string>
+    <string name="agree_social_login_policy">소셜로그인으로 가입시 이용약관 및 개인정보처리방침에 동의합니다.</string>
+    <string name="kakao_login">카카오 로그인</string>
+    <string name="apple_login">Apple로 로그인</string>
+
 </resources>

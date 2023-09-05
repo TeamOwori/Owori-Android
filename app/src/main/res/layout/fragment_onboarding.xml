@@ -5,23 +5,26 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.owori.android.auth.ui.viewmodel.OnBoardingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/onboarding_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="106dp"
             android:fontFamily="@font/pretendard_bold"
+            setTitleText="@{vm.currentItemIndex}"
             android:textColor="@color/black"
-            android:textSize="26dp"
-            android:text="@string/onboarding_first_title"
+            android:textSize="22dp"
             app:layout_constraintBottom_toTopOf="@+id/subtitle"
             app:layout_constraintStart_toStartOf="parent"
 
@@ -29,14 +32,14 @@
 
         <TextView
             android:id="@+id/subtitle"
+            setSubTitleText="@{vm.currentItemIndex}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/pretendard_medium"
             android:textColor="@color/grey_909090"
             android:textSize="16dp"
-            android:text="@string/onboarding_first_subtitle"
-            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toTopOf="@+id/onboarding_viewpager"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="@string/onboarding_first_subtitle" />
@@ -44,7 +47,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/onboarding_viewpager"
             android:layout_width="match_parent"
-            android:layout_height="375dp"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,11 +56,38 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/indicator_layout"
             android:layout_width="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/onboarding_viewpager"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onboarding_viewpager">
+
+            <ImageView
+                android:id="@+id/first_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{vm.currentItemIndex == 0 ? @drawable/selected_dot : @drawable/not_selected_dot}"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@drawable/selected_dot" />
+
+            <ImageView
+                android:id="@+id/second_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@{vm.currentItemIndex == 1 ? @drawable/selected_dot : @drawable/not_selected_dot}"
+                app:layout_constraintStart_toEndOf="@id/first_indicator"
+                tools:src="@drawable/not_selected_dot" />
+
+            <ImageView
+                android:id="@+id/third_indicator"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_height="wrap_content"
+                android:src="@{vm.currentItemIndex >= 2 ? @drawable/selected_dot : @drawable/not_selected_dot}"
+                app:layout_constraintStart_toEndOf="@+id/second_indicator"
+                tools:src="@drawable/not_selected_dot" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -65,13 +95,15 @@
             android:id="@+id/viewpager_button"
             android:layout_width="match_parent"
             android:layout_height="64dp"
+            android:clickable="true"
             android:background="@color/owori_red"
-            tools:text="@string/onboarding_next"
-            android:textColor="@color/white"
             android:fontFamily="@font/pretendard_bold"
+            android:onClick="@{() -> vm.onClickNextButton()}"
+            android:text="@{vm.currentItemIndex >= 2 ? @string/onboarding_login : @string/onboarding_next}"
+            android:textColor="@color/white"
             android:textSize="18dp"
-            android:text="@string/onboarding_next"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="@string/onboarding_next" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

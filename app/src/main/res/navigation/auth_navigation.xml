@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/SplashFragment"
-        android:name="com.owrori.android.ui.auth.view.SplashFragment">
+        android:name="com.owori.android.auth.ui.view.SplashFragment">
 
         <action
             android:id="@+id/action_splashFragment_to_onboardingFragment"
@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/OnBoardingFragment"
-        android:name="com.owrori.android.ui.auth.view.OnBoardingFragment">
+        android:name="com.owori.android.auth.ui.view.OnBoardingFragment">
 
         <action
             android:id="@+id/action_onboardingFragment_to_loginFragment"
@@ -25,7 +25,16 @@
 
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.owrori.android.ui.auth.view.LoginFragment">
+        android:name="com.owori.android.auth.ui.view.LoginFragment">
+
+        <action
+            android:id="@+id/action_loginFragment_to_PolicyFragment"
+            app:destination="@id/PolicyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/PolicyFragment"
+        android:name="com.owori.android.auth.ui.view.PolicyFragment">
 
     </fragment>
 
