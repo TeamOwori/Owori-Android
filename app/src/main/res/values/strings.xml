@@ -13,6 +13,6 @@
     <string name="onboarding_login">로그인하기</string>
     <string name="agree_social_login_policy">소셜로그인으로 가입시 이용약관 및 개인정보처리방침에 동의합니다.</string>
     <string name="kakao_login">카카오 로그인</string>
-    <string name="apple_login">Apple로 로그인</string>
+    <string name="google_login">구글 로그인</string>
 
 </resources>

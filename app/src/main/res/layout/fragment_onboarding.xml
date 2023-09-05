@@ -94,7 +94,7 @@
         <Button
             android:id="@+id/viewpager_button"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="52dp"
             android:clickable="true"
             android:background="@color/owori_red"
             android:fontFamily="@font/pretendard_bold"
