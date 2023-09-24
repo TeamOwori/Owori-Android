@@ -26,6 +26,10 @@ glide-version = "4.13.0"
 lottie-version = "5.2.0"
 workRuntimeKtx = "2.8.1"
 gms = "4.3.15"
+firebase-bom = "32.3.1"
+firebase-crashlytics = "2.9.9"
+google-services = "4.3.15"
+play-service-auth = "20.7.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -59,12 +63,19 @@ glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", versi
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie-version" }
 androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workRuntimeKtx" }
 identity-credential = { group = "com.android.identity", name = "identity-credential", version = "20230420" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx"}
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx"}
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
+play-service-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "play-service-auth" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics" }
 
 [bundles]
 

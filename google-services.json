@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "191948284640",
+    "project_id": "owori-399116",
+    "storage_bucket": "owori-399116.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191948284640:android:d0e8d4fd97b74529e3e685",
+        "android_client_info": {
+          "package_name": "com.android.owori"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191948284640-jr0a7nhm5q4nfuoqd6ntst5mlsbbmj1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3fvxnGuuRPgrSI9HbX0jKFBoL6QqMrCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191948284640-06rle69o44vgdi1g77gtmijh0dqpvjjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
