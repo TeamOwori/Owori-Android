@@ -4,9 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
 import com.owori.android.common.SingleLiveEvent
-import org.koin.core.component.KoinComponent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-open class BaseViewModel : ViewModel(), KoinComponent {
+@HiltViewModel
+open class BaseViewModel  @Inject constructor()  : ViewModel() {
     protected val _navigation = SingleLiveEvent<Navigation>()
     val navigation: LiveData<Navigation> = _navigation
 

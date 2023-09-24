@@ -2,16 +2,18 @@ package com.owori.android.auth.ui.view
 
 import android.os.Handler
 import android.os.Looper
+import androidx.fragment.app.viewModels
 import com.owori.android.common.ui.view.BaseFragment
 import com.owori.android.R
 import com.owori.android.databinding.FragmentSplashBinding
 import com.owori.android.auth.ui.viewmodel.SplashViewModel
 import com.owori.android.common.navigateTo
-import org.koin.android.ext.android.inject
+import dagger.hilt.android.AndroidEntryPoint
 
-class SplashFragment :
-    BaseFragment<FragmentSplashBinding, SplashViewModel>(R.layout.fragment_splash) {
-    override val viewModel: SplashViewModel by inject()
+
+@AndroidEntryPoint
+class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>(R.layout.fragment_splash) {
+    override val viewModel: SplashViewModel by viewModels()
     override fun setBindingVariables() {}
 
     override fun initView() {

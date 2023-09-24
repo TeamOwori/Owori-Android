@@ -1,15 +1,18 @@
 package com.owori.android.auth.ui.view
 
 import androidx.activity.addCallback
+import androidx.fragment.app.viewModels
 import com.owori.android.auth.ui.viewmodel.LoginViewModel
 import com.owori.android.common.ui.view.BaseFragment
 import com.owori.android.R
 import com.owori.android.databinding.FragmentLoginBinding
 import com.owori.android.common.navigateTo
-import org.koin.android.ext.android.inject
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout.fragment_login) {
-    override val viewModel: LoginViewModel by inject()
+    override val viewModel: LoginViewModel by viewModels()
     override fun setBindingVariables() {
         with(binding) {
             vm = viewModel

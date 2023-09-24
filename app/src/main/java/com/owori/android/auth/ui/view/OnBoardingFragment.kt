@@ -1,6 +1,7 @@
 package com.owori.android.auth.ui.view
 
 import androidx.activity.addCallback
+import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.owori.android.common.ui.view.BaseFragment
 import com.owori.android.R
@@ -8,11 +9,12 @@ import com.owori.android.databinding.FragmentOnboardingBinding
 import com.owori.android.auth.ui.adapter.OnBoardingViewPagerAdapter
 import com.owori.android.auth.ui.viewmodel.OnBoardingViewModel
 import com.owori.android.common.navigateTo
-import org.koin.android.ext.android.inject
+import dagger.hilt.android.AndroidEntryPoint
 
-class OnBoardingFragment :
-    BaseFragment<FragmentOnboardingBinding, OnBoardingViewModel>(R.layout.fragment_onboarding) {
-    override val viewModel: OnBoardingViewModel by inject()
+
+@AndroidEntryPoint
+class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding, OnBoardingViewModel>(R.layout.fragment_onboarding) {
+    override val viewModel: OnBoardingViewModel by viewModels()
     override fun setBindingVariables() {
         with(binding) {
             vm = viewModel
