@@ -1,16 +1,17 @@
 package com.owori.android.auth.ui.view
 
+import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.owori.android.common.ui.view.BaseActivity
 import com.owori.android.R
 import com.owori.android.databinding.ActivityAuthBinding
 import com.owori.android.auth.ui.viewmodel.AuthViewModel
-import org.koin.android.ext.android.inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.activity_auth) {
-    override val viewModel: AuthViewModel by inject()
-
+    override val viewModel : AuthViewModel by viewModels()
     override fun initView() {
         initNavGraph()
     }

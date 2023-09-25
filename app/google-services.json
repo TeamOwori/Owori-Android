@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:191948284640:android:d0e8d4fd97b74529e3e685",
+        "mobilesdk_app_id": "1:191948284640:android:be4f5d3774729ec3e3e685",
         "android_client_info": {
-          "package_name": "com.android.owori"
+          "package_name": "com.owori.android"
         }
       },
       "oauth_client": [

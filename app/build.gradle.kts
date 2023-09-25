@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kapt)
     alias(libs.plugins.google.services)
     alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.dagger.hilt)
 }
 
 android {
@@ -79,8 +80,6 @@ dependencies {
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.savedstate)
     kapt(libs.lifecycle.compiler)
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
     implementation(libs.glide)
     implementation(libs.glide.compiler)
     implementation(libs.lottie)
@@ -90,4 +89,10 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.auth)
     implementation(libs.play.service.auth)
+    implementation(libs.dagger.hilt)
+    kapt(libs.dagger.hilt.compiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }
