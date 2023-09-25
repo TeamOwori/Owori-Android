@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.owori.android.common.SingleLiveEvent
 import com.owori.android.common.ui.viewmodel.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class OnBoardingViewModel : BaseViewModel() {
+@HiltViewModel
+class OnBoardingViewModel @Inject constructor() : BaseViewModel() {
     private val _currentItemIndex: MutableLiveData<Int> = MutableLiveData(0)
     val currentItemIndex: LiveData<Int> = _currentItemIndex
     private val _finishOnBoarding: SingleLiveEvent<Unit> = SingleLiveEvent();

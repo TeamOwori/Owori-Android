@@ -7,8 +7,7 @@ import com.owori.android.common.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
-open class BaseViewModel  @Inject constructor()  : ViewModel() {
+open class BaseViewModel : ViewModel() {
     protected val _navigation = SingleLiveEvent<Navigation>()
     val navigation: LiveData<Navigation> = _navigation
 
