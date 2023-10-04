@@ -1,11 +1,13 @@
 package com.owori.android
 
 import android.app.Application
+import com.kakao.sdk.common.KakaoSdk
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class OworiApplication: Application() {
     override fun onCreate() {
         super.onCreate()
+        KakaoSdk.init(this, "6c28960f69d4c7f00043b02d890dd6e0")
     }
 }
