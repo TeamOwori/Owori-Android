@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.owori.android.auth.ui.viewmodel.NickNameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".auth.ui.view.FamilyConnectFragment">
+
+        <Button
+            android:id="@+id/make_code_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/make_code_background"
+            android:includeFontPadding="false"
+            android:onClick="@{()-> vm.onClickCheckButton()}"
+            android:text="@string/make_family_code"
+            android:textAppearance="@style/TextBodyMedium.00"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/received_code_button"
+            tools:layout_editor_absoluteX="30dp" />
+
+        <Button
+            android:id="@+id/received_code_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/received_code_background"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:onClick="@{()-> vm.onClickBackButton()}"
+            android:text="@string/received_family_code"
+            android:textAppearance="@style/TextBodyMedium.00"
+            android:textColor="@color/owori_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="30dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

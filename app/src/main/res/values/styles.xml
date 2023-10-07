@@ -37,6 +37,10 @@
         <item name="fontWeight">500</item>
     </style>
 
+    <style name="TextBodyMedium.00">
+        <item name="android:textSize">18dp</item>
+    </style>
+
     <style name="TextBodyMedium.01">
         <item name="android:textSize">16dp</item>
     </style>
