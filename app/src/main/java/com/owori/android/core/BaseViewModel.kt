@@ -1,11 +1,9 @@
-package com.owori.android.common.ui.viewmodel
+package com.owori.android.core
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
-import com.owori.android.common.SingleLiveEvent
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
+import com.owori.android.presenter.util.SingleLiveEvent
 
 open class BaseViewModel : ViewModel() {
     protected val _navigation = SingleLiveEvent<Navigation>()

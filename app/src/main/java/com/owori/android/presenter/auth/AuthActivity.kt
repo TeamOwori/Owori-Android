@@ -1,12 +1,11 @@
-package com.owori.android.auth.ui.view
+package com.owori.android.presenter.auth
 
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import com.owori.android.common.ui.view.BaseActivity
+import com.owori.android.core.BaseActivity
 import com.owori.android.R
 import com.owori.android.databinding.ActivityAuthBinding
-import com.owori.android.auth.ui.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,9 +1,9 @@
-package com.owori.android.auth.ui.viewmodel
+package com.owori.android.presenter.onboarding
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.owori.android.common.SingleLiveEvent
-import com.owori.android.common.ui.viewmodel.BaseViewModel
+import com.owori.android.presenter.util.SingleLiveEvent
+import com.owori.android.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

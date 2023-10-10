@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.owori.android.auth.ui.viewmodel.LoginViewModel" />
+            type="com.owori.android.presenter.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

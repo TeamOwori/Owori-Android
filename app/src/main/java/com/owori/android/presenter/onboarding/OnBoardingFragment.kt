@@ -1,14 +1,13 @@
-package com.owori.android.auth.ui.view
+package com.owori.android.presenter.onboarding
 
 import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
-import com.owori.android.common.ui.view.BaseFragment
+import com.owori.android.core.BaseFragment
 import com.owori.android.R
 import com.owori.android.databinding.FragmentOnboardingBinding
-import com.owori.android.auth.ui.adapter.OnBoardingViewPagerAdapter
-import com.owori.android.auth.ui.viewmodel.OnBoardingViewModel
-import com.owori.android.common.navigateTo
+import com.owori.android.presenter.onboarding.adapter.OnBoardingViewPagerAdapter
+import com.owori.android.core.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
 
 

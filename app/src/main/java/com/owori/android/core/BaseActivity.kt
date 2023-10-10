@@ -1,4 +1,4 @@
-package com.owori.android.common.ui.view
+package com.owori.android.core
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.navigation.Navigation
-import com.owori.android.common.ui.viewmodel.BaseViewModel
 
 abstract class BaseActivity<B : ViewDataBinding, V : BaseViewModel>(@LayoutRes private val layoutId: Int) :
     AppCompatActivity() {
