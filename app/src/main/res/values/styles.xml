@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="SpUsage">
+
+    <style name="TextTitle">
+        <item name="fontFamily">@font/notosanskr_regular</item>
+        <item name="fontWeight">700</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextTitle.00">
+        <item name="android:textSize">26dp</item>
+    </style>
+
+    <style name="TextTitle.01">
+        <item name="android:textSize">22dp</item>
+    </style>
+
+    <style name="TextTitle.02">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="TextSubTitle">
+        <item name="fontFamily">@font/notosanskr_medium</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="TextSubTitle.01">
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="TextSubTitle.02">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextBodyMedium">
+        <item name="fontFamily">@font/notosanskr_medium</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="TextBodyMedium.01">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextBodyMedium.02">
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="TextBodyMedium.03">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TextBodyRegular">
+        <item name="fontFamily">@font/notosanskr_regular</item>
+        <item name="fontWeight">400</item>
+    </style>
+
+    <style name="TextBodyRegular.01">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextBodyRegular.02">
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="TextBodyRegular.03">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TextCaptionMedium">
+        <item name="fontFamily">@font/notosanskr_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="TextCaptionRegular">
+        <item name="fontFamily">@font/notosanskr_regular</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+</resources>
