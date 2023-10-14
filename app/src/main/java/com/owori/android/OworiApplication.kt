@@ -8,6 +8,6 @@ import dagger.hilt.android.HiltAndroidApp
 class OworiApplication: Application() {
     override fun onCreate() {
         super.onCreate()
-        KakaoSdk.init(this, "6c28960f69d4c7f00043b02d890dd6e0")
+        KakaoSdk.init(this, getString(R.string.kakao_login_key))
     }
 }
