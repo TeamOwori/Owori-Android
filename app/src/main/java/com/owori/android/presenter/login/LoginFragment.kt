@@ -5,7 +5,7 @@ import androidx.fragment.app.viewModels
 import com.owori.android.core.BaseFragment
 import com.owori.android.R
 import com.owori.android.databinding.FragmentLoginBinding
-import com.owori.android.core.navigateTo
+import com.owori.android.presenter.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -26,11 +26,16 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
         with(viewModel) {
             // TODO : PolicyFragment를 위해 작성한 부분이라 수정 필요.
             callKakaoLogin.observe(viewLifecycleOwner) {
-                navigateTo(R.id.action_loginFragment_to_PolicyFragment)
+//                navigateTo(R.id.action_loginFragment_to_PolicyFragment)
+                // TEST : MainActivity로 이동.
+                MainActivity.startActivity(requireActivity())
+                requireActivity().finish()
             }
 
             callGoogleLogin.observe(viewLifecycleOwner) {
-                navigateTo(R.id.action_loginFragment_to_PolicyFragment)
+//                navigateTo(R.id.action_loginFragment_to_PolicyFragment)
+                MainActivity.startActivity(requireActivity())
+                requireActivity().finish()
             }
         }
     }

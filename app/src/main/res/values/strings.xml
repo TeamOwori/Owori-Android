@@ -15,4 +15,10 @@
     <string name="kakao_login">카카오 로그인</string>
     <string name="apple_login">Apple로 로그인</string>
 
+    <!-- 메뉴 -->
+    <string name="menu_home">홈</string>
+    <string name="menu_calendar">캘린더</string>
+    <string name="menu_story">스토리</string>
+    <string name="menu_chat">채팅</string>
+
 </resources>
