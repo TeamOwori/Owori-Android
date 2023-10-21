@@ -14,4 +14,7 @@
 
     <color name="yellow_fee500">#FEE500</color>
 
+    <!-- home 화면 -->
+    <color name="yellow_ffeeb2">#FFEEB2</color>
+
 </resources>

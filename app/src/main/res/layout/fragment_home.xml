@@ -7,16 +7,79 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar"
+            android:background="@color/yellow_ffeeb2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textSize="36dp"
-            android:textColor="@color/black_050708"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="HomeFragment"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:id="@+id/family_name"
+                style="@style/TextTitle.01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="우당탕탕 우리 가족 ❤️" />
+
+            <Button
+                android:id="@+id/notice"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/notice"
+                app:layout_constraintBottom_toBottomOf="@id/family_name"
+                app:layout_constraintEnd_toStartOf="@id/profile"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/profile"
+                android:layout_marginEnd="16dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/profile"
+                app:layout_constraintBottom_toBottomOf="@id/family_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/family_member_view"
+                android:layout_width="0dp"
+                tools:listitem="@layout/item_family_member"
+                tools:itemCount="3"
+                tools:orientation="horizontal"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/family_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dDayLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+            <TextView
+                android:id="@+id/dDayTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/d_day_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

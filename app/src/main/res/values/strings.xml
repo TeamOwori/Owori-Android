@@ -21,4 +21,12 @@
     <string name="menu_story">스토리</string>
     <string name="menu_chat">채팅</string>
 
+    <!-- 홈 -->
+    <string name="d_day_title">D-day</string>
+    <string name="d_day_content">아직 D-day가 없어요.\n캘린더에서 D-day를 추가해봐요.</string>
+    <string name="family_photo_title">가족사진</string>
+    <string name="family_photo_content">사진 자유롭게 올리는 공간이에요!\n가족사진을 올려보는건 어떨까요?</string>
+    <string name="word_to_each_other_title">서로에게 한마디</string>
+    <string name="word_to_each_other_content">오늘 어떤가요? 가족들에게 한마디를 전달해봐요 :)</string>
+
 </resources>
