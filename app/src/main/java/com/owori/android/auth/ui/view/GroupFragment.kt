@@ -3,14 +3,14 @@ package com.owori.android.auth.ui.view
 
 import androidx.fragment.app.viewModels
 import com.owori.android.R
-import com.owori.android.auth.ui.viewmodel.NickNameViewModel
+import com.owori.android.auth.ui.viewmodel.GroupViewModel
 import com.owori.android.common.navigateTo
 import com.owori.android.common.ui.view.BaseFragment
 import com.owori.android.databinding.FragmentGroupBinding
 
 
-class GroupFragment : BaseFragment<FragmentGroupBinding, NickNameViewModel>(R.layout.fragment_group) {
-    override val viewModel: NickNameViewModel by viewModels()
+class GroupFragment : BaseFragment<FragmentGroupBinding, GroupViewModel>(R.layout.fragment_group) {
+    override val viewModel: GroupViewModel by viewModels()
     override fun setBindingVariables() {
         with(binding) {
             vm = viewModel

@@ -46,9 +46,9 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/nav_line1"
-                android:layout_width="10dp"
-                android:layout_height="4dp"
+                android:id="@+id/first_nav_line"
+                android:layout_width="6dp"
+                android:layout_height="5dp"
                 android:layout_marginHorizontal="1.5dp"
                 android:background="@drawable/navigation_line"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -56,13 +56,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/nav_line2"
+                android:id="@+id/second_nav_line"
                 android:layout_width="10dp"
                 android:layout_height="4dp"
                 android:layout_marginHorizontal="1.5dp"
                 android:background="@drawable/navigation_line"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nav_line1"
+                app:layout_constraintStart_toEndOf="@+id/first_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -73,11 +73,11 @@
                 android:layout_marginHorizontal="1.5dp"
                 android:src="@drawable/unfocused_birthdate"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/nav_line2"
+                app:layout_constraintStart_toEndOf="@id/second_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/nav_line3"
+                android:id="@+id/third_nav_line"
                 android:layout_width="10dp"
                 android:layout_height="4dp"
                 android:layout_marginHorizontal="1.5dp"
@@ -87,13 +87,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/nav_line4"
+                android:id="@+id/fourth_nav_line"
                 android:layout_width="10dp"
                 android:layout_height="4dp"
                 android:layout_marginHorizontal="1.5dp"
                 android:background="@drawable/navigation_line"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nav_line3"
+                app:layout_constraintStart_toEndOf="@+id/third_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -103,11 +103,11 @@
                 android:layout_marginHorizontal="1.5dp"
                 android:src="@drawable/unfocused_connect"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nav_line4"
+                app:layout_constraintStart_toEndOf="@+id/fourth_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/nav_line5"
+                android:id="@+id/fifth_nav_line"
                 android:layout_width="10dp"
                 android:layout_height="4dp"
                 android:layout_marginHorizontal="1.5dp"
@@ -117,13 +117,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/nav_line6"
+                android:id="@+id/sixth_nav_line"
                 android:layout_width="10dp"
                 android:layout_height="4dp"
                 android:layout_marginHorizontal="1.5dp"
                 android:background="@drawable/navigation_line"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nav_line5"
+                app:layout_constraintStart_toEndOf="@+id/fifth_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -133,11 +133,11 @@
                 android:layout_marginHorizontal="1.5dp"
                 android:src="@drawable/unfocused_group"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nav_line6"
+                app:layout_constraintStart_toEndOf="@+id/fifth_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/nav_line7"
+                android:id="@+id/seventh_nav_line"
                 android:layout_width="10dp"
                 android:layout_height="4dp"
                 android:layout_marginHorizontal="1.5dp"
@@ -147,13 +147,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/nav_line8"
+                android:id="@+id/eighth_nav_line"
                 android:layout_width="10dp"
                 android:layout_height="4dp"
                 android:layout_marginHorizontal="1.5dp"
                 android:background="@drawable/navigation_line"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nav_line7"
+                app:layout_constraintStart_toEndOf="@+id/seventh_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -164,7 +164,7 @@
                 android:layout_marginHorizontal="1.5dp"
                 android:src="@drawable/unfocused_agree"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nav_line8"
+                app:layout_constraintStart_toEndOf="@+id/eighth_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -217,8 +217,9 @@
             android:id="@+id/nickname_length"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            setTextLength="@{vm.nickname}"
+            android:textColor="@{vm.nickname.length() > 0 ? @color/owori_red : @color/grey_787878}"
             android:textAppearance="@style/TextBodyRegular.03"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/nickname_et"
             app:layout_constraintEnd_toStartOf="@id/nickname_limit"
             app:layout_constraintTop_toTopOf="@id/nickname_et" />
@@ -230,7 +231,7 @@
             android:layout_marginEnd="5dp"
             android:text="@string/nickname_length_limit"
             android:textAppearance="@style/TextBodyRegular.03"
-            android:textColor="@color/black"
+            android:textColor="@color/grey_787878"
             app:layout_constraintBottom_toBottomOf="@id/nickname_et"
             app:layout_constraintEnd_toEndOf="@id/nickname_et"
             app:layout_constraintTop_toTopOf="@id/nickname_et" />

@@ -26,13 +26,7 @@ class NickNameFragment: BaseFragment<FragmentNickNameBinding, NickNameViewModel>
     override fun initObserver() {
         with(viewModel) {
             nickname.observe(viewLifecycleOwner) {
-                binding.viewpagerButton.isEnabled = it.isNotEmpty()
-                binding.nicknameLength.text = it.length.toString()
-                if(it.isNotEmpty()) {
-                    binding.viewpagerButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                } else {
-                    binding.viewpagerButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.grey_909090))
-                }
+                setViewPagerButton(it)
             }
 
             returnLogin.observe(viewLifecycleOwner) {
@@ -40,6 +34,18 @@ class NickNameFragment: BaseFragment<FragmentNickNameBinding, NickNameViewModel>
             }
             btnNext.observe(viewLifecycleOwner) {
                 navigateTo(R.id.action_nickNameFragment_to_birthDateFragment)
+            }
+        }
+    }
+
+    fun setViewPagerButton(nickname: String) {
+        val isInputted = nickname.isNotEmpty()
+        with(binding.viewpagerButton) {
+            isEnabled = isInputted
+            if(isInputted) {
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            } else {
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.grey_909090))
             }
         }
     }

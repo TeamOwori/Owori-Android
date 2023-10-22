@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.owori.android.auth.ui.viewmodel.NickNameViewModel" />
+            type="com.owori.android.auth.ui.viewmodel.InputFamilyCodeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
