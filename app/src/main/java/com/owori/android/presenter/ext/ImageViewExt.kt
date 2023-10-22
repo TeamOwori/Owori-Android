@@ -6,7 +6,7 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.owori.android.R
 
-@BindingAdapter("setCircleImageViewBy")
+@BindingAdapter("setCircleImageView")
 fun ImageView.setCircleImageView(image: Any?) {
     this.load(image) {
         crossfade(true)
