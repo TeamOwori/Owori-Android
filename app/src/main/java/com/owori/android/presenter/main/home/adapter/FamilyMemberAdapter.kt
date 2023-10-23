@@ -1,4 +1,4 @@
-package com.owori.android.presenter.main.home
+package com.owori.android.presenter.main.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,12 +18,12 @@ class FamilyMemberAdapter : ListAdapter<MemberItem, FamilyMemberAdapter.ViewHold
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): FamilyMemberAdapter.ViewHolder {
+    ): ViewHolder {
         val binding = ItemFamilyMemberBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: FamilyMemberAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 }

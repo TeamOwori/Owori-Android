@@ -3,6 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <import type="android.view.View" />
+        <import type="com.owori.android.presenter.model.DdayData" />
+        <import type="com.owori.android.presenter.model.FamilyInfo" />
+
+        <variable
+            name="vm"
+            type="com.owori.android.presenter.main.home.HomeViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,7 +37,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{}"
+                android:text="@{vm.familyInfo.name}"
                 tools:text="우당탕탕 우리 가족 ❤️" />
 
             <Button
@@ -101,10 +111,12 @@
                     android:layout_height="156dp"
                     android:layout_marginHorizontal="36dp"
                     android:background="@drawable/shp_dotted_line_r12"
+                    android:visibility="@{vm.dDayList.size() > 0 ? View.GONE : View.VISIBLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/dDayTitle">
+                    app:layout_constraintTop_toBottomOf="@id/dDayTitle"
+                    app:layout_constraintVertical_bias="0.304">
 
                     <TextView
                         style="@style/TextBodyRegular.02"
@@ -119,6 +131,21 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dDayRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.dDayList.size() > 0 ? View.VISIBLE : View.GONE}"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_d_day"
+                    tools:orientation="horizontal" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
