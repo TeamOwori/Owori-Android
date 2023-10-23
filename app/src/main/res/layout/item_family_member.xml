@@ -32,7 +32,7 @@
             android:layout_height="24dp"
             android:src="@color/black"
             app:cardCornerRadius="56dp"
-            android:visibility="@{data.emotionDrawable == null ? View.GONE : View.VISIBLE}"
+            android:visibility="@{data.emotionDrawableId == null ? View.GONE : View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="@+id/member_profile"
             app:layout_constraintEnd_toEndOf="parent">
 
@@ -40,7 +40,7 @@
                 android:id="@+id/emotion"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                setImageView="@{data.emotionDrawable}"
+                setImageView="@{data.emotionDrawableId}"
                 android:layout_gravity="center"/>
 
         </androidx.cardview.widget.CardView>

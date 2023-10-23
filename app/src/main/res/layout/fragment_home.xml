@@ -58,10 +58,11 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/family_name"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:orientation="horizontal"
                 tools:itemCount="3"
-                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_family_member"
-                tools:orientation="horizontal" />
+                tools:listitem="@layout/item_family_member" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
