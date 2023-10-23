@@ -206,6 +206,7 @@
             android:lines="1"
             android:maxLength="7"
             android:maxLines="1"
+            android:textColorHint="@color/grey_626262"
             android:text="@={vm._nickname}"
             android:textAppearance="@style/TextBodyMedium.00"
             android:textColor="@color/black"
