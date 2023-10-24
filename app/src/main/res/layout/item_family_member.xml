@@ -8,7 +8,7 @@
 
         <variable
             name="data"
-            type="com.owori.android.presenter.model.MemberItem" />
+            type="com.owori.android.presenter.model.EmotionItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

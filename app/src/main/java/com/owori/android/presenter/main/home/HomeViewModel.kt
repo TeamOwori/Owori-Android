@@ -7,34 +7,38 @@ import com.owori.android.core.BaseViewModel
 import com.owori.android.presenter.model.DdayData
 import com.owori.android.presenter.model.FamilyInfo
 import com.owori.android.presenter.model.FamilyPhotoData
-import com.owori.android.presenter.model.MemberItem
+import com.owori.android.presenter.model.EmotionItem
+import com.owori.android.presenter.model.FamilyMemberData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor() : BaseViewModel() {
-    private val _familyEmotionList: MutableLiveData<List<MemberItem>> = MutableLiveData()
-    val familyEmotionList: LiveData<List<MemberItem>> = _familyEmotionList
+    private val _familyEmotionList: MutableLiveData<List<EmotionItem>> = MutableLiveData()
+    val familyEmotionList: LiveData<List<EmotionItem>> = _familyEmotionList
     private val _dDayList: MutableLiveData<List<DdayData>> = MutableLiveData()
     val dDayList: LiveData<List<DdayData>> = _dDayList
     private val _familyPhotoList: MutableLiveData<List<FamilyPhotoData>> = MutableLiveData()
     val familyPhotoList: LiveData<List<FamilyPhotoData>> = _familyPhotoList
     private val _familyInfo: MutableLiveData<FamilyInfo> = MutableLiveData()
     val familyInfo: LiveData<FamilyInfo> = _familyInfo
+    private val _familyMemberList: MutableLiveData<List<FamilyMemberData>> = MutableLiveData()
+    val familyMemberList: LiveData<List<FamilyMemberData>> = _familyMemberList
 
     init {
         fetchFamilyEmotionList()
         fetchDdayList()
         fetchFamilyInfo()
         fetchFamilyPhotoList()
+        fetchFamilyMemberData()
     }
 
     fun fetchFamilyEmotionList() {
         _familyEmotionList.value = listOf(
-            MemberItem(0, "나", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/225px-Elon_Musk_Royal_Society_%28crop2%29.jpg", R.drawable.emoji_excited),
-            MemberItem(1, "아빠", "https://images.unsplash.com/photo-1609440082470-106df86c0f6c?auto=format&fit=crop&q=80&w=3377&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_cool),
-            MemberItem(2, "엄마", "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=3389&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_happy),
-            MemberItem(3, "형", "https://cdn.ceomagazine.co.kr/news/photo/202108/30233_20491_1559.jpg", null),
+            EmotionItem(0, "나", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/225px-Elon_Musk_Royal_Society_%28crop2%29.jpg", R.drawable.emoji_excited),
+            EmotionItem(1, "아빠", "https://images.unsplash.com/photo-1609440082470-106df86c0f6c?auto=format&fit=crop&q=80&w=3377&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_cool),
+            EmotionItem(2, "엄마", "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=3389&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_happy),
+            EmotionItem(3, "형", "https://cdn.ceomagazine.co.kr/news/photo/202108/30233_20491_1559.jpg", null),
         )
     }
 
@@ -63,6 +67,14 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun fetchFamilyInfo() {
-        _familyInfo.value = FamilyInfo(0, "우당탕탕 우리 가족 ❤️")
+        _familyInfo.value = FamilyInfo(0, "우당탕탕 우리 가족 ❤️", FamilyMemberData(0, "나", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/225px-Elon_Musk_Royal_Society_%28crop2%29.jpg", "화성 갈끄니까아악~ 🚀"))
+    }
+
+    fun fetchFamilyMemberData() {
+        _familyMemberList.value = listOf(
+            FamilyMemberData(0, "아빠", "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2023/09/16/1ba2d3b6-770b-4370-af87-57d08ed46f63.jpg", "아빠 안 잔다...."),
+            FamilyMemberData(1, "엄마", "https://ojsfile.ohmynews.com/STD_IMG_FILE/2022/1202/IE003085931_STD.jpg", "어머 얘 서준아~ 정말~"),
+            FamilyMemberData(2, "형", "https://news.einfomax.co.kr/news/photo/202302/4253138_140028_92.jpg", "그 쪽도 홍박사님을 아세요~?"),
+        )
     }
 }

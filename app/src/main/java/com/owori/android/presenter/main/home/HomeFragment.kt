@@ -7,6 +7,7 @@ import com.owori.android.core.BaseFragment
 import com.owori.android.databinding.FragmentHomeBinding
 import com.owori.android.presenter.main.home.adapter.DdayAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyMemberAdapter
+import com.owori.android.presenter.main.home.adapter.FamilyMemberWordAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyPhotoAdapter
 import com.owori.android.presenter.util.SnapPagerScrollListener
 import com.owori.android.presenter.util.SnapPagerScrollListener.Companion.ON_SCROLL
@@ -43,6 +44,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             override fun onSnapped(position: Int) {}
         }
     )
+    private val familyMemberWordAdapter: FamilyMemberWordAdapter by lazy { FamilyMemberWordAdapter() }
 
     override fun setBindingVariables() {
         with(binding) {
@@ -61,6 +63,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             familyPhotoList.observe(viewLifecycleOwner) {
                 familyPhotoAdapter.submitList(it)
             }
+            familyMemberList.observe(viewLifecycleOwner) {
+                familyMemberWordAdapter.submitList(it)
+            }
         }
     }
 
@@ -72,6 +77,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         initEmotionRecyclerView()
         initDdayRecyclerView()
         initFamilyPhotoRecyclerView()
+        initFamilyMemberWordRecyclerView()
     }
 
     private fun initFamilyPhotoRecyclerView() {
@@ -92,5 +98,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     private fun initEmotionRecyclerView() {
         binding.emotionRecyclerView.adapter = emotionListAdapter
+    }
+
+    private fun initFamilyMemberWordRecyclerView() {
+        binding.familyMemberWordRecyclerView.adapter = familyMemberWordAdapter
     }
 }

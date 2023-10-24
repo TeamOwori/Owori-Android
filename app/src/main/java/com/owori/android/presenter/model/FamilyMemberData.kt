@@ -1,8 +1,8 @@
 package com.owori.android.presenter.model
 
-data class MemberItem (
+data class FamilyMemberData(
     val id: Int,
     val name: String,
     val profileImage: String,
-    val emotionDrawableId: Int?,
+    val word: String?,
 )

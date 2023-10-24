@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.owori.android.databinding.ItemFamilyMemberBinding
-import com.owori.android.presenter.model.MemberItem
+import com.owori.android.presenter.model.EmotionItem
 
-class FamilyMemberAdapter : ListAdapter<MemberItem, FamilyMemberAdapter.ViewHolder>(MemberDiffUtil()) {
+class FamilyMemberAdapter : ListAdapter<EmotionItem, FamilyMemberAdapter.ViewHolder>(MemberDiffUtil()) {
 
     inner class ViewHolder(private val binding: ItemFamilyMemberBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(memberItem: MemberItem) {
+        fun bind(memberItem: EmotionItem) {
             binding.data = memberItem
         }
     }
@@ -28,12 +28,12 @@ class FamilyMemberAdapter : ListAdapter<MemberItem, FamilyMemberAdapter.ViewHold
     }
 }
 
-class MemberDiffUtil : DiffUtil.ItemCallback<MemberItem>(){
-    override fun areItemsTheSame(oldItem: MemberItem, newItem: MemberItem): Boolean {
+class MemberDiffUtil : DiffUtil.ItemCallback<EmotionItem>(){
+    override fun areItemsTheSame(oldItem: EmotionItem, newItem: EmotionItem): Boolean {
         return oldItem.name == newItem.name
     }
 
-    override fun areContentsTheSame(oldItem: MemberItem, newItem: MemberItem): Boolean {
+    override fun areContentsTheSame(oldItem: EmotionItem, newItem: EmotionItem): Boolean {
         return oldItem.hashCode() == newItem.hashCode()
     }
 }
