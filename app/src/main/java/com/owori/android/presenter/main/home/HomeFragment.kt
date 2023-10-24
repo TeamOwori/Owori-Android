@@ -7,6 +7,7 @@ import com.owori.android.core.BaseFragment
 import com.owori.android.databinding.FragmentHomeBinding
 import com.owori.android.presenter.main.home.adapter.DdayAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyMemberAdapter
+import com.owori.android.presenter.main.home.adapter.FamilyPhotoAdapter
 import com.owori.android.presenter.util.SnapPagerScrollListener
 import com.owori.android.presenter.util.SnapPagerScrollListener.Companion.ON_SCROLL
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,16 +17,30 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
     override val viewModel: HomeViewModel by viewModels()
     private val emotionListAdapter: FamilyMemberAdapter by lazy { FamilyMemberAdapter() }
-    private val dDayListAdapter: DdayAdapter by lazy { DdayAdapter { id -> viewModel.deleteDdayItem(id) } }
-    private val snapHelper = PagerSnapHelper()
-    private val listener = SnapPagerScrollListener(
-        snapHelper,
+    private val dDayListAdapter: DdayAdapter by lazy {
+        DdayAdapter { id ->
+            viewModel.deleteDdayItem(
+                id
+            )
+        }
+    }
+    private val familyPhotoAdapter: FamilyPhotoAdapter by lazy { FamilyPhotoAdapter() }
+    private val dDaySnapHelper = PagerSnapHelper()
+    private val dDayScrollListener = SnapPagerScrollListener(
+        dDaySnapHelper,
         ON_SCROLL,
         true,
         object : SnapPagerScrollListener.OnChangeListener {
-            override fun onSnapped(position: Int) {
-                //position 받아서 이벤트 처리
-            }
+            override fun onSnapped(position: Int) {}
+        }
+    )
+    private val familyPhotoSnapHelper = PagerSnapHelper()
+    private val familyPhotoScrollListener = SnapPagerScrollListener(
+        familyPhotoSnapHelper,
+        ON_SCROLL,
+        true,
+        object : SnapPagerScrollListener.OnChangeListener {
+            override fun onSnapped(position: Int) {}
         }
     )
 
@@ -43,15 +58,39 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             dDayList.observe(viewLifecycleOwner) {
                 dDayListAdapter.submitList(it)
             }
+            familyPhotoList.observe(viewLifecycleOwner) {
+                familyPhotoAdapter.submitList(it)
+            }
         }
     }
 
     override fun initView() {
-        with(binding) {
-            emotionRecyclerView.adapter = emotionListAdapter
-            snapHelper.attachToRecyclerView(dDayRecyclerView)
-            dDayRecyclerView.adapter = dDayListAdapter
-            dDayRecyclerView.addOnScrollListener(listener)
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        initEmotionRecyclerView()
+        initDdayRecyclerView()
+        initFamilyPhotoRecyclerView()
+    }
+
+    private fun initFamilyPhotoRecyclerView() {
+        with(binding.familyPhotoRecyclerView) {
+            familyPhotoSnapHelper.attachToRecyclerView(this)
+            adapter = familyPhotoAdapter
+            addOnScrollListener(familyPhotoScrollListener)
         }
+    }
+
+    private fun initDdayRecyclerView() {
+        with(binding.dDayRecyclerView) {
+            dDaySnapHelper.attachToRecyclerView(this)
+            adapter = dDayListAdapter
+            addOnScrollListener(dDayScrollListener)
+        }
+    }
+
+    private fun initEmotionRecyclerView() {
+        binding.emotionRecyclerView.adapter = emotionListAdapter
     }
 }

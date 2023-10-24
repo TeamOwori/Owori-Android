@@ -1,12 +1,12 @@
 package com.owori.android.presenter.main.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.owori.android.R
 import com.owori.android.core.BaseViewModel
 import com.owori.android.presenter.model.DdayData
 import com.owori.android.presenter.model.FamilyInfo
+import com.owori.android.presenter.model.FamilyPhotoData
 import com.owori.android.presenter.model.MemberItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -17,6 +17,8 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     val familyEmotionList: LiveData<List<MemberItem>> = _familyEmotionList
     private val _dDayList: MutableLiveData<List<DdayData>> = MutableLiveData()
     val dDayList: LiveData<List<DdayData>> = _dDayList
+    private val _familyPhotoList: MutableLiveData<List<FamilyPhotoData>> = MutableLiveData()
+    val familyPhotoList: LiveData<List<FamilyPhotoData>> = _familyPhotoList
     private val _familyInfo: MutableLiveData<FamilyInfo> = MutableLiveData()
     val familyInfo: LiveData<FamilyInfo> = _familyInfo
 
@@ -24,6 +26,7 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
         fetchFamilyEmotionList()
         fetchDdayList()
         fetchFamilyInfo()
+        fetchFamilyPhotoList()
     }
 
     fun fetchFamilyEmotionList() {
@@ -43,7 +46,16 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
             DdayData(3, "배추김치 김장날", "D-3", "10월 28일 (토)"),
             DdayData(4, "할머니댁 방문", "D-4", "10월 29일 (일)"),
         )
-        Log.d("fetchDday", "${_dDayList.value}")
+    }
+
+    fun fetchFamilyPhotoList() {
+        _familyPhotoList.value = listOf(
+            FamilyPhotoData(0, "https://cdn.nanamcom.co.kr/news/photo/202306/2292_7667_36.jpg"),
+            FamilyPhotoData(0, "https://www.sisajournal.com/news/photo/first/201706/img_169929_1.png"),
+            FamilyPhotoData(0, "https://img3.yna.co.kr/etc/inner/KR/2020/08/18/AKR20200818040200009_01_i_P2.jpg"),
+            FamilyPhotoData(0, "https://img2.sbs.co.kr/ops_clip_img/2020/05/14/32709ee9-0d73-4ac4-82ce-9266e6ff7700216w640.jpg"),
+            FamilyPhotoData(0, "https://i.ytimg.com/vi/ciWImATlh2Q/maxresdefault.jpg"),
+        )
     }
 
     fun deleteDdayItem(id: Int) {
