@@ -29,6 +29,10 @@
         <activity android:name=".presenter.main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".presenter.main.home.EmotionActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -7,15 +7,15 @@ import com.owori.android.core.BaseViewModel
 import com.owori.android.presenter.model.DdayData
 import com.owori.android.presenter.model.FamilyInfo
 import com.owori.android.presenter.model.FamilyPhotoData
-import com.owori.android.presenter.model.EmotionItem
+import com.owori.android.presenter.model.ProfileItem
 import com.owori.android.presenter.model.FamilyMemberData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor() : BaseViewModel() {
-    private val _familyEmotionList: MutableLiveData<List<EmotionItem>> = MutableLiveData()
-    val familyEmotionList: LiveData<List<EmotionItem>> = _familyEmotionList
+    private val _familyEmotionList: MutableLiveData<List<ProfileItem>> = MutableLiveData()
+    val familyEmotionList: LiveData<List<ProfileItem>> = _familyEmotionList
     private val _dDayList: MutableLiveData<List<DdayData>> = MutableLiveData()
     val dDayList: LiveData<List<DdayData>> = _dDayList
     private val _familyPhotoList: MutableLiveData<List<FamilyPhotoData>> = MutableLiveData()
@@ -35,10 +35,10 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
 
     fun fetchFamilyEmotionList() {
         _familyEmotionList.value = listOf(
-            EmotionItem(0, "나", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/225px-Elon_Musk_Royal_Society_%28crop2%29.jpg", R.drawable.emoji_excited),
-            EmotionItem(1, "아빠", "https://images.unsplash.com/photo-1609440082470-106df86c0f6c?auto=format&fit=crop&q=80&w=3377&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_cool),
-            EmotionItem(2, "엄마", "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=3389&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_happy),
-            EmotionItem(3, "형", "https://cdn.ceomagazine.co.kr/news/photo/202108/30233_20491_1559.jpg", null),
+            ProfileItem(0, "나", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/225px-Elon_Musk_Royal_Society_%28crop2%29.jpg", R.drawable.emoji_excited),
+            ProfileItem(1, "아빠", "https://images.unsplash.com/photo-1609440082470-106df86c0f6c?auto=format&fit=crop&q=80&w=3377&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_cool),
+            ProfileItem(2, "엄마", "https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=3389&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_happy),
+            ProfileItem(3, "형", "https://cdn.ceomagazine.co.kr/news/photo/202108/30233_20491_1559.jpg", null),
         )
     }
 

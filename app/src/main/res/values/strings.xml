@@ -29,4 +29,9 @@
     <string name="word_to_each_other_title">서로에게 한마디</string>
     <string name="word_to_each_other_content">오늘 어떤가요? 가족들에게 한마디를 전달해봐요 :)</string>
 
+    <!-- 홈 : 감정선택 -->
+    <string name="emotion_question">기분 어떤가요?</string>
+    <string name="emotion_registration">감정뱃지 등록해봐요</string>
+    <string name="check_button">확인</string>
+
 </resources>
