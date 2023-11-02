@@ -1,5 +1,6 @@
 package com.owori.android.presenter.main.home
 
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.owori.android.R
@@ -36,6 +37,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         }
     )
     private val familyPhotoSnapHelper = PagerSnapHelper()
+    override fun onResume() {
+        super.onResume()
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.yellow_ffeeb2)
+    }
+
     private val familyPhotoScrollListener = SnapPagerScrollListener(
         familyPhotoSnapHelper,
         ON_SCROLL,
