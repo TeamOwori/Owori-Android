@@ -264,18 +264,20 @@
                         android:id="@+id/messageBubbleLayout"
                         android:layout_width="0dp"
                         android:layout_height="66dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/profileLayout"
-                        app:layout_constraintStart_toStartOf="parent">
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/messageBubbleContentLayout"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:background="@drawable/shp_grey_r12"
-                            android:paddingHorizontal="12dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginEnd="14dp"
                             android:layout_marginStart="20dp"
+                            android:layout_marginEnd="14dp"
+                            android:background="@drawable/shp_grey_r12"
+                            android:padding="12dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@+id/messageBubbleTail"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -283,8 +285,9 @@
                             <TextView
                                 android:id="@+id/myWordEachOther"
                                 style="@style/TextBodyRegular.02"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                android:includeFontPadding="false"
+                                android:layout_height="0dp"
                                 android:text="@{vm.familyInfo.me.word == null ? @string/word_to_each_other_content : vm.familyInfo.me.word}"
                                 android:textColor="@color/black"
                                 android:visibility="visible"
@@ -328,6 +331,7 @@
                             setCircleImageView="@{vm.familyInfo.me.profileImage}"
                             android:layout_width="56dp"
                             android:layout_height="56dp"
+                            android:elevation="3dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
