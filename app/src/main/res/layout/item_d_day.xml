@@ -39,6 +39,8 @@
                     android:id="@+id/dDay"
                     android:layout_width="wrap_content"
                     style="@style/TextTitle.02"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="14dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
                     android:text="@{data.dDay}"
@@ -50,29 +52,30 @@
 
                 <TextView
                     android:id="@+id/eventDate"
+                    style="@style/TextBodyRegular.03"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
                     android:text="@{data.date}"
-                    android:layout_marginTop="36dp"
-                    style="@style/TextBodyRegular.03"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:textColor="@color/grey_464646"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dDay"
                     tools:text="3월 6일 (월)" />
 
                 <TextView
                     android:id="@+id/eventName"
                     style="@style/TextSubTitle.01"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="8dp"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginTop="4dp"
                     android:text="@{data.name}"
                     android:textAlignment="textStart"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/eventDate"
-                    app:layout_constraintTop_toBottomOf="@+id/dDay"
+                    app:layout_constraintTop_toBottomOf="@+id/eventDate"
                     tools:text="고삼이 생일파티 아웃백에서" />
 
                 <Button

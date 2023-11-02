@@ -96,11 +96,12 @@
 
                 <TextView
                     android:id="@+id/dDayTitle"
+                    android:includeFontPadding="false"
                     style="@style/TextTitle.01"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="30dp"
                     android:text="@string/d_day_title"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -121,6 +122,7 @@
 
                     <TextView
                         style="@style/TextBodyRegular.02"
+                        android:includeFontPadding="false"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/d_day_content"
@@ -136,15 +138,14 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/dDayRecyclerView"
                     android:layout_width="0dp"
-                    android:layout_marginTop="42dp"
-                    android:overScrollMode="never"
                     android:layout_height="wrap_content"
-                    android:visibility="@{vm.dDayList.size() > 0 ? View.VISIBLE : View.GONE}"
                     android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    android:visibility="@{vm.dDayList.size() > 0 ? View.VISIBLE : View.GONE}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dDayTitle"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_d_day"
                     tools:orientation="horizontal" />
@@ -163,8 +164,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="16dp"
+                    android:includeFontPadding="false"
                     android:text="@string/family_photo_title"
+                    app:layout_goneMarginTop="16dp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -218,13 +221,12 @@
                     android:id="@+id/familyPhotoRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:overScrollMode="never"
                     android:orientation="horizontal"
-                    android:layout_marginTop="42dp"
+                    android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/familyPhotoTitle"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_family_photo"
                     tools:orientation="horizontal" />
@@ -243,7 +245,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="48dp"
+                    android:includeFontPadding="false"
                     android:text="@string/word_to_each_other_title"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -254,24 +257,28 @@
                     android:id="@+id/myWordLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
                     app:layout_constraintTop_toBottomOf="@id/wordEachOtherTitle">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/messageBubbleLayout"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="66dp"
                         app:layout_constraintEnd_toStartOf="@+id/profileLayout"
                         app:layout_constraintStart_toStartOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/messageBubbleContentLayout"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="24dp"
+                            android:layout_height="0dp"
                             android:background="@drawable/shp_grey_r12"
                             android:paddingHorizontal="12dp"
-                            app:layout_constraintEnd_toStartOf="@id/messageBubbleTail"
-                            app:layout_constraintStart_toStartOf="parent">
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginEnd="14dp"
+                            android:layout_marginStart="20dp"
+                            app:layout_constraintEnd_toEndOf="@+id/messageBubbleTail"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <TextView
                                 android:id="@+id/myWordEachOther"
@@ -299,8 +306,8 @@
 
                         <ImageView
                             android:id="@+id/messageBubbleTail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="16dp"
+                            android:layout_height="18dp"
                             android:layout_marginTop="16dp"
                             android:layout_marginEnd="4dp"
                             android:src="@drawable/message_bubble_tail_right"
@@ -331,6 +338,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
+                            android:includeFontPadding="false"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/myProfileImage"
