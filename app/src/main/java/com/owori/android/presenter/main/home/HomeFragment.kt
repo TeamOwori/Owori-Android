@@ -72,6 +72,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             familyMemberList.observe(viewLifecycleOwner) {
                 familyMemberWordAdapter.submitList(it)
             }
+            noticeButtonClicked.observe(viewLifecycleOwner) {
+                NoticeActivity.startActivity(requireContext())
+            }
+            emotionButtonClicked.observe(viewLifecycleOwner) {
+                EmotionActivity.startActivity(requireContext())
+            }
         }
     }
 

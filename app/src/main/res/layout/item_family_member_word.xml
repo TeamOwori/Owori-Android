@@ -35,7 +35,6 @@
                 android:layout_marginStart="14dp"
                 android:background="@drawable/shp_grey_r12"
                 android:padding="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">

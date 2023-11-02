@@ -78,12 +78,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/eventDate"
                     tools:text="고삼이 생일파티 아웃백에서" />
 
-                <Button
+                <ImageView
                     android:id="@+id/closeButton"
                     android:layout_marginTop="14dp"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
-                    android:background="@drawable/close_button"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/close_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

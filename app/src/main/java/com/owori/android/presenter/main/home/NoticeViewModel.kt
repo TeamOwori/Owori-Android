@@ -7,7 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class EmotionViewModel @Inject constructor() : BaseViewModel() {
+class NoticeViewModel @Inject constructor() : BaseViewModel() {
     private val _closeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val closeButtonClicked: LiveData<Unit> = _closeButtonClicked
 

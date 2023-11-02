@@ -34,4 +34,7 @@
     <string name="emotion_registration">감정뱃지 등록해봐요</string>
     <string name="check_button">확인</string>
 
+    <!-- 홈 : 알림 -->
+    <string name="notification_title">알림</string>
+
 </resources>

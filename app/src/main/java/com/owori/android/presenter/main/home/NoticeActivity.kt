@@ -6,13 +6,13 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
-import com.owori.android.databinding.ActivityEmotionBinding
+import com.owori.android.databinding.ActivityNoticeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class EmotionActivity : BaseActivity<ActivityEmotionBinding, EmotionViewModel>(R.layout.activity_emotion) {
-    override val viewModel : EmotionViewModel by viewModels()
-    override fun setBindingVariables(binding: ActivityEmotionBinding) {
+class NoticeActivity : BaseActivity<ActivityNoticeBinding, NoticeViewModel>(R.layout.activity_notice) {
+    override val viewModel : NoticeViewModel by viewModels()
+    override fun setBindingVariables(binding: ActivityNoticeBinding) {
         binding.vm = viewModel
     }
 
@@ -24,7 +24,7 @@ class EmotionActivity : BaseActivity<ActivityEmotionBinding, EmotionViewModel>(R
 
     override fun initObserver() {
         with(viewModel) {
-            closeButtonClicked.observe(this@EmotionActivity) {
+            closeButtonClicked.observe(this@NoticeActivity) {
                 finish()
             }
         }
@@ -32,7 +32,7 @@ class EmotionActivity : BaseActivity<ActivityEmotionBinding, EmotionViewModel>(R
 
     companion object {
         fun startActivity(context: Context) {
-            Intent(context, EmotionActivity::class.java).apply {
+            Intent(context, NoticeActivity::class.java).apply {
                 context.startActivity(this)
             }
         }

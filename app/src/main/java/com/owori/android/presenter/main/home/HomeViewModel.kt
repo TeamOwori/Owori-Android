@@ -9,6 +9,7 @@ import com.owori.android.presenter.model.FamilyInfo
 import com.owori.android.presenter.model.FamilyPhotoData
 import com.owori.android.presenter.model.ProfileItem
 import com.owori.android.presenter.model.FamilyMemberData
+import com.owori.android.presenter.util.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -24,6 +25,10 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     val familyInfo: LiveData<FamilyInfo> = _familyInfo
     private val _familyMemberList: MutableLiveData<List<FamilyMemberData>> = MutableLiveData()
     val familyMemberList: LiveData<List<FamilyMemberData>> = _familyMemberList
+    private val _noticeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val noticeButtonClicked: LiveData<Unit> = _noticeButtonClicked
+    private val _emotionButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val emotionButtonClicked: LiveData<Unit> = _emotionButtonClicked
 
     init {
         fetchFamilyEmotionList()
@@ -76,5 +81,13 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
             FamilyMemberData(1, "엄마", "https://ojsfile.ohmynews.com/STD_IMG_FILE/2022/1202/IE003085931_STD.jpg", "어머 얘 서준아~ 정말~"),
             FamilyMemberData(2, "형", "https://news.einfomax.co.kr/news/photo/202302/4253138_140028_92.jpg", "그 쪽도 홍박사님을 아세요~?"),
         )
+    }
+
+    fun onClickNoticeButton() {
+        _noticeButtonClicked.call()
+    }
+
+    fun onClickEmotionButton() {
+        _emotionButtonClicked.call()
     }
 }
