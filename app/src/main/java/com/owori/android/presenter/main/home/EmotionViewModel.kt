@@ -27,7 +27,7 @@ class EmotionViewModel @Inject constructor() : BaseViewModel() {
         _emotionList.value = _emotionList.value?.map { _emotionItem ->
             if (_emotionItem.id == selectedEmotionItem.id){
                 _currentEmotion.value = _emotionItem.copy(isChecked = !_emotionItem.isChecked)
-                _emotionItem.copy(isChecked = true)
+                _emotionItem.copy(isChecked = !_emotionItem.isChecked)
             }
             else _emotionItem.copy(isChecked = false)
         }
