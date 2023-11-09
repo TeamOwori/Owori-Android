@@ -12,6 +12,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emotionItemLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -19,8 +20,11 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@color/black"
+            app:cardElevation="3dp"
             app:cardCornerRadius="56dp"
-
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +35,32 @@
                 setImageView="@{data.emotionDrawableId}"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center"
+                tools:src="@drawable/emoji_cool" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardElevation="3dp"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp"
+            app:cardBackgroundColor="@color/grey_66000000"
+            app:cardCornerRadius="56dp"
+            android:visibility="@{data.isChecked == true ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/check"
+                tools:src="@drawable/emoji_check"
+                android:src="@drawable/emoji_check"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center" />
 
         </androidx.cardview.widget.CardView>
