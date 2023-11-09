@@ -7,13 +7,13 @@
 
         <variable
             name="vm"
-            type="com.owori.android.auth.ui.viewmodel.NickNameViewModel" />
+            type="com.owori.android.presenter.policy.NickNameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".auth.ui.view.NickNameFragment">
+        tools:context=".presenter.policy.NickNameFragment">
 
         <ImageButton
             android:id="@+id/back_button"

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/SplashFragment"
-        android:name="com.owori.android.auth.ui.view.SplashFragment">
+        android:name="com.owori.android.presenter.splash.SplashFragment">
 
         <action
             android:id="@+id/action_splashFragment_to_onboardingFragment"
@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/OnBoardingFragment"
-        android:name="com.owori.android.auth.ui.view.OnBoardingFragment">
+        android:name="com.owori.android.presenter.onboarding.OnBoardingFragment">
 
         <action
             android:id="@+id/action_onboardingFragment_to_loginFragment"
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.owori.android.auth.ui.view.LoginFragment">
+        android:name="com.owori.android.presenter.login.LoginFragment">
         <action
             android:id="@+id/action_LoginFragment_to_nickNameFragment"
             app:destination="@id/nickNameFragment" />
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/nickNameFragment"
-        android:name="com.owori.android.auth.ui.view.NickNameFragment"
+        android:name="com.owori.android.presenter.policy.NickNameFragment"
         android:label="NickNameFragment"
         tools:layout="@layout/fragment_nick_name">
         <action
@@ -42,9 +42,10 @@
     </fragment>
     <fragment
         android:id="@+id/birthDateFragment"
-        android:name="com.owori.android.auth.ui.view.BirthDateFragment"
+        android:name="com.owori.android.presenter.policy.BirthDateFragment"
         android:label="BirthDateFragment"
         tools:layout="@layout/fragment_birth_date">
+
 
         <action
             android:id="@+id/action_birthDateFragment_to_familyConnectFragment"
@@ -52,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/familyConnectFragment"
-        android:name="com.owori.android.auth.ui.view.FamilyConnectFragment"
+        android:name="com.owori.android.presenter.policy.FamilyConnectFragment"
         android:label="FamilyConnectFragment">
         <action
             android:id="@+id/action_familyConnectFragment_to_groupFragment"
@@ -63,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/groupFragment"
-        android:name="com.owori.android.auth.ui.view.GroupFragment"
+        android:name="com.owori.android.presenter.policy.GroupFragment"
         android:label="GroupFragment"
         tools:layout="@layout/fragment_group">
         <action
@@ -73,7 +74,7 @@
 
     <fragment
         android:id="@+id/shareCodeFragment"
-        android:name="com.owori.android.auth.ui.view.ShareCodeFragment"
+        android:name="com.owori.android.presenter.policy.ShareCodeFragment"
         android:label="ShareCodeFragment">
         <action
             android:id="@+id/action_shareCodeFragment_to_agreeServiceConditionFragment"
@@ -82,7 +83,7 @@
 
     <fragment
         android:id="@+id/inputFamilyCodeFragment"
-        android:name="com.owori.android.auth.ui.view.InputFamilyCodeFragment"
+        android:name="com.owori.android.presenter.policy.InputFamilyCodeFragment"
         android:label="InputFamilyCodeFragment">
         <action
             android:id="@+id/action_inputFamilyCodeFragment_to_agreeServiceConditionFragment"
@@ -90,7 +91,7 @@
     </fragment>
     <fragment
         android:id="@+id/agreeServiceConditionFragment"
-        android:name="com.owori.android.auth.ui.view.AgreeServiceConditionFragment"
+        android:name="com.owori.android.presenter.policy.AgreeServiceConditionFragment"
         android:label="AgreeServiceConditionFragment" />
 
 </navigation>

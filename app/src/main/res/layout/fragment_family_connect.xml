@@ -7,13 +7,13 @@
 
         <variable
             name="vm"
-            type="com.owori.android.auth.ui.viewmodel.FamilyConnectViewModel" />
+            type="com.owori.android.presenter.policy.FamilyConnectViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".auth.ui.view.FamilyConnectFragment">
+        tools:context=".presenter.policy.FamilyConnectFragment">
 
         <Button
             android:id="@+id/make_code_button"
