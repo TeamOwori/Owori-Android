@@ -7,13 +7,13 @@
 
         <variable
             name="vm"
-            type="com.owori.android.auth.ui.viewmodel.InputFamilyCodeViewModel" />
+            type="com.owori.android.presenter.policy.InputFamilyCodeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".auth.ui.view.InputFamilyCodeFragment">
+        tools:context=".presenter.policy.InputFamilyCodeFragment">
 
         <TextView
             android:layout_width="wrap_content"

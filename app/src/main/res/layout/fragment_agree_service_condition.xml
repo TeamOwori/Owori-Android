@@ -7,13 +7,13 @@
 
         <variable
             name="vm"
-            type="com.owori.android.auth.ui.viewmodel.AgreeServiceViewModel" />
+            type="com.owori.android.presenter.policy.AgreeServiceConditionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".auth.ui.view.AgreeServiceConditionFragment">
+        tools:context=".presenter.policy.AgreeServiceConditionFragment">
 
         <TextView
             android:layout_width="wrap_content"

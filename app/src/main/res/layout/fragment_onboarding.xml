@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.owori.android.auth.ui.viewmodel.OnBoardingViewModel" />
+            type="com.owori.android.presenter.onboarding.OnBoardingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
