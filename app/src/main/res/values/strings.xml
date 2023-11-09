@@ -36,5 +36,6 @@
 
     <!-- 홈 : 알림 -->
     <string name="notification_title">알림</string>
+    <string name="add_photo_title">사진 자유롭게 올리는 공간이에요!\n가족사진을 올려보는건 어떨까요?</string>
 
 </resources>

@@ -6,9 +6,12 @@ import com.owori.android.R
 import com.owori.android.core.BaseViewModel
 import com.owori.android.presenter.model.DdayData
 import com.owori.android.presenter.model.FamilyInfo
-import com.owori.android.presenter.model.FamilyPhotoData
+import com.owori.android.presenter.model.PhotoData
 import com.owori.android.presenter.model.ProfileItem
 import com.owori.android.presenter.model.FamilyMemberData
+import com.owori.android.presenter.model.FamilyPhotoItem
+import com.owori.android.presenter.model.FamilyPhotoItem.FamilyPhotoViewType.ADD_PHOTO
+import com.owori.android.presenter.model.FamilyPhotoItem.FamilyPhotoViewType.PHOTO
 import com.owori.android.presenter.util.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -19,8 +22,8 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     val familyEmotionList: LiveData<List<ProfileItem>> = _familyEmotionList
     private val _dDayList: MutableLiveData<List<DdayData>> = MutableLiveData()
     val dDayList: LiveData<List<DdayData>> = _dDayList
-    private val _familyPhotoList: MutableLiveData<List<FamilyPhotoData>> = MutableLiveData()
-    val familyPhotoList: LiveData<List<FamilyPhotoData>> = _familyPhotoList
+    private val _familyPhotoList: MutableLiveData<List<FamilyPhotoItem>> = MutableLiveData()
+    val familyPhotoList: LiveData<List<FamilyPhotoItem>> = _familyPhotoList
     private val _familyInfo: MutableLiveData<FamilyInfo> = MutableLiveData()
     val familyInfo: LiveData<FamilyInfo> = _familyInfo
     private val _familyMemberList: MutableLiveData<List<FamilyMemberData>> = MutableLiveData()
@@ -59,11 +62,11 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
 
     fun fetchFamilyPhotoList() {
         _familyPhotoList.value = listOf(
-            FamilyPhotoData(0, "https://cdn.nanamcom.co.kr/news/photo/202306/2292_7667_36.jpg"),
-            FamilyPhotoData(0, "https://www.sisajournal.com/news/photo/first/201706/img_169929_1.png"),
-            FamilyPhotoData(0, "https://img3.yna.co.kr/etc/inner/KR/2020/08/18/AKR20200818040200009_01_i_P2.jpg"),
-            FamilyPhotoData(0, "https://img2.sbs.co.kr/ops_clip_img/2020/05/14/32709ee9-0d73-4ac4-82ce-9266e6ff7700216w640.jpg"),
-            FamilyPhotoData(0, "https://i.ytimg.com/vi/ciWImATlh2Q/maxresdefault.jpg"),
+            FamilyPhotoItem(PHOTO, PhotoData(0, "https://cdn.nanamcom.co.kr/news/photo/202306/2292_7667_36.jpg")),
+            FamilyPhotoItem(PHOTO, PhotoData(0, "https://www.sisajournal.com/news/photo/first/201706/img_169929_1.png")),
+            FamilyPhotoItem(PHOTO, PhotoData(0, "https://img3.yna.co.kr/etc/inner/KR/2020/08/18/AKR20200818040200009_01_i_P2.jpg")),
+            FamilyPhotoItem(PHOTO, PhotoData(0, "https://img2.sbs.co.kr/ops_clip_img/2020/05/14/32709ee9-0d73-4ac4-82ce-9266e6ff7700216w640.jpg")),
+            FamilyPhotoItem(ADD_PHOTO),
         )
     }
 

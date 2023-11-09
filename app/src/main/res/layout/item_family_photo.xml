@@ -8,7 +8,7 @@
 
         <variable
             name="data"
-            type="com.owori.android.presenter.model.FamilyPhotoData" />
+            type="com.owori.android.presenter.model.PhotoData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
