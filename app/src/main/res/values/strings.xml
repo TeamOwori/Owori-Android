@@ -38,4 +38,10 @@
     <string name="notification_title">알림</string>
     <string name="add_photo_title">사진 자유롭게 올리는 공간이에요!\n가족사진을 올려보는건 어떨까요?</string>
 
+    <!-- 홈 : 서로에게 한마디 -->
+    <string name="wirte_my_word">작성하기</string>
+    <string name="edit_my_word">수정하기</string>
+    <string name="delete_my_word">삭제하기</string>
+    <string name="edit_cancel_my_word">수정취소</string>
+    <string name="edit_complete_my_word">수정완료</string>
 </resources>
