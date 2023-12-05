@@ -32,6 +32,8 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     val noticeButtonClicked: LiveData<Unit> = _noticeButtonClicked
     private val _emotionButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val emotionButtonClicked: LiveData<Unit> = _emotionButtonClicked
+    private val _isEditMode: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isEditMode: LiveData<Boolean> = _isEditMode
 
     init {
         fetchFamilyEmotionList()
@@ -92,5 +94,25 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
 
     fun onClickEmotionButton() {
         _emotionButtonClicked.call()
+    }
+
+    fun onClickWriteMyWordButton() {
+        _isEditMode.value = true
+    }
+
+    fun onClickDeleteMyWordButton() {
+        // TODO : 서로에게 한마디 삭제 로직 구현 필요
+    }
+
+    fun onClickEditMyWordButton() {
+        // TODO : 서로에게 한마디 수정 로직 구현 필요
+    }
+
+    fun onClickEditCancelMyWordButton() {
+        // TODO : 서로에게 한마디 수정 취소 로직 구현 필요
+    }
+
+    fun onClickEditCompleteMyWordButton() {
+        // TODO : 서로에게 한마디 수정 완료 로직 구현 필요
     }
 }

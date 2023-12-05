@@ -18,7 +18,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
     override val viewModel: HomeViewModel by viewModels()
-    private val emotionListAdapter: FamilyMemberAdapter by lazy { FamilyMemberAdapter() }
+    private val emotionListAdapter: FamilyMemberAdapter by lazy { FamilyMemberAdapter {
+        EmotionActivity.startActivity(
+            requireContext()
+        )
+    }
+    }
     private val dDayListAdapter: DdayAdapter by lazy {
         DdayAdapter { id ->
             viewModel.deleteDdayItem(
