@@ -36,6 +36,10 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     val isEditMode: LiveData<Boolean> = _isEditMode
     private val _editCompleted: SingleLiveEvent<Unit> = SingleLiveEvent()
     val editCompleted: LiveData<Unit> = _editCompleted
+    private val _showDeleteMyWordDialog: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val showDeleteMyWordDialog: LiveData<Unit> = _showDeleteMyWordDialog
+    private val _showEditCancelMyWordDialog: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val showEditCancelMyWordDialog: LiveData<Unit> = _showEditCancelMyWordDialog
 
     init {
         fetchFamilyEmotionList()
@@ -103,6 +107,10 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun onClickDeleteMyWordButton() {
+        _showDeleteMyWordDialog.call()
+    }
+
+    fun deleteMyWord() {
         _familyInfo.value?.let {
             _familyInfo.value = FamilyInfo(it.id, it.name, FamilyMemberData(it.me.id, it.me.name, it.me.profileImage, null))
         }
@@ -113,18 +121,22 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun onClickEditCancelMyWordButton() {
-        _isEditMode.value = false
+        _showEditCancelMyWordDialog.call()
     }
 
     fun onClickEditCompleteMyWordButton() {
-        _isEditMode.value = false
         _editCompleted.call()
     }
 
     fun editMyWord(myWord: String) {
         _familyInfo.value?.let {
             _familyInfo.value = FamilyInfo(it.id, it.name, FamilyMemberData(it.me.id, it.me.name, it.me.profileImage, myWord))
+            _isEditMode.value = false
         }
         // fetch logic 필요
+    }
+
+    fun setEditMode(editMode: Boolean) {
+        _isEditMode.value = editMode
     }
 }

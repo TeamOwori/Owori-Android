@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">오월이</string>
 
+    <!-- 공통 -->
+    <string name="reply_yes">예</string>
+    <string name="reply_no">아니오</string>
+
     <!-- 로그인 + 가입 -->
     <string name="owori_splash_subtitle">모여봐요 우리 가족</string>
     <string name="onboarding_first_title">우리 가족 소통해요</string>
@@ -44,4 +48,6 @@
     <string name="delete_my_word">삭제하기</string>
     <string name="edit_cancel_my_word">수정취소</string>
     <string name="edit_complete_my_word">수정완료</string>
+    <string name="write_cancel_my_word">작성취소</string>
+    <string name="write_complete_my_word">작성완료</string>
 </resources>
