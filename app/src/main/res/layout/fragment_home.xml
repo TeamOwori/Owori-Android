@@ -326,6 +326,7 @@
                                 android:id="@+id/myWordEditorView"
                                 android:visibility="@{vm.isEditMode == true ? View.VISIBLE : View.GONE}"
                                 android:layout_width="0dp"
+                                android:imeOptions="actionDone"
                                 style="@style/TextBodyRegular.02"
                                 android:includeFontPadding="false"
                                 android:background="@color/grey_f5f5f5"
