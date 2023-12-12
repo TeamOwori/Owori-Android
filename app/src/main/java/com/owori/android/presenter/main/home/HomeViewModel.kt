@@ -24,8 +24,8 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     val dDayList: LiveData<List<DdayData>> = _dDayList
     private val _familyPhotoList: MutableLiveData<List<FamilyPhotoItem>> = MutableLiveData()
     val familyPhotoList: LiveData<List<FamilyPhotoItem>> = _familyPhotoList
-    private val _familyInfo: MutableLiveData<FamilyInfo> = MutableLiveData()
-    val familyInfo: LiveData<FamilyInfo> = _familyInfo
+    private val _familyInfo: MutableLiveData<FamilyInfo?> = MutableLiveData()
+    val familyInfo: LiveData<FamilyInfo?> = _familyInfo
     private val _familyMemberList: MutableLiveData<List<FamilyMemberData>> = MutableLiveData()
     val familyMemberList: LiveData<List<FamilyMemberData>> = _familyMemberList
     private val _noticeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
@@ -34,6 +34,8 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     val emotionButtonClicked: LiveData<Unit> = _emotionButtonClicked
     private val _isEditMode: MutableLiveData<Boolean> = MutableLiveData(false)
     val isEditMode: LiveData<Boolean> = _isEditMode
+    private val _editCompleted: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val editCompleted: LiveData<Unit> = _editCompleted
 
     init {
         fetchFamilyEmotionList()
@@ -101,18 +103,28 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun onClickDeleteMyWordButton() {
-        // TODO : 서로에게 한마디 삭제 로직 구현 필요
+        _familyInfo.value?.let {
+            _familyInfo.value = FamilyInfo(it.id, it.name, FamilyMemberData(it.me.id, it.me.name, it.me.profileImage, null))
+        }
     }
 
     fun onClickEditMyWordButton() {
-        // TODO : 서로에게 한마디 수정 로직 구현 필요
+        _isEditMode.value = true
     }
 
     fun onClickEditCancelMyWordButton() {
-        // TODO : 서로에게 한마디 수정 취소 로직 구현 필요
+        _isEditMode.value = false
     }
 
     fun onClickEditCompleteMyWordButton() {
-        // TODO : 서로에게 한마디 수정 완료 로직 구현 필요
+        _isEditMode.value = false
+        _editCompleted.call()
+    }
+
+    fun editMyWord(myWord: String) {
+        _familyInfo.value?.let {
+            _familyInfo.value = FamilyInfo(it.id, it.name, FamilyMemberData(it.me.id, it.me.name, it.me.profileImage, myWord))
+        }
+        // fetch logic 필요
     }
 }

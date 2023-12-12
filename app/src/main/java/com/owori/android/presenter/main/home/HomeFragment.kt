@@ -1,5 +1,7 @@
 package com.owori.android.presenter.main.home
 
+import android.content.Context
+import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -24,6 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         )
     }
     }
+    private val inputMethodManager: InputMethodManager by lazy { requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager }
     private val dDayListAdapter: DdayAdapter by lazy {
         DdayAdapter { id ->
             viewModel.deleteDdayItem(
@@ -82,6 +85,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             }
             emotionButtonClicked.observe(viewLifecycleOwner) {
                 EmotionActivity.startActivity(requireContext())
+            }
+            isEditMode.observe(viewLifecycleOwner) { _isEditMode ->
+                if (_isEditMode) {
+                    with (binding.myWordEditorView) {
+                        isFocusableInTouchMode = true
+                        requestFocus()
+                    }
+                    inputMethodManager.showSoftInput(binding.myWordEditorView, 0)
+                }
+            }
+            editCompleted.observe(viewLifecycleOwner) {
+                editMyWord(binding.myWordEditorView.text.toString())
             }
         }
     }

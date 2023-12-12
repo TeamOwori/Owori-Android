@@ -316,19 +316,28 @@
                                 android:layout_height="0dp"
                                 android:text="@{vm.familyInfo.me.word == null ? @string/word_to_each_other_content : vm.familyInfo.me.word}"
                                 android:textColor="@color/black"
-                                android:visibility="visible"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <!--                            <EditText-->
-                            <!--                                android:layout_width="wrap_content"-->
-                            <!--                                android:layout_height="wrap_content"-->
-                            <!--                                app:layout_constraintBottom_toBottomOf="@+id/myWordEachOther"-->
-                            <!--                                app:layout_constraintEnd_toEndOf="parent"-->
-                            <!--                                app:layout_constraintStart_toStartOf="parent"-->
-                            <!--                                app:layout_constraintTop_toTopOf="@+id/myWordEachOther" />-->
+                            <EditText
+                                android:id="@+id/myWordEditorView"
+                                android:visibility="@{vm.isEditMode == true ? View.VISIBLE : View.GONE}"
+                                android:layout_width="0dp"
+                                style="@style/TextBodyRegular.02"
+                                android:includeFontPadding="false"
+                                android:background="@color/grey_f5f5f5"
+                                android:layout_height="0dp"
+                                android:lines="2"
+                                android:hint="@string/word_to_each_other_content"
+                                android:text="@{vm.familyInfo.me.word == null ? `` : vm.familyInfo.me.word}"
+                                android:maxLines="2"
+                                android:maxLength="50"
+                                app:layout_constraintBottom_toBottomOf="@+id/myWordEachOther"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/myWordEachOther" />
 
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -404,7 +413,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:visibility="@{vm.familyInfo.me.word != null &amp;&amp; vm.isEditMode == true ? View.VISIBLE : View.GONE}"
+                            android:visibility="@{vm.isEditMode == true ? View.VISIBLE : View.GONE}"
                             app:layout_constraintTop_toBottomOf="@id/messageBubbleContentLayout"
                             app:layout_constraintEnd_toEndOf="@+id/messageBubbleContentLayout">
 
@@ -433,7 +442,7 @@
                                 app:layout_constraintStart_toEndOf="@+id/editCancelMyWordTextView"
                                 android:layout_marginStart="20dp"
                                 app:layout_constraintTop_toTopOf="parent"
-                                android:onClick="@{() -> vm.onClickEditMyWordButton()}"
+                                android:onClick="@{() -> vm.onClickEditCompleteMyWordButton()}"
                                 android:text="@string/edit_complete_my_word"
                                 tools:text="수정완료" />
 
