@@ -322,6 +322,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <EditText
+                                android:gravity="top"
                                 android:id="@+id/myWordEditorView"
                                 android:visibility="@{vm.isEditMode == true ? View.VISIBLE : View.GONE}"
                                 android:layout_width="0dp"
