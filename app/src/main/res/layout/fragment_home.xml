@@ -35,10 +35,11 @@
                 android:layout_marginStart="16dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:maxLength="10"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="@{vm.familyInfo.name}"
-                tools:text="우당탕탕 우리 가족 ❤️" />
+                tools:text="우당탕탕 우리가족❤️" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/notice"

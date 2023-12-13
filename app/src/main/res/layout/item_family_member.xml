@@ -48,10 +48,11 @@
 
         <TextView
             android:id="@+id/username"
-            style="@style/TextBodyMedium.03"
+            style="@style/TextCaptionMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:maxLength="7"
             android:includeFontPadding="false"
             android:text="@{data.name}"
             android:textColor="@color/black"
@@ -60,7 +61,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/member_profile"
-            tools:text="고삼이" />
+            tools:text="고삼이안녕안녕" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
