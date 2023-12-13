@@ -41,6 +41,7 @@
     <!-- 홈 : 알림 -->
     <string name="notification_title">알림</string>
     <string name="add_photo_title">사진 자유롭게 올리는 공간이에요!\n가족사진을 올려보는건 어떨까요?</string>
+    <string name="no_alarm">아직 알림이 없어요</string>
 
     <!-- 홈 : 서로에게 한마디 -->
     <string name="wirte_my_word">작성하기</string>

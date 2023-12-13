@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.owori.android.presenter.model.NoticeData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="15dp"
+        android:layout_height="91dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon_message"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/grey_464646"
+            android:textStyle="bold"
+            style="@style/TextSubTitle.02"
+            android:text="@{data.title}"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="지렁이님이 메시지를 보냈습니다." />
+
+        <TextView
+            android:id="@+id/contents_text_view"
+            style="@style/TextBodyMedium.03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:includeFontPadding="false"
+            android:text="@{data.contents}"
+            android:textColor="@color/grey_464646"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
+            tools:text="지렁이님이 메시지를 보냈습니다." />
+
+        <TextView
+            android:id="@+id/time_text_view"
+            style="@style/TextCaptionMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:includeFontPadding="false"
+            android:layout_marginTop="8dp"
+            android:text="@{data.time}"
+            android:textColor="@color/grey_909090"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toBottomOf="@+id/contents_text_view"
+            tools:text="05/21 12:34" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
