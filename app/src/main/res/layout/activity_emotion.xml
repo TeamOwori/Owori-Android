@@ -7,7 +7,7 @@
     <data>
         <variable
             name="vm"
-            type="com.owori.android.presenter.main.home.EmotionViewModel" />
+            type="com.owori.android.presenter.emotion.EmotionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

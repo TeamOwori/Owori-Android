@@ -1,4 +1,4 @@
-package com.owori.android.presenter.main.home
+package com.owori.android.presenter.notice
 
 import android.content.Context
 import android.content.Intent

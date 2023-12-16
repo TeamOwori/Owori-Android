@@ -30,11 +30,15 @@
             android:exported="true"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".presenter.main.home.EmotionActivity"
+        <activity android:name=".presenter.emotion.EmotionActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".presenter.main.home.NoticeActivity"
+        <activity android:name=".presenter.notice.NoticeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".presenter.mypage.MyPageActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
     </application>

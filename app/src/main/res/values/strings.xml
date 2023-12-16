@@ -51,4 +51,10 @@
     <string name="edit_complete_my_word">수정완료</string>
     <string name="write_cancel_my_word">작성취소</string>
     <string name="write_complete_my_word">작성완료</string>
+
+    <!-- 홈 : 마이페이지 -->
+    <string name="label_nickname">닉네임</string>
+    <string name="label_birth">생년월일</string>
+    <string name="label_my_color">마이 컬러</string>
+
 </resources>

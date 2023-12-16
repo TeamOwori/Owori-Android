@@ -1,4 +1,4 @@
-package com.owori.android.presenter.main.home
+package com.owori.android.presenter.emotion
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

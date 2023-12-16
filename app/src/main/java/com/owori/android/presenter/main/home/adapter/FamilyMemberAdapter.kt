@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.owori.android.databinding.ItemFamilyMemberBinding
 import com.owori.android.presenter.model.ProfileItem
 
-class FamilyMemberAdapter(val onClickMemberItem: () -> Unit = {} ) : ListAdapter<ProfileItem, FamilyMemberAdapter.ViewHolder>(MemberDiffUtil()) {
+class FamilyMemberAdapter(val onClickMemberItem: (id: Int) -> Unit = {} ) : ListAdapter<ProfileItem, FamilyMemberAdapter.ViewHolder>(MemberDiffUtil()) {
 
     inner class ViewHolder(private val binding: ItemFamilyMemberBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(memberItem: ProfileItem) {
             with(binding) {
                 data = memberItem
-                memberProfileLayout.setOnClickListener { onClickMemberItem() }
+                memberProfileLayout.setOnClickListener { onClickMemberItem(memberItem.id) }
             }
         }
     }

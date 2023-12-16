@@ -7,7 +7,7 @@
     <data>
         <variable
             name="vm"
-            type="com.owori.android.presenter.main.home.NoticeViewModel" />
+            type="com.owori.android.presenter.notice.NoticeViewModel" />
 
         <import type="android.view.View" />
     </data>

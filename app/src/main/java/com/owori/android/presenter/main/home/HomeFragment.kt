@@ -10,10 +10,13 @@ import com.owori.android.R
 import com.owori.android.core.BaseDialogFragment
 import com.owori.android.core.BaseFragment
 import com.owori.android.databinding.FragmentHomeBinding
+import com.owori.android.presenter.emotion.EmotionActivity
 import com.owori.android.presenter.main.home.adapter.DdayAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyMemberAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyMemberWordAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyPhotoAdapter
+import com.owori.android.presenter.mypage.MyPageActivity
+import com.owori.android.presenter.notice.NoticeActivity
 import com.owori.android.presenter.util.SnapPagerScrollListener
 import com.owori.android.presenter.util.SnapPagerScrollListener.Companion.ON_SCROLL
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,10 +26,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
     override val viewModel: HomeViewModel by viewModels()
     private val emotionListAdapter: FamilyMemberAdapter by lazy {
-        FamilyMemberAdapter {
-            EmotionActivity.startActivity(
-                requireContext()
-            )
+        FamilyMemberAdapter {_id ->
+            if (_id == viewModel.familyInfo.value?.me?.id) {
+                EmotionActivity.startActivity(
+                    requireContext()
+                )
+            }
         }
     }
     private val inputMethodManager: InputMethodManager by lazy {
@@ -88,7 +93,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
                 NoticeActivity.startActivity(requireContext())
             }
             emotionButtonClicked.observe(viewLifecycleOwner) {
-                EmotionActivity.startActivity(requireContext())
+                MyPageActivity.startActivity(requireContext())
             }
             isEditMode.observe(viewLifecycleOwner) { _isEditMode ->
                 if (_isEditMode) {
