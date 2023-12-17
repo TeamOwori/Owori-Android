@@ -26,16 +26,72 @@
     <fragment
         android:id="@+id/LoginFragment"
         android:name="com.owori.android.presenter.login.LoginFragment">
-
         <action
-            android:id="@+id/action_loginFragment_to_PolicyFragment"
-            app:destination="@id/PolicyFragment" />
+            android:id="@+id/action_LoginFragment_to_nickNameFragment"
+            app:destination="@id/nickNameFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/PolicyFragment"
-        android:name="com.owori.android.presenter.policy.PolicyFragment">
-
+        android:id="@+id/nickNameFragment"
+        android:name="com.owori.android.presenter.policy.NickNameFragment"
+        android:label="NickNameFragment"
+        tools:layout="@layout/fragment_nick_name">
+        <action
+            android:id="@+id/action_nickNameFragment_to_birthDateFragment"
+            app:destination="@id/birthDateFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/birthDateFragment"
+        android:name="com.owori.android.presenter.policy.BirthDateFragment"
+        android:label="BirthDateFragment"
+        tools:layout="@layout/fragment_birth_date">
+
+
+        <action
+            android:id="@+id/action_birthDateFragment_to_familyConnectFragment"
+            app:destination="@id/familyConnectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/familyConnectFragment"
+        android:name="com.owori.android.presenter.policy.FamilyConnectFragment"
+        android:label="FamilyConnectFragment">
+        <action
+            android:id="@+id/action_familyConnectFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
+        <action
+            android:id="@+id/action_familyConnectFragment_to_inputFamilyCodeFragment"
+            app:destination="@id/inputFamilyCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="com.owori.android.presenter.policy.GroupFragment"
+        android:label="GroupFragment"
+        tools:layout="@layout/fragment_group">
+        <action
+            android:id="@+id/action_groupFragment_to_shareCodeFragment"
+            app:destination="@id/shareCodeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shareCodeFragment"
+        android:name="com.owori.android.presenter.policy.ShareCodeFragment"
+        android:label="ShareCodeFragment">
+        <action
+            android:id="@+id/action_shareCodeFragment_to_agreeServiceConditionFragment"
+            app:destination="@id/agreeServiceConditionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/inputFamilyCodeFragment"
+        android:name="com.owori.android.presenter.policy.InputFamilyCodeFragment"
+        android:label="InputFamilyCodeFragment">
+        <action
+            android:id="@+id/action_inputFamilyCodeFragment_to_agreeServiceConditionFragment"
+            app:destination="@id/agreeServiceConditionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agreeServiceConditionFragment"
+        android:name="com.owori.android.presenter.policy.AgreeServiceConditionFragment"
+        android:label="AgreeServiceConditionFragment" />
 
 </navigation>
