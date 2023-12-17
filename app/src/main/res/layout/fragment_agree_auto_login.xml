@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/notosanskr_bold"
+        android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false"
         android:text="@string/auto_login_title"
         android:textColor="@color/black"

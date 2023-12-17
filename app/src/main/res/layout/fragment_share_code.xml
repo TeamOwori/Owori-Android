@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="vm"
             type="com.owori.android.presenter.policy.ShareCodeViewModel" />
@@ -14,13 +13,91 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presenter.policy.ShareCodeFragment">
-        <TextView
+
+        <ImageButton
+            android:id="@+id/img_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="그룹 코드 공유 화면"/>
+            android:src="@drawable/cancel_img"
+            android:onClick="@{()->vm.onClickBackButton()}"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/share_code_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:textAppearance="@style/TextTitle.00"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/share_code_title"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_cancel" />
+
+        <ImageView
+            android:id="@+id/share_code_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:src="@drawable/ticket"
+            app:layout_constraintTop_toBottomOf="@id/share_code_title" />
+
+        <TextView
+            android:id="@+id/share_code_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="65dp"
+            android:text="50"
+            android:textAppearance="@style/TextBodyMedium.04"
+            android:textColor="@color/blue_1C86FF"
+            app:layout_constraintBottom_toBottomOf="@id/share_code_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/share_code_img" />
+
+        <TextView
+            android:id="@+id/share_code_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{vm.timer}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/share_code_img" />
+
+        <Button
+            android:id="@+id/share_code_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="15dp"
+            android:text="@string/share_code_button"
+            android:textColor="@color/white"
+            android:onClick="@{()-> vm.onClickShareButton()}"
+            android:background="@drawable/share_code_background"
+            android:textAppearance="@style/TextBodyMedium.01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/share_code_time" />
+
+        <TextView
+            android:id="@+id/share_code_explain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:bufferType="spannable"
+            android:textColor="@color/grey_c6c6c6"
+            android:textAppearance="@style/TextCaptionRegular"
+            android:text="@string/share_code_explain"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/share_code_button" />
 
         <Button
             android:id="@+id/viewpager_button"
@@ -28,13 +105,10 @@
             android:layout_height="64dp"
             android:background="@drawable/check_btn_ripple"
             android:onClick="@{()-> vm.onClickCheckButton()}"
-            android:paddingVertical="3dp"
             android:text="@string/onboarding_next"
             android:textAppearance="@style/TextSubTitle.01"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
