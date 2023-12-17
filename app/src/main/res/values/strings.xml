@@ -19,7 +19,7 @@
     <string name="nickname_edittext_title">닉네임</string>
     <string name="nickname_edittext_hint"><font size="16">숫자, 특수문자, 이모티콘 모두 사용 가능</font></string>
     <string name="nickname_length_limit">/7</string>
-    <string name="birthdate_title">생년월일 8자리를 입력해주세요</string>
+    <string name="birthdate_title">생년월일 8자리를\n입력해주세요</string>
     <string name="birthdate_subtitle">원활한 서비스를 위해 생년월일이 필요해요\n매년 오월이가 생일을 챙겨줄게요!</string>
     <string name="birthdate_edittext_title">생년월일</string>
     <string name="family_group_title">우리 가족\n그룹명을 정해주세요</string>
