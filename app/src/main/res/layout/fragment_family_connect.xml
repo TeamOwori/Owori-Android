@@ -15,6 +15,187 @@
         android:layout_height="match_parent"
         tools:context=".presenter.policy.FamilyConnectFragment">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/indicator_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/first_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/unfocused_nickname"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/first_nav_line"
+                android:layout_width="6dp"
+                android:layout_height="5dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/first_indicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/second_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/first_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/second_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="1.5dp"
+                android:src="@drawable/unfocused_birthdate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/second_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/third_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/second_indicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/fourth_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/third_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/third_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="1.5dp"
+                android:src="@drawable/focused_connect"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fourth_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/fifth_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/third_indicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/sixth_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fifth_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/fourth_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="1.5dp"
+                android:src="@drawable/unfocused_group"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fifth_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/seventh_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fourth_indicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/eighth_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/seventh_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/fifth_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="1.5dp"
+                android:src="@drawable/unfocused_agree"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/eighth_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/family_connect_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:includeFontPadding="false"
+            android:text="@string/family_connect_title"
+            android:textColor="@color/black"
+            android:textAppearance="@style/TextTitle.00"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/indicator_layout" />
+
+        <TextView
+            android:id="@+id/family_connect_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/TextBodyMedium.01"
+            android:includeFontPadding="false"
+            android:text="@string/family_connect_subtitle"
+            android:textColor="@color/grey_909090"
+            app:layout_constraintStart_toStartOf="@id/family_connect_title"
+            app:layout_constraintTop_toBottomOf="@id/family_connect_title" />
+
+        <ImageView
+            android:id="@+id/share_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/family_connect_img"
+            app:layout_constraintTop_toBottomOf="@id/family_connect_subtitle" />
+
+
+
+
         <Button
             android:id="@+id/make_code_button"
             android:layout_width="match_parent"
