@@ -16,6 +16,20 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ShareCodeViewModel @Inject constructor() : BaseViewModel() {
+    init {
+        val timer: CountDownTimer = object : CountDownTimer(MIllIS_IN_FUTURE, TICK_INTERVAL) {
+            override fun onTick(millisUntilFinished: Long) {
+                val minute = millisUntilFinished / 60000L
+                val second = millisUntilFinished % 60000L / 1000L
+                _time.value = "${minute}:${second}"
+                timerJob.start()
+            }
+
+            override fun onFinish() {
+
+            }
+        }.start()
+    }
     private val _btnNext: SingleLiveEvent<Unit> = SingleLiveEvent()
     val btnNext: LiveData<Unit> = _btnNext
 
@@ -39,19 +53,7 @@ class ShareCodeViewModel @Inject constructor() : BaseViewModel() {
             }
         }
     }
-    private val _timer: CountDownTimer = object : CountDownTimer(MIllIS_IN_FUTURE, TICK_INTERVAL) {
-        override fun onTick(millisUntilFinished: Long) {
-            val minute = millisUntilFinished / 60000L
-            val second = millisUntilFinished % 60000L / 1000L
-            _time.value = "${minute}:${second}"
-            timerJob.start()
-        }
-
-        override fun onFinish() {
-
-        }
-    }.start()
-    val timer: LiveData<String> = _time
+    val time: LiveData<String> = _time
 
 
 
