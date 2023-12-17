@@ -47,7 +47,7 @@
 
             <View
                 android:id="@+id/first_nav_line"
-                android:layout_width="6dp"
+                android:layout_width="10dp"
                 android:layout_height="5dp"
                 android:layout_marginHorizontal="1.5dp"
                 android:background="@drawable/navigation_line"
@@ -133,7 +133,7 @@
                 android:layout_marginHorizontal="1.5dp"
                 android:src="@drawable/unfocused_group"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fifth_nav_line"
+                app:layout_constraintStart_toEndOf="@+id/sixth_nav_line"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
@@ -176,6 +176,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
+            android:lineSpacingExtra="5dp"
             android:includeFontPadding="false"
             android:text="@string/nickname_title"
             android:textAppearance="@style/TextTitle.00"

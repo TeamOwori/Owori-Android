@@ -14,24 +14,239 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presenter.policy.GroupFragment">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginStart="5dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:onClick="@{()->vm.onClickBackButton()}"
+            android:src="@drawable/arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/indicator_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/first_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/unfocused_nickname"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/first_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="5dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/first_indicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/second_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/first_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/second_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="1.5dp"
+                android:src="@drawable/unfocused_birthdate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/second_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/third_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/second_indicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/fourth_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/third_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/third_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="1.5dp"
+                android:src="@drawable/focused_connect"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fourth_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/fifth_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/third_indicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/sixth_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fifth_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/fourth_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="1.5dp"
+                android:src="@drawable/unfocused_group"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/sixth_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/seventh_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fourth_indicator"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/eighth_nav_line"
+                android:layout_width="10dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="1.5dp"
+                android:background="@drawable/navigation_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/seventh_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/fifth_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="1.5dp"
+                android:src="@drawable/unfocused_agree"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/eighth_nav_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/group_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:includeFontPadding="false"
+            android:text="@string/family_group_title"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/black"
+            android:textAppearance="@style/TextTitle.00"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/indicator_layout" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="그룹 이름 입력 화면"/>
+            android:layout_marginStart="5dp"
+            android:textAppearance="@style/TextBodyRegular.03"
+            android:includeFontPadding="false"
+            android:textColor="@color/grey_787878"
+            android:text="@string/family_group_edittext_title"
+            app:layout_constraintBottom_toTopOf="@id/group_et"
+            app:layout_constraintStart_toStartOf="@id/group_et" />
+
+        <EditText
+            android:id="@+id/group_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="48dp"
+            android:hint="@string/nickname_edittext_hint"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:text="@={vm._groupname}"
+            android:textColorHint="@color/grey_c6c6c6"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textAppearance="@style/TextBodyMedium.01"
+            app:layout_constraintTop_toBottomOf="@+id/group_title"
+            tools:layout_editor_absoluteX="20dp" />
+
+        <TextView
+            android:id="@+id/group_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            setTextLength="@{vm.groupname}"
+            android:textColor="@{vm.groupname.length() > 0 ? @color/owori_red : @color/grey_787878}"
+            android:textAppearance="@style/TextBodyRegular.03"
+            app:layout_constraintBottom_toBottomOf="@id/group_et"
+            app:layout_constraintEnd_toStartOf="@id/group_limit"
+            app:layout_constraintTop_toTopOf="@id/group_et" />
+
+        <TextView
+            android:id="@+id/group_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:includeFontPadding="false"
+            android:text="@string/family_group_length_limit"
+            android:textAppearance="@style/TextBodyRegular.03"
+            android:textColor="@color/grey_787878"
+            app:layout_constraintBottom_toBottomOf="@id/group_et"
+            app:layout_constraintEnd_toEndOf="@id/group_et"
+            app:layout_constraintTop_toTopOf="@id/group_et" />
 
         <Button
             android:id="@+id/viewpager_button"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@drawable/check_btn_ripple"
+            android:enabled="false"
             android:onClick="@{()-> vm.onClickCheckButton()}"
-            android:paddingVertical="3dp"
             android:text="@string/policy_check"
             android:textAppearance="@style/TextSubTitle.01"
-            android:textColor="@color/white"
+            android:textColor="@color/grey_909090"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
