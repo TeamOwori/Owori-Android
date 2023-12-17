@@ -26,11 +26,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
         with(viewModel) {
             // TODO : PolicyFragment를 위해 작성한 부분이라 수정 필요.
             callKakaoLogin.observe(viewLifecycleOwner) {
-                navigateTo(R.id.action_loginFragment_to_PolicyFragment)
+                navigateTo(R.id.action_LoginFragment_to_nickNameFragment)
             }
 
             callGoogleLogin.observe(viewLifecycleOwner) {
-                navigateTo(R.id.action_loginFragment_to_PolicyFragment)
+                navigateTo(R.id.action_LoginFragment_to_nickNameFragment)
             }
         }
     }

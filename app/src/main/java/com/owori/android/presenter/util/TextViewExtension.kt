@@ -26,16 +26,10 @@ fun TextView.setSubTitleText(currentItemIndex: Int) {
     )
 }
 
-@BindingAdapter("setNickNameLength")
-fun TextView.setNickNameLength(text: String?) {
-    text?.let {
-        setText(it.length.toString())
-        setTextColor(
-            when (it.length) {
-                0 -> context.getColor(R.color.black)
-                else -> context.getColor(R.color.owori_red)
-            }
-        )
-    }
+@BindingAdapter("setTextLength")
+fun TextView.setTextLength(text: String) {
+    setText(
+        text.length.toString()
+    )
 }
 
