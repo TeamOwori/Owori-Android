@@ -20,4 +20,6 @@ class LoginViewModel @Inject constructor() : BaseViewModel() {
     fun onClickGoogleLogin() {
         _callGoogleLogin.call()
     }
+
+
 }

@@ -35,6 +35,24 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
         }
     }
 
+    private fun startKakaoLogin() {
+        if (userApiClient.isKakaoTalkLoginAvailable(requireActivity().applicationContext)) {
+            userApiClient.loginWithKakaoTalk(requireActivity().applicationContext) { token, error ->
+                if (error != null) {
+                    Log.e(ContentValues.TAG, "Failed To Kakao Login", error)
+                    if (error is ClientError && error.reason == ClientErrorCause.Cancelled) {
+                        return@loginWithKakaoTalk
+                    }
+                    userApiClient.loginWithKakaoAccount(requireActivity().applicationContext, callback = callback)
+                } else if (token != null) {
+                    Log.i(ContentValues.TAG, "Success to Kakao Login ${token.accessToken}")
+                }
+            }
+        } else {
+            userApiClient.loginWithKakaoAccount(requireActivity().applicationContext, callback = callback)
+        }
+    }
+
     private fun initCustomOnBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             requireActivity().finish()
