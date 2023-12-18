@@ -1,4 +1,4 @@
-package com.owori.android.common
+package com.owori.android.presenter.util
 
 import android.util.Log
 import androidx.annotation.MainThread

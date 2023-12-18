@@ -1,4 +1,4 @@
-package com.owori.android.auth.ui.view
+package com.owori.android.presenter.onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater

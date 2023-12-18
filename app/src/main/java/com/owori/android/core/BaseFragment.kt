@@ -1,4 +1,4 @@
-package com.owori.android.common.ui.view
+package com.owori.android.core
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.owori.android.common.ui.viewmodel.BaseViewModel
 
 abstract class BaseFragment<B : ViewDataBinding, V : BaseViewModel>(@LayoutRes private val layoutId: Int) :
     Fragment() {

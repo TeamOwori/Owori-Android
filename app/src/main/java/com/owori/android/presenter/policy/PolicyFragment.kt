@@ -1,10 +1,9 @@
-package com.owori.android.auth.ui.view
+package com.owori.android.presenter.policy
 
 import androidx.fragment.app.viewModels
 import com.owori.android.R
 import com.owori.android.databinding.FragmentPolicyBinding
-import com.owori.android.auth.ui.viewmodel.PolicyViewModel
-import com.owori.android.common.ui.view.BaseFragment
+import com.owori.android.core.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

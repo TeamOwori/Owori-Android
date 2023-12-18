@@ -1,4 +1,4 @@
-package com.owori.android
+package com.owori.android.core
 
 import android.app.Application
 import com.kakao.sdk.common.KakaoSdk

@@ -1,4 +1,4 @@
-package com.owori.android.auth.ui
+package com.owori.android.presenter.util
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
