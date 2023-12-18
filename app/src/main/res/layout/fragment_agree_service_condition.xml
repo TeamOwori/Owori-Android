@@ -28,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@drawable/check_btn_ripple"
-            android:onClick="@{()-> vm.onClickCheckButton()}"
             android:paddingVertical="3dp"
             android:text="@string/agree_condition"
             android:textAppearance="@style/TextSubTitle.01"
