@@ -26,3 +26,10 @@ fun TextView.setSubTitleText(currentItemIndex: Int) {
     )
 }
 
+@BindingAdapter("setTextLength")
+fun TextView.setTextLength(text: String) {
+    setText(
+        text.length.toString()
+    )
+}
+
