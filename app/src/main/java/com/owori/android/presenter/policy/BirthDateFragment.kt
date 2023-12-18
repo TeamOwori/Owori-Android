@@ -21,79 +21,79 @@ class BirthDateFragment : BaseFragment<FragmentBirthDateBinding, BirthDateViewMo
 
     override fun initView() {
         initTextWatcher()
+        initClickListener()
     }
 
-    override fun initObserver() {
-        with(viewModel) {
-            btnNext.observe(viewLifecycleOwner) {
-                navigateTo(R.id.action_birthDateFragment_to_familyConnectFragment)
-            }
-
-            birthDate.observe(viewLifecycleOwner) {
-                val verify = it.split("-")
-                if(verify.size == 3) {
-                    if(verify[0].length == 4 && verify[1].length == 2 && verify[2].length == 2) {
-                        setButtonEnableTrue()
-                    } else {
-                        setButtonEnableFalse()
-                    }
-                }  else {
+    override fun initObserver() = with(viewModel) {
+        birthDate.observe(viewLifecycleOwner) {
+            val verify = it.split(HYPHEN)
+            if(verify.size == VERIFY_BIRTHDATE_PARTITION) {
+                if(verify[BIRTHDATE_YEAR_PART].length == YEAR_LENGTH && verify[BIRTHDATE_MONTH_PART].length == MONTH_LENGTH &&
+                    verify[BIRTHDATE_DAY_PART].length == DAY_LENGTH) {
+                    setButtonEnableTrue()
+                } else {
                     setButtonEnableFalse()
                 }
-            }
-
-            btnBack.observe(viewLifecycleOwner) {
-                requireActivity().onBackPressedDispatcher.onBackPressed()
+            }  else {
+                setButtonEnableFalse()
             }
         }
     }
-
     private fun initTextWatcher() {
         binding.birthdateEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 var textlength = 0
-                if(binding.birthdateEt.isFocusable && s.toString() != "") {
+                if(binding.birthdateEt.isFocusable && s.toString().isNotBlank()) {
                     try{
                         textlength = binding.birthdateEt.text.toString().length
                     }catch (e: NumberFormatException){
                         e.printStackTrace()
                         return
                     }
-                    if (textlength == 4 && before != 1) {
-                        val date = binding.birthdateEt.text.toString()+"-"
+                    if (textlength == YEAR_LENGTH && before != TEXT_BEFORE) {
+                        val date = binding.birthdateEt.text.toString()+HYPHEN
                         binding.birthdateEt.setText(date)
                         binding.birthdateEt.setSelection(binding.birthdateEt.text.length)
 
-                    }else if (textlength == 7&& before != 1){
-                        val date = binding.birthdateEt.text.toString()+"-"
+                    }else if (textlength == BIRTH_DATE_CONTAIN_MONTH_LENGTH && before != TEXT_BEFORE){
+                        val date = binding.birthdateEt.text.toString()+HYPHEN
                         binding.birthdateEt.setText(date)
                         binding.birthdateEt.setSelection(binding.birthdateEt.text.length)
 
-                    }else if(textlength == 5 && !binding.birthdateEt.text.toString().contains("-") &&
-                        !binding.birthdateEt.text.toString().substring(0,4).contains('-')){
-                        val date = binding.birthdateEt.text.toString().substring(0,4)+"-"+binding.birthdateEt.text.toString().substring(4)
+                    }else if(textlength == YEAR_CONTAIN_HYPHEN_LENGTH && !binding.birthdateEt.text.toString().contains(HYPHEN) &&
+                        binding.birthdateEt.text.toString().substring(BIRTHDATE_START, YEAR_LENGTH).contains(HYPHEN).not()){
+                        val date = binding.birthdateEt.text.toString().substring(BIRTHDATE_START, YEAR_LENGTH) +
+                                HYPHEN + binding.birthdateEt.text.toString().substring(YEAR_LENGTH)
                         binding.birthdateEt.setText(date)
                         binding.birthdateEt.setSelection(binding.birthdateEt.text.length)
 
-                    }else if(textlength == 8 && binding.birthdateEt.text.toString().substring(7,8) != "-" &&
-                        !binding.birthdateEt.text.toString().substring(0,4).contains('-') &&
-                        !binding.birthdateEt.text.toString().substring(5,8).contains('-') &&
-                        !binding.birthdateEt.text.toString().substring(5).contains('-')){
-                        val date = binding.birthdateEt.text.toString().substring(0,7)+"-"+binding.birthdateEt.text.toString().substring(7)
+                    }else if(textlength == MONTH_CONTAIN_HYPHEN_LENGTH &&
+                        binding.birthdateEt.text.toString().substring(BIRTH_DATE_CONTAIN_MONTH_LENGTH, MONTH_CONTAIN_HYPHEN_LENGTH) != HYPHEN &&
+                        binding.birthdateEt.text.toString().substring(BIRTHDATE_START,YEAR_LENGTH).contains(HYPHEN).not() &&
+                        binding.birthdateEt.text.toString().substring(YEAR_CONTAIN_HYPHEN_LENGTH,MONTH_CONTAIN_HYPHEN_LENGTH).contains(HYPHEN).not() &&
+                        binding.birthdateEt.text.toString().substring(YEAR_CONTAIN_HYPHEN_LENGTH).contains(HYPHEN).not()){
+                        val date = binding.birthdateEt.text.toString().substring(BIRTHDATE_START,BIRTH_DATE_CONTAIN_MONTH_LENGTH) +
+                                HYPHEN+binding.birthdateEt.text.toString().substring(BIRTH_DATE_CONTAIN_MONTH_LENGTH)
                         binding.birthdateEt.setText(date)
                         binding.birthdateEt.setSelection(binding.birthdateEt.text.length)
                     }
                 }
             }
 
-            override fun afterTextChanged(s: Editable?) {
-            }
-
+            override fun afterTextChanged(s: Editable?) = Unit
         })
     }
 
+    private fun initClickListener() {
+        binding.viewpagerButton.setOnClickListener {
+            navigateTo(R.id.action_birthDateFragment_to_familyConnectFragment)
+        }
+        binding.backButton.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
     private fun setButtonEnableTrue() {
         with(binding.viewpagerButton) {
             isEnabled = true
@@ -106,5 +106,21 @@ class BirthDateFragment : BaseFragment<FragmentBirthDateBinding, BirthDateViewMo
             isEnabled = false
             setTextColor(ContextCompat.getColor(requireContext(), R.color.grey_909090))
         }
+    }
+
+    companion object {
+        private const val TEXT_BEFORE = 1
+        private const val BIRTHDATE_START = 0
+        private const val YEAR_LENGTH = 4
+        private const val BIRTH_DATE_CONTAIN_MONTH_LENGTH = 7
+        private const val MONTH_CONTAIN_HYPHEN_LENGTH = 8
+        private const val YEAR_CONTAIN_HYPHEN_LENGTH = 5
+        private const val VERIFY_BIRTHDATE_PARTITION = 3
+        private const val BIRTHDATE_YEAR_PART = 0
+        private const val BIRTHDATE_MONTH_PART = 1
+        private const val BIRTHDATE_DAY_PART = 2
+        private const val MONTH_LENGTH = 2
+        private const val DAY_LENGTH = 2
+        private const val HYPHEN = "-"
     }
 }

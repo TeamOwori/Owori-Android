@@ -8,10 +8,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AgreeServiceConditionViewModel @Inject constructor(): BaseViewModel() {
-    private val _btnNext: SingleLiveEvent<Unit> = SingleLiveEvent()
-    val btnNext: LiveData<Unit> = _btnNext
 
-    fun onClickCheckButton() {
-        _btnNext.call()
-    }
 }

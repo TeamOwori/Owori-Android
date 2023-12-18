@@ -22,7 +22,6 @@
             android:layout_marginStart="5dp"
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
-            android:onClick="@{()->vm.onClickBackButton()}"
             android:src="@drawable/arrow_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -230,7 +229,6 @@
             android:layout_height="64dp"
             android:background="@drawable/check_btn_ripple"
             android:enabled="false"
-            android:onClick="@{()-> vm.onClickCheckButton()}"
             android:text="@string/policy_check"
             android:textAppearance="@style/TextSubTitle.01"
             android:textColor="@color/grey_909090"
