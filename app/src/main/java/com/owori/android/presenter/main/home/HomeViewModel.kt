@@ -50,6 +50,7 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun fetchFamilyEmotionList() {
+        // TODO : API 연동 후, 데이터 fetch 로직 추가
         _familyEmotionList.value = listOf(
             ProfileItem(0, "나", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/225px-Elon_Musk_Royal_Society_%28crop2%29.jpg", R.drawable.emoji_excited),
             ProfileItem(1, "아빠", "https://images.unsplash.com/photo-1609440082470-106df86c0f6c?auto=format&fit=crop&q=80&w=3377&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", R.drawable.emoji_cool),
@@ -59,6 +60,7 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun fetchDdayList() {
+        // TODO : API 연동 후, 데이터 fetch 로직 추가
         _dDayList.value = listOf(
             DdayData(0, "오워리 오프라인 모임", "D-day", "10월 25일 (수)"),
             DdayData(1, "가족 저녁식사", "D-1", "10월 26일 (목)"),
@@ -69,6 +71,7 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun fetchFamilyPhotoList() {
+        // TODO : API 연동 후, 데이터 fetch 로직 추가
         _familyPhotoList.value = listOf(
             FamilyPhotoItem(PHOTO, PhotoData(0, "https://cdn.nanamcom.co.kr/news/photo/202306/2292_7667_36.jpg")),
             FamilyPhotoItem(PHOTO, PhotoData(0, "https://www.sisajournal.com/news/photo/first/201706/img_169929_1.png")),
@@ -83,10 +86,12 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun fetchFamilyInfo() {
+        // TODO : API 연동 후, 데이터 fetch 로직 추가
         _familyInfo.value = FamilyInfo(0, "우당탕탕 우리 가족 ❤️", FamilyMemberData(0, "나", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/225px-Elon_Musk_Royal_Society_%28crop2%29.jpg", "화성 갈끄니까아악~ 🚀"))
     }
 
     fun fetchFamilyMemberData() {
+        // TODO : API 연동 후, 데이터 fetch 로직 추가
         _familyMemberList.value = listOf(
             FamilyMemberData(0, "아빠", "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2023/09/16/1ba2d3b6-770b-4370-af87-57d08ed46f63.jpg", "아빠 안 잔다...."),
             FamilyMemberData(1, "엄마", "https://ojsfile.ohmynews.com/STD_IMG_FILE/2022/1202/IE003085931_STD.jpg", "어머 얘 서준아~ 정말~"),

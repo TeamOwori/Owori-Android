@@ -20,6 +20,7 @@ class NoticeViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun fetchNoticeList() {
+        // TODO : API 연동 후, 데이터 fetch 로직 추가
         _noticeList.value = listOf(
             NoticeData(0, null, "지렁이님이 메시지를 보냈습니다.", "나 대신 택배 받아줘", "05/21 12:34"),
                     NoticeData(0, null, "슾툰훈님이 메시지를 보냈습니다.", "Honey~ oh Honey~", "05/21 12:34"),
