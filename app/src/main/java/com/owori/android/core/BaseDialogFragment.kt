@@ -49,7 +49,7 @@ class BaseDialogFragment(
 
     override fun onResume() {
         super.onResume()
-        requireContext().dialogFragmentResize(this@BaseDialogFragment, 0.9f, 0.3f)
+        requireContext().dialogFragmentResize(this@BaseDialogFragment, dialogX, dialogY)
     }
 
     override fun onDestroyView() {
@@ -74,5 +74,10 @@ class BaseDialogFragment(
             val y = (rect.height() * height).toInt()
             window?.setLayout(x, y)
         }
+    }
+
+    companion object {
+        private const val dialogX = 0.9f
+        private const val dialogY = 0.3f
     }
 }
