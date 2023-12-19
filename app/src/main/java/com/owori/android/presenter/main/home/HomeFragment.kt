@@ -26,8 +26,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
     override val viewModel: HomeViewModel by viewModels()
     private val emotionListAdapter: FamilyMemberAdapter by lazy {
-        FamilyMemberAdapter {_id ->
-            if (_id == viewModel.familyInfo.value?.me?.id) {
+        FamilyMemberAdapter { clickedFamilyMemberId ->
+            if (clickedFamilyMemberId == viewModel.familyInfo.value?.me?.id) {
                 EmotionActivity.startActivity(
                     requireContext()
                 )
