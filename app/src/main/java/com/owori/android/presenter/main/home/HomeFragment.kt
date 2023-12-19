@@ -48,12 +48,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
     private val familyPhotoAdapter: FamilyPhotoAdapter by lazy { FamilyPhotoAdapter() }
     private val dDaySnapHelper = PagerSnapHelper()
-    private val dDayScrollListener = SnapPagerScrollListener(dDaySnapHelper,
-        ON_SCROLL,
-        true,
-        object : SnapPagerScrollListener.OnChangeListener {
-            override fun onSnapped(position: Int) {}
-        })
+    private val dDayScrollListener =
+        SnapPagerScrollListener(
+            dDaySnapHelper,
+            ON_SCROLL,
+            true,
+            object : SnapPagerScrollListener.OnChangeListener {
+                override fun onSnapped(position: Int) = Unit
+            })
     private val familyPhotoSnapHelper = PagerSnapHelper()
     override fun onResume() {
         super.onResume()
@@ -108,7 +110,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
                 val editedMyWord = binding.myWordEditorView.text.toString()
                 if (editedMyWord.isNotBlank()) {
                     editMyWord(binding.myWordEditorView.text.toString())
-                } else Toast.makeText(requireContext(), getString(R.string.message_write_right_word_in_range), Toast.LENGTH_SHORT)
+                } else Toast.makeText(
+                    requireContext(),
+                    getString(R.string.message_write_right_word_in_range),
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
             showDeleteMyWordDialog.observe(viewLifecycleOwner) {
@@ -122,9 +128,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             showEditCancelMyWordDialog.observe(viewLifecycleOwner) {
                 BaseDialogFragment(
                     title = if (familyInfo.value?.me?.word == null) getString(R.string.dialog_write_cancel_title)
-                            else getString(R.string.dialog_edit_cancel_title),
+                    else getString(R.string.dialog_edit_cancel_title),
                     contents = if (familyInfo.value?.me?.word == null) getString(R.string.dialog_write_cancel_contents)
-                               else getString(R.string.dialog_edit_cancel_contents),
+                    else getString(R.string.dialog_edit_cancel_contents),
                     onClickPositiveButton = { setEditMode(false) }).show(
                     requireActivity().supportFragmentManager,
                     getString(R.string.dialog_edit)
