@@ -44,7 +44,7 @@ class EmotionActivity :
                 emotionListAdapter.submitList(it)
             }
             callClickSubmitButton.observe(this@EmotionActivity) {
-                makeText(this@EmotionActivity, "감정이 등록되었어요! 🤓", LENGTH_SHORT).show()
+                makeText(this@EmotionActivity, getString(R.string.message_emotion_submit), LENGTH_SHORT).show()
                 finish()
             }
         }

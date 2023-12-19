@@ -37,6 +37,7 @@
     <string name="emotion_question">기분 어떤가요?</string>
     <string name="emotion_registration">감정뱃지 등록해봐요</string>
     <string name="check_button">확인</string>
+    <string name="message_emotion_submit">감정이 등록되었어요! 🤓</string>
 
     <!-- 홈 : 알림 -->
     <string name="notification_title">알림</string>
