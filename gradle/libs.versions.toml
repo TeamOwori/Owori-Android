@@ -33,6 +33,7 @@ play-service-auth = "20.7.0"
 dagger-hilt = "2.44"
 hilt-compiler = "2.44"
 coil = "2.4.0"
+kakao-login = "2.17.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -74,7 +75,7 @@ play-service-auth = { group = "com.google.android.gms", name = "play-services-au
 dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger-hilt" }
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt-compiler" }
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil"}
-
+kakao-login = { group = "com.kakao.sdk", name = "v2-user", version.ref = "kakao-login" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

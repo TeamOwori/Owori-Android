@@ -91,8 +91,8 @@ dependencies {
     implementation(libs.play.service.auth)
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
-
     implementation(libs.coil)
+    implementation(libs.kakao.login)
 }
 
 kapt {
