@@ -108,26 +108,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
                 val editedMyWord = binding.myWordEditorView.text.toString()
                 if (editedMyWord.isNotBlank()) {
                     editMyWord(binding.myWordEditorView.text.toString())
-                } else Toast.makeText(requireContext(), "1 ~ 50 글자를 입력해 주세요 🥲", Toast.LENGTH_SHORT)
+                } else Toast.makeText(requireContext(), getString(R.string.message_write_right_word_in_range), Toast.LENGTH_SHORT)
                     .show()
             }
             showDeleteMyWordDialog.observe(viewLifecycleOwner) {
-                BaseDialogFragment(title = "삭제하기",
-                    contents = "‘서로에게 한마디’를 삭제하시겠습니까?",
+                BaseDialogFragment(title = getString(R.string.dialog_delete_title),
+                    contents = getString(R.string.dialog_delete_contents),
                     onClickPositiveButton = { deleteMyWord() }).show(
                     requireActivity().supportFragmentManager,
-                    "DeleteMyWordDialog"
+                    getString(R.string.dialog_delete)
                 )
             }
             showEditCancelMyWordDialog.observe(viewLifecycleOwner) {
                 BaseDialogFragment(
-                    title = if (familyInfo.value?.me?.word == null) "작성 취소"
-                            else "수정 취소",
-                    contents = if (familyInfo.value?.me?.word == null) "작성한 내용 모두 사라집니다.\n작성을 취소하시겠습니까?"
-                               else "수정 이전 내용으로 되돌아갑니다.\n수정을 취소하시겠습니까?",
+                    title = if (familyInfo.value?.me?.word == null) getString(R.string.dialog_write_cancel_title)
+                            else getString(R.string.dialog_edit_cancel_title),
+                    contents = if (familyInfo.value?.me?.word == null) getString(R.string.dialog_write_cancel_contents)
+                               else getString(R.string.dialog_edit_cancel_contents),
                     onClickPositiveButton = { setEditMode(false) }).show(
                     requireActivity().supportFragmentManager,
-                    "DeleteMyWordDialog"
+                    getString(R.string.dialog_edit)
                 )
             }
         }

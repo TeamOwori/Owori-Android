@@ -5,6 +5,16 @@
     <string name="reply_yes">예</string>
     <string name="reply_no">아니오</string>
 
+    <!-- 다이얼로그 -->
+    <string name="dialog_delete">DeleteMyWordDialog</string>
+    <string name="dialog_delete_title">삭제하기</string>
+    <string name="dialog_delete_contents">’서로에게 한마디’를 삭제하시겠습니까?</string>
+    <string name="dialog_edit">EditMyWordDialog</string>
+    <string name="dialog_edit_cancel_title">수정 취소</string>
+    <string name="dialog_write_cancel_title">작성 취소</string>
+    <string name="dialog_write_cancel_contents">작성한 내용 모두 사라집니다.\n작성을 취소하시겠습니까?</string>
+    <string name="dialog_edit_cancel_contents">수정 이전 내용으로 되돌아갑니다.\n수정을 취소하시겠습니까?</string>
+
     <!-- 로그인 + 가입 -->
     <string name="owori_splash_subtitle">모여봐요 우리 가족</string>
     <string name="onboarding_first_title">우리 가족 소통해요</string>
@@ -52,6 +62,7 @@
     <string name="edit_complete_my_word">수정완료</string>
     <string name="write_cancel_my_word">작성취소</string>
     <string name="write_complete_my_word">작성완료</string>
+    <string name="message_write_right_word_in_range">1 ~ 50 글자를 입력해 주세요 🥲</string>
 
     <!-- 홈 : 마이페이지 -->
     <string name="label_nickname">닉네임</string>
