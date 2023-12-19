@@ -35,7 +35,7 @@ class EmotionActivity :
         window.statusBarColor = ContextCompat.getColor(this, R.color.yellow_ffeeb2)
     }
 
-    override fun initObserver() {
+    override fun initObserver() =
         with(viewModel) {
             closeButtonClicked.observe(this@EmotionActivity) {
                 finish()
@@ -44,11 +44,15 @@ class EmotionActivity :
                 emotionListAdapter.submitList(it)
             }
             callClickSubmitButton.observe(this@EmotionActivity) {
-                makeText(this@EmotionActivity, getString(R.string.message_emotion_submit), LENGTH_SHORT).show()
+                makeText(
+                    this@EmotionActivity,
+                    getString(R.string.message_emotion_submit),
+                    LENGTH_SHORT
+                ).show()
                 finish()
             }
         }
-    }
+
 
     private fun initEmotionRecyclerView() {
         with(binding) {
