@@ -47,7 +47,7 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
 
     fun fetchMyData() {
         // TODO : API 연동 후, 데이터 fetch 로직 추가
-        _myProfile.value = MyPageData("지렁이", "2020-11-30", PURPLE, "")
+        _myProfile.value = MyPageData("지렁이", "2020-11-30", PURPLE, null)
     }
 
     fun saveMyData() {

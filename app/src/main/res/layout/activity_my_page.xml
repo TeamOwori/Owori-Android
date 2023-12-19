@@ -29,7 +29,7 @@
 
         <ImageView
             android:id="@+id/profile_image"
-            setImageView="@{vm.myProfile.profileImage}"
+            setImageView="@{vm.myProfile.profileImage == null ? @drawable/member_profile : vm.myProfile.profileImage}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="186dp"
