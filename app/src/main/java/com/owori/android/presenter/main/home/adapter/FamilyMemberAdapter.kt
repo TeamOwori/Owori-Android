@@ -8,26 +8,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.owori.android.databinding.ItemFamilyMemberBinding
 import com.owori.android.presenter.model.ProfileItem
 
-class FamilyMemberAdapter(val onClickMemberItem: (id: Int) -> Unit = {} ) : ListAdapter<ProfileItem, FamilyMemberAdapter.ViewHolder>(MemberDiffUtil()) {
+class FamilyMemberAdapter(private val onClickMemberItem: (id: Int) -> Unit = {} ) : ListAdapter<ProfileItem, FamilyMemberAdapterViewHolder>(MemberDiffUtil()) {
 
-    inner class ViewHolder(private val binding: ItemFamilyMemberBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(memberItem: ProfileItem) {
-            with(binding) {
-                data = memberItem
-                memberProfileLayout.setOnClickListener { onClickMemberItem(memberItem.id) }
-            }
-        }
-    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder {
+    ): FamilyMemberAdapterViewHolder {
         val binding = ItemFamilyMemberBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(binding)
+        return FamilyMemberAdapterViewHolder(binding, onClickMemberItem)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FamilyMemberAdapterViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+}
+
+class FamilyMemberAdapterViewHolder(private val binding: ItemFamilyMemberBinding, private val onClickMemberItem: (id: Int) -> Unit = {}) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(memberItem: ProfileItem) {
+        with(binding) {
+            data = memberItem
+            memberProfileLayout.setOnClickListener { onClickMemberItem(memberItem.id) }
+        }
     }
 }
 

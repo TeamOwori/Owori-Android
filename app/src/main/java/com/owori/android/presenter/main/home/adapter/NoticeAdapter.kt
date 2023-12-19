@@ -8,25 +8,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.owori.android.databinding.ItemNoticeBinding
 import com.owori.android.presenter.model.NoticeData
 
-class NoticeAdapter(private val clickEvent: (id: Int) -> Unit = {}) : ListAdapter<NoticeData, NoticeAdapter.ViewHolder>(NoticeDiffUtil()) {
+class NoticeAdapter(private val clickEvent: (id: Int) -> Unit = {}) : ListAdapter<NoticeData, NoticeAdapterViewHolder>(NoticeDiffUtil()) {
 
-    inner class ViewHolder(private val binding: ItemNoticeBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(dDayData: NoticeData) {
-            with(binding) {
-                data = dDayData
-            }
-        }
-    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder {
+    ): NoticeAdapterViewHolder {
         val binding = ItemNoticeBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(binding)
+        return NoticeAdapterViewHolder(binding, clickEvent)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NoticeAdapterViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+}
+
+class NoticeAdapterViewHolder(private val binding: ItemNoticeBinding, private val clickEvent: (id: Int) -> Unit = {}) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(dDayData: NoticeData) {
+        with(binding) {
+            data = dDayData
+        }
     }
 }
 

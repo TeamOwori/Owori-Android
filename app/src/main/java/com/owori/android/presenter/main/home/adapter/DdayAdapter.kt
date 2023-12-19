@@ -8,26 +8,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.owori.android.databinding.ItemDDayBinding
 import com.owori.android.presenter.model.DdayData
 
-class DdayAdapter(private val clickEvent: (id: Int) -> Unit = {}) : ListAdapter<DdayData, DdayAdapter.ViewHolder>(DdayDiffUtil()) {
+class DdayAdapter(private val clickEvent: (id: Int) -> Unit = {}) : ListAdapter<DdayData, DdayAdapterViewHolder>(DdayDiffUtil()) {
 
-    inner class ViewHolder(private val binding: ItemDDayBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(dDayData: DdayData) {
-            with(binding) {
-                data = dDayData
-                closeButton.setOnClickListener { clickEvent(dDayData.id) }
-            }
-        }
-    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder {
+    ): DdayAdapterViewHolder {
         val binding = ItemDDayBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(binding)
+        return DdayAdapterViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DdayAdapterViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+}
+
+class DdayAdapterViewHolder(private val binding: ItemDDayBinding, private val clickEvent: (id: Int) -> Unit = {}) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(dDayData: DdayData) {
+        with(binding) {
+            data = dDayData
+            closeButton.setOnClickListener { clickEvent(dDayData.id) }
+        }
     }
 }
 

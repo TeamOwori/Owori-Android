@@ -8,26 +8,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.owori.android.databinding.ItemEmotionBinding
 import com.owori.android.presenter.model.EmotionItem
 
-class EmotionAdapter(private val clickEvent: (emotionItem: EmotionItem) -> Unit = {}) : ListAdapter<EmotionItem, EmotionAdapter.ViewHolder>(EmotionItemDiffUtil()) {
+class EmotionAdapter(private val clickEvent: (emotionItem: EmotionItem) -> Unit = {}) : ListAdapter<EmotionItem, EmotionAdapterViewHolder>(EmotionItemDiffUtil()) {
 
-    inner class ViewHolder(private val binding: ItemEmotionBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(emotionItem: EmotionItem) {
-            with(binding) {
-                data = emotionItem
-                emotionItemLayout.setOnClickListener { clickEvent(emotionItem) }
-            }
-        }
-    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder {
+    ): EmotionAdapterViewHolder {
         val binding = ItemEmotionBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(binding)
+        return EmotionAdapterViewHolder(binding, clickEvent)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: EmotionAdapterViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+}
+
+class EmotionAdapterViewHolder(private val binding: ItemEmotionBinding, private val clickEvent: (emotionItem: EmotionItem) -> Unit = {}) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(emotionItem: EmotionItem) {
+        with(binding) {
+            data = emotionItem
+            emotionItemLayout.setOnClickListener { clickEvent(emotionItem) }
+        }
     }
 }
 
@@ -40,3 +41,5 @@ class EmotionItemDiffUtil : DiffUtil.ItemCallback<EmotionItem>(){
         return oldItem.hashCode() == newItem.hashCode()
     }
 }
+
+
