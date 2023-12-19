@@ -18,7 +18,7 @@ class EmotionActivity :
     BaseActivity<ActivityEmotionBinding, EmotionViewModel>(R.layout.activity_emotion) {
     override val viewModel: EmotionViewModel by viewModels()
     private val emotionListAdapter: EmotionAdapter by lazy {
-        EmotionAdapter { _emotionItem -> viewModel.onClickEmotionItem(_emotionItem) }
+        EmotionAdapter { viewModel.onClickEmotionItem(it) }
     }
 
     override fun setBindingVariables(binding: ActivityEmotionBinding) {
