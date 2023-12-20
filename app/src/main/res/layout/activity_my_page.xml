@@ -153,6 +153,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <View
+                android:id="@+id/nickname_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="38dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/grey_e9e9e9"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_nickname_edit" />
+
             <TextView
                 android:id="@+id/label_birth_edit"
                 style="@style/TextBodyRegular.03"
@@ -165,6 +177,18 @@
                 android:textColor="@color/grey_787878"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/label_nickname_edit" />
+
+            <View
+                android:id="@+id/birth_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="38dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/grey_e9e9e9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/label_birth_edit" />
 
             <TextView
                 android:id="@+id/label_my_color_edit"
@@ -182,29 +206,54 @@
             <EditText
                 android:id="@+id/nickname_text_view_edit"
                 style="@style/TextBodyRegular.03"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_marginEnd="38dp"
+                android:maxLines="1"
+                android:textColorHint="@color/grey_e9e9e9"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
+                android:background="@color/white"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLength="7"
+                android:hint="@string/hint_nickname"
                 android:includeFontPadding="false"
-                android:text="@{vm.myProfile.name}"
                 android:textColor="@color/grey_464646"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/label_nickname_edit"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/label_my_color_edit"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="지렁이" />
 
+            <TextView
+                android:id="@+id/nickname_length_text_view"
+                android:layout_width="wrap_content"
+                android:textColor="@color/grey_787878"
+                style="@style/TextCaptionMedium"
+                android:includeFontPadding="false"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/nickname_text_view_edit"
+                app:layout_constraintTop_toTopOf="@id/label_nickname_edit"/>
+
             <EditText
                 android:id="@+id/birth_text_view_edit"
                 style="@style/TextBodyRegular.03"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:imeOptions="actionDone"
+                android:layout_marginEnd="38dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
+                android:inputType="date"
+                android:maxLength="10"
+                android:textColorHint="@color/grey_e9e9e9"
+                android:background="@color/white"
+                android:hint="@string/hint_birth"
                 android:includeFontPadding="false"
-                android:text="@{vm.myProfile.birth}"
                 android:textColor="@color/grey_464646"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/label_birth_edit"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/label_my_color_edit"
                 app:layout_constraintTop_toTopOf="@id/label_birth_edit"
                 tools:text="2020-11-30" />
@@ -215,6 +264,7 @@
                 setMyColor="@{vm.myProfile.myColor.colorName}"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:visibility="@{vm.isEditMode == true ? View.GONE : View.VISIBLE}"
                 android:layout_marginStart="18dp"
                 android:includeFontPadding="false"
                 android:textColor="@color/grey_464646"
@@ -223,6 +273,18 @@
                 app:layout_constraintStart_toEndOf="@+id/label_my_color_edit"
                 app:layout_constraintTop_toTopOf="@id/label_my_color_edit"
                 tools:background="@drawable/icon_my_color_azure" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/my_color_select_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="38dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_my_color_edit">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

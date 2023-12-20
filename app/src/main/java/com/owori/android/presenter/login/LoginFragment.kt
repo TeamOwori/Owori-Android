@@ -8,8 +8,8 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
-import com.owori.android.core.BaseFragment
 import com.owori.android.R
+import com.owori.android.core.BaseFragment
 import com.owori.android.databinding.FragmentLoginBinding
 import com.owori.android.presenter.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,8 +24,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
             Log.e(ContentValues.TAG, "Failed to Kakao Login", error)
         } else if (token != null) {
             Log.i(ContentValues.TAG, "Success Kakao Login token : ${token.accessToken}")
-            navigateTo(R.id.action_loginFragment_to_PolicyFragment)
-
+            MainActivity.startActivity(requireActivity())
         }
     }
 
@@ -44,7 +43,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
             // TODO : PolicyFragment를 위해 작성한 부분이라 수정 필요.
             callKakaoLogin.observe(viewLifecycleOwner) {
                 startKakaoLogin()
-                navigateTo(R.id.action_loginFragment_to_PolicyFragment)
+//                navigateTo(R.id.action_loginFragment_to_PolicyFragment)
             }
 
             callGoogleLogin.observe(viewLifecycleOwner) {

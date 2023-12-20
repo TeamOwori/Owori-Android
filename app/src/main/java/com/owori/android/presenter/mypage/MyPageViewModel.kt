@@ -50,7 +50,8 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
         _myProfile.value = MyPageData("지렁이", "2020-11-30", PURPLE, null)
     }
 
-    fun saveMyData() {
+    fun saveMyData(name: String, birth: String) {
         // TODO : 내 정보 저장 기능 구현
+        _myProfile.value = MyPageData(name, birth, PURPLE, null)
     }
 }
