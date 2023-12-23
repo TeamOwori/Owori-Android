@@ -21,11 +21,4 @@
         android:icon="@drawable/icon_story"
         app:showAsAction="ifRoom"
         android:title="@string/menu_story" />
-
-    <item
-        android:id="@+id/chat"
-        android:enabled="true"
-        android:icon="@drawable/icon_chat"
-        app:showAsAction="ifRoom"
-        android:title="@string/menu_chat" />
 </menu>

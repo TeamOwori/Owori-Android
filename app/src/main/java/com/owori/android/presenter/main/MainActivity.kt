@@ -8,7 +8,6 @@ import com.owori.android.R
 import com.owori.android.core.BaseActivity
 import com.owori.android.databinding.ActivityMainBinding
 import com.owori.android.presenter.main.calendar.CalendarFragment
-import com.owori.android.presenter.main.chat.ChatFragment
 import com.owori.android.presenter.main.home.HomeFragment
 import com.owori.android.presenter.main.story.StoryFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +18,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     private val homeFragment by lazy { HomeFragment() }
     private val calendarFragment by lazy { CalendarFragment() }
     private val storyFragment by lazy { StoryFragment() }
-    private val chatFragment by lazy { ChatFragment() }
 
     override fun initView() {
         initBottomNavigation()
@@ -48,12 +46,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
                             _menuItem.setIcon(R.drawable.icon_story_selected)
                             changeFragment(storyFragment)
                         }
-
-                        else -> {
-                            setNotSelectedIcon()
-                            _menuItem.setIcon(R.drawable.icon_chat_selected)
-                            changeFragment(chatFragment)
-                        }
                     }
                 }
                 true
@@ -64,7 +56,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
 
     private fun setNotSelectedIcon() {
         with (binding.bottomNavigation) {
-            menu.findItem(R.id.chat).setIcon(R.drawable.icon_chat)
             menu.findItem(R.id.story).setIcon(R.drawable.icon_story)
             menu.findItem(R.id.home).setIcon(R.drawable.icon_home)
             menu.findItem(R.id.calendar).setIcon(R.drawable.icon_calendar)
