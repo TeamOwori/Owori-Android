@@ -5,12 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View" />
+        <import type="java.util.HashMap" />
+        <import type="com.owori.android.presenter.model.MyColorType"/>
 
         <variable
             name="vm"
             type="com.owori.android.presenter.mypage.MyPageViewModel" />
-
-        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -117,7 +118,7 @@
             <ImageView
                 android:id="@+id/myColor_text_view"
                 style="@style/TextBodyRegular.03"
-                setMyColor="@{vm.myProfile.myColor.colorName}"
+                setMyColor="@{vm.myProfile.myColor}"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="18dp"
@@ -261,7 +262,7 @@
             <ImageView
                 android:id="@+id/myColor_text_view_edit"
                 style="@style/TextBodyRegular.03"
-                setMyColor="@{vm.myProfile.myColor.colorName}"
+                setMyColor="@{vm.myProfile.myColor}"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:visibility="@{vm.isEditMode == true ? View.GONE : View.VISIBLE}"
@@ -279,10 +280,123 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="38dp"
+                android:visibility="@{vm.isEditMode == true ? View.VISIBLE : View.GONE }"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/label_my_color_edit">
+
+                <ImageView
+                    android:id="@+id/my_color_red_image_view"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/grey_464646"
+                    android:textStyle="bold"
+                    android:onClick="@{() -> vm.onClickMyColor(MyColorType.RED)}"
+                    setRedColor="@{vm.myColorStatus[MyColorType.RED]}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/my_color_pink_image_view"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@drawable/icon_my_color_red" />
+
+                <ImageView
+                    android:id="@+id/my_color_pink_image_view"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/grey_464646"
+                    android:textStyle="bold"
+                    setPinkColor="@{vm.myColorStatus[MyColorType.PINK]}"
+                    android:onClick="@{() -> vm.onClickMyColor(MyColorType.PINK)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/my_color_yellow_image_view"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@+id/my_color_red_image_view"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@drawable/icon_my_color_pink" />
+
+                <ImageView
+                    android:id="@+id/my_color_yellow_image_view"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/grey_464646"
+                    android:textStyle="bold"
+                    android:onClick="@{() -> vm.onClickMyColor(MyColorType.YELLOW)}"
+                    setYellowColor="@{vm.myColorStatus[MyColorType.YELLOW]}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/my_color_green_image_view"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@+id/my_color_pink_image_view"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@drawable/icon_my_color_yellow" />
+
+                <ImageView
+                    android:id="@+id/my_color_green_image_view"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/grey_464646"
+                    android:textStyle="bold"
+                    setGreenColor="@{vm.myColorStatus[MyColorType.GREEN]}"
+                    app:layout_constraintEnd_toStartOf="@id/my_color_azure_image_view"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    android:onClick="@{() -> vm.onClickMyColor(MyColorType.GREEN)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/my_color_yellow_image_view"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@drawable/icon_my_color_green" />
+
+                <ImageView
+                    android:id="@+id/my_color_azure_image_view"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/grey_464646"
+                    android:textStyle="bold"
+                    setAzureColor="@{vm.myColorStatus[MyColorType.AZURE]}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/my_color_green_image_view"
+                    app:layout_constraintEnd_toStartOf="@id/my_color_navy_image_view"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    android:onClick="@{() -> vm.onClickMyColor(MyColorType.AZURE)}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@drawable/icon_my_color_azure" />
+
+                <ImageView
+                    android:id="@+id/my_color_navy_image_view"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/grey_464646"
+                    android:textStyle="bold"
+                    setNavyColor="@{vm.myColorStatus[MyColorType.NAVY]}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:onClick="@{() -> vm.onClickMyColor(MyColorType.NAVY)}"
+                    app:layout_constraintStart_toEndOf="@+id/my_color_azure_image_view"
+                    app:layout_constraintEnd_toStartOf="@id/my_color_purple_image_view"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@drawable/icon_my_color_navy" />
+
+                <ImageView
+                    android:id="@+id/my_color_purple_image_view"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/grey_464646"
+                    android:textStyle="bold"
+                    android:onClick="@{() -> vm.onClickMyColor(MyColorType.PURPLE)}"
+                    setPurpleColor="@{vm.myColorStatus[MyColorType.PURPLE]}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/my_color_navy_image_view"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@drawable/icon_my_color_purple" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -375,7 +489,6 @@
                 android:onClick="@{() -> vm.onClickEditButton()}"
                 android:padding="10dp"
                 android:visibility="@{vm.isEditMode == false ? View.VISIBLE : View.GONE}"
-
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/settings_button"
                 app:layout_constraintTop_toTopOf="parent">
