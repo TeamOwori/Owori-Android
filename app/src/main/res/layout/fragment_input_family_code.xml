@@ -15,24 +15,90 @@
         android:layout_height="match_parent"
         tools:context=".presenter.policy.InputFamilyCodeFragment">
 
+        <ImageButton
+            android:id="@+id/img_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/cancel_img"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/input_code_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="18dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:includeFontPadding="false"
+            android:text="@string/input_code_title"
+            android:textAppearance="@style/TextTitle.00"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_cancel" />
+
+        <TextView
+            android:id="@+id/input_code_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/TextSubTitle.02"
+            android:includeFontPadding="false"
+            android:text="@string/input_code_subtitle"
+            android:textColor="@color/grey_909090"
+            app:layout_constraintStart_toStartOf="@id/input_code_title"
+            app:layout_constraintTop_toBottomOf="@id/input_code_title" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="코드 입력화면"/>
+            android:layout_marginStart="5dp"
+            android:includeFontPadding="false"
+            android:textAppearance="@style/TextBodyMedium.03"
+            android:textColor="@color/grey_787878"
+            android:text="@string/input_code_edittext_title"
+            app:layout_constraintBottom_toBottomOf="@id/input_code_et"
+            app:layout_constraintStart_toStartOf="@id/input_code_et"
+            app:layout_constraintTop_toTopOf="@id/input_code_et" />
+
+        <EditText
+            android:id="@+id/input_code_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="48dp"
+            android:textColor="@color/grey_494949"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingHorizontal="70dp"
+            android:text="@={vm._inputCode}"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/input_code_subtitle"
+            tools:layout_editor_absoluteX="20dp" />
+
+        <TextView
+            android:id="@+id/input_code_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@id/input_code_et"
+            app:layout_constraintTop_toBottomOf="@id/input_code_et" />
 
         <Button
             android:id="@+id/viewpager_button"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@drawable/check_btn_ripple"
-            android:onClick="@{()-> vm.onClickCheckButton()}"
-            android:paddingVertical="3dp"
+            android:enabled="false"
             android:text="@string/policy_check"
             android:textAppearance="@style/TextSubTitle.01"
-            android:textColor="@color/white"
+            android:textColor="@color/grey_909090"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

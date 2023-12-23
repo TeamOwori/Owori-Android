@@ -1,6 +1,7 @@
 package com.owori.android.presenter.policy
 
 
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.owori.android.R
 import com.owori.android.core.BaseFragment
@@ -17,14 +18,34 @@ class InputFamilyCodeFragment : BaseFragment<FragmentInputFamilyCodeBinding, Inp
     }
 
     override fun initView() {
-
+        initClickListener()
     }
 
-    override fun initObserver() {
-        with(viewModel) {
-            btnNext.observe(viewLifecycleOwner) {
-                navigateTo(R.id.action_inputFamilyCodeFragment_to_agreeServiceConditionFragment)
+    private fun initClickListener() {
+        binding.viewpagerButton.setOnClickListener {
+            navigateTo(R.id.action_inputFamilyCodeFragment_to_agreeServiceConditionFragment)
+        }
+        binding.imgCancel.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
+
+    override fun initObserver() = with(viewModel) {
+        inputCode.observe(viewLifecycleOwner) {
+            setViewPagerButton(it)
+        }
+    }
+
+    private fun setViewPagerButton(code: String) {
+        val isInputted = code.isNotEmpty()
+        with(binding.viewpagerButton) {
+            isEnabled = isInputted
+            if(isInputted) {
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            } else {
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.grey_909090))
             }
         }
     }
+
 }
