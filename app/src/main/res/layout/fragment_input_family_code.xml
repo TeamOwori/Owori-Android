@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/input_code_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presenter.policy.InputFamilyCodeFragment">
@@ -19,12 +20,12 @@
             android:id="@+id/img_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/cancel_img"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/cancel_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/input_code_title"
@@ -45,9 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:textAppearance="@style/TextSubTitle.02"
             android:includeFontPadding="false"
             android:text="@string/input_code_subtitle"
+            android:textAppearance="@style/TextSubTitle.02"
             android:textColor="@color/grey_909090"
             app:layout_constraintStart_toStartOf="@id/input_code_title"
             app:layout_constraintTop_toBottomOf="@id/input_code_title" />
@@ -57,9 +58,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:includeFontPadding="false"
+            android:text="@string/input_code_edittext_title"
             android:textAppearance="@style/TextBodyMedium.03"
             android:textColor="@color/grey_787878"
-            android:text="@string/input_code_edittext_title"
             app:layout_constraintBottom_toBottomOf="@id/input_code_et"
             app:layout_constraintStart_toStartOf="@id/input_code_et"
             app:layout_constraintTop_toTopOf="@id/input_code_et" />
@@ -70,12 +71,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="48dp"
-            android:textColor="@color/grey_494949"
             android:includeFontPadding="false"
             android:lines="1"
             android:maxLines="1"
             android:paddingHorizontal="70dp"
-            android:text="@={vm._inputCode}"
+            android:textColor="@color/grey_494949"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@+id/input_code_subtitle"
             tools:layout_editor_absoluteX="20dp" />
@@ -88,6 +88,66 @@
             android:textAppearance="@style/TextCaptionMedium"
             app:layout_constraintStart_toStartOf="@id/input_code_et"
             app:layout_constraintTop_toBottomOf="@id/input_code_et" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/input_code_error_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="124dp"
+            android:background="@drawable/round_frame"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/input_code_error_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/input_code_explain_title"
+                android:textAppearance="@style/TextBodyMedium.03"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/input_code_error_first_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dot"
+                app:layout_constraintBottom_toBottomOf="@id/input_code_error_first_solution"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_code_error_first_solution" />
+
+            <TextView
+                android:id="@+id/input_code_error_first_solution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/input_code_explain_first"
+                android:textAppearance="@style/TextBodyRegular.03"
+                android:textColor="@color/grey_626262"
+                app:layout_constraintStart_toEndOf="@id/input_code_error_first_icon"
+                app:layout_constraintTop_toBottomOf="@id/input_code_error_title" />
+
+            <ImageView
+                android:id="@+id/input_code_error_second_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dot"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_code_error_second_solution" />
+
+            <TextView
+                android:id="@+id/input_code_error_second_solution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/input_code_explain_second"
+                android:textAppearance="@style/TextBodyRegular.03"
+                android:textColor="@color/grey_626262"
+                app:layout_constraintStart_toEndOf="@id/input_code_error_second_icon"
+                app:layout_constraintTop_toBottomOf="@id/input_code_error_first_solution" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/viewpager_button"
