@@ -48,4 +48,14 @@ class InputFamilyCodeFragment : BaseFragment<FragmentInputFamilyCodeBinding, Inp
         }
     }
 
+    private fun checkGroupExist(code: String) {
+//        if(code) {
+//            binding.inputCodeResult.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue_1C86FF))
+//            binding.inputCodeResult.setText(R.string.input_code_success)
+//            return
+//        }
+//        binding.inputCodeResult.setTextColor(ContextCompat.getColor(requireContext(), R.color.red_ff3f3f))
+//        binding.inputCodeResult.setText(R.string.input_code_wrong)
+    }
+
 }

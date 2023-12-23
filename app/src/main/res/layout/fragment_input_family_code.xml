@@ -84,9 +84,8 @@
             android:id="@+id/input_code_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanskr_regular"
             android:includeFontPadding="false"
-            android:textSize="17sp"
+            android:textAppearance="@style/TextCaptionMedium"
             app:layout_constraintStart_toStartOf="@id/input_code_et"
             app:layout_constraintTop_toBottomOf="@id/input_code_et" />
 
