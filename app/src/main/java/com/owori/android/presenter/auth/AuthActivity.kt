@@ -1,6 +1,7 @@
 package com.owori.android.presenter.auth
 
 import android.content.Context
+import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -30,15 +31,5 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.a
         navController.navInflater.inflate(R.navigation.auth_navigation).apply {
             setStartDestination(R.id.SplashFragment)
         }.run { navController.setGraph(this, null) }
-    }
-
-    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
-
-        if(currentFocus is EditText) {
-            currentFocus!!.clearFocus()
-        }
-        return super.dispatchTouchEvent(ev)
     }
 }

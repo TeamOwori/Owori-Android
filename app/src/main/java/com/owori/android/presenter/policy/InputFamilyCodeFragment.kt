@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
@@ -36,13 +37,20 @@ class InputFamilyCodeFragment : BaseFragment<FragmentInputFamilyCodeBinding, Inp
         binding.imgCancel.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+        binding.root.setOnClickListener {
+            val imm: InputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)
+            Handler(Looper.getMainLooper()).postDelayed({ binding.inputCodeErrorFrame.isGone = false }, 100)
+            Log.d("root", "눌림")
+        }
         binding.inputCodeEt.setOnFocusChangeListener { v, hasFocus ->
             if(hasFocus) {
                 binding.inputCodeErrorFrame.isGone = true
-            } else {
-                Handler(Looper.getMainLooper()).postDelayed({binding.inputCodeErrorFrame.isGone = false}, 100)
             }
-
+        }
+        binding.inputCodeEt.setOnClickListener {
+            Log.d("edittext", "눌림")
+            binding.inputCodeErrorFrame.isGone = true
         }
     }
 
