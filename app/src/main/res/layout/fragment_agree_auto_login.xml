@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".auth.ui.view.AgreeAutoLoginFragment">
+    tools:context=".presenter.policy.AgreeAutoLoginFragment">
 
     <TextView
         android:id="@+id/auto_login_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/notosanskr_medium"
+        android:layout_marginTop="40dp"
+        android:textAppearance="@style/TextTitle.02"
         android:includeFontPadding="false"
         android:text="@string/auto_login_title"
         android:textColor="@color/black"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,12 +23,11 @@
         android:id="@+id/auto_login_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/notosanskr_medium"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@style/TextBodyMedium.03"
         android:includeFontPadding="false"
         android:text="@string/auto_login_subtitle"
         android:textColor="@color/grey_909090"
-        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auto_login_title" />
@@ -41,12 +39,11 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/make_code_background"
-        android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false"
+        android:textAppearance="@style/TextBodyMedium.00"
         android:paddingVertical="12dp"
         android:text="@string/auto_login_ok"
         android:textColor="@color/white"
-        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/auto_login_subtitle" />
 
     <Button
@@ -56,16 +53,14 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/no_background"
-        android:fontFamily="@font/notosanskr_medium"
+        android:textAppearance="@style/TextBodyMedium.00"
         android:includeFontPadding="false"
         android:paddingVertical="12dp"
         android:text="@string/auto_login_no"
         android:textColor="@color/grey_909090"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auto_login_ok"
-        tools:layout_editor_absoluteX="20dp"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="70dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
