@@ -9,6 +9,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor() : BaseViewModel() {
+    private val _familyGroupName: MutableLiveData<String> = MutableLiveData()
+    val familyGroupName: LiveData<String> = _familyGroupName
     private val _isAutoLogin: MutableLiveData<Boolean> = MutableLiveData(true)
     val isAutoLogin: LiveData<Boolean> = _isAutoLogin
     private val _closeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
@@ -24,6 +26,9 @@ class SettingsViewModel @Inject constructor() : BaseViewModel() {
     private val _uriToMove: MutableLiveData<String> = MutableLiveData()
     val uriToMove: LiveData<String> = _uriToMove
 
+    init {
+        initFamilyGroupName()
+    }
 
     fun onClickCloseButton() {
         _closeButtonClicked.call()
@@ -60,6 +65,10 @@ class SettingsViewModel @Inject constructor() : BaseViewModel() {
 
     fun fetchWithdrawal() {
         // TODO 회원탈퇴 API 연동
+    }
+
+    private fun initFamilyGroupName() {
+        _familyGroupName.value = "우당탕탕 우리 가족 🥰"
     }
 
     companion object {
