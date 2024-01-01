@@ -1,4 +1,4 @@
-package com.owori.android.presenter.mypage
+package com.owori.android.presenter.main.home.mypage
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -61,7 +61,7 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
 
     fun fetchMyData() {
         // TODO : API 연동 후, 데이터 fetch 로직 추가
-        _myProfile.value = MyPageData("지렁이", "2020-11-30", PURPLE, null)
+        _myProfile.value = MyPageData("지렁이", "2020-11-30", PURPLE, null, 1, 3, 5)
     }
 
     fun fetchMyColor() {
@@ -84,7 +84,8 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
                 name,
                 birth,
                 myColor.filter { it.value == CHECKED }.keys.first(),
-                null
+                null,
+                1, 3, 5
             )
         }
         _isEditMode.value = false
@@ -93,7 +94,8 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
     fun onClickMyColor(myColorType: MyColorType) {
         _myColorStatus.value?.let { myColorStatusValue ->
             if (myColorStatusValue[myColorType] != DISABLED) {
-                myColorStatusValue[myColorStatusValue.filterValues { value -> value == CHECKED }.keys.first()] = ABLE
+                myColorStatusValue[myColorStatusValue.filterValues { value -> value == CHECKED }.keys.first()] =
+                    ABLE
                 myColorStatusValue[myColorType] = CHECKED
             }
         }

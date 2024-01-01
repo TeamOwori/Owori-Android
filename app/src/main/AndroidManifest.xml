@@ -35,13 +35,23 @@
             android:exported="true"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".presenter.notice.NoticeActivity"
+        <activity android:name=".presenter.main.home.notice.NoticeActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".presenter.mypage.MyPageActivity"
+        <activity android:name=".presenter.main.home.mypage.MyPageActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".presenter.main.home.settings.SettingsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".presenter.main.home.familyname.FamilyNameActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|adjustUnspecified"/>
+
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">

@@ -19,9 +19,12 @@
     <color name="grey_66000000">#66000000</color>
 
     <color name="yellow_fee500">#FEE500</color>
+    #
 
     <!-- home 화면 -->
     <color name="yellow_ffeeb2">#FFEEB2</color>
+    <color name="yellow_fefaea">#fefaea</color>
+
 
     <color name="red_ff3f3f">#FF3F3F</color>
 

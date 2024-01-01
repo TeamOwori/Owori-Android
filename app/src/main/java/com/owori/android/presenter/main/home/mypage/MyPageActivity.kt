@@ -1,4 +1,4 @@
-package com.owori.android.presenter.mypage
+package com.owori.android.presenter.main.home.mypage
 
 import android.content.Context
 import android.content.Intent
@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
 import com.owori.android.databinding.ActivityMyPageBinding
+import com.owori.android.presenter.main.home.settings.SettingsActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -49,7 +50,7 @@ class MyPageActivity :
 
             }
             settingsButtonClicked.observe(this@MyPageActivity) {
-
+                SettingsActivity.startActivity(this@MyPageActivity)
             }
             saveButtonClicked.observe(this@MyPageActivity) {
                 with (binding) {

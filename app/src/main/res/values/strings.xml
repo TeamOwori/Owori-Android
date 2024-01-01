@@ -7,6 +7,11 @@
 
     <!-- 다이얼로그 -->
     <string name="dialog_delete">DeleteMyWordDialog</string>
+    <string name="dialog_cancel">취소</string>
+    <string name="dialog_logout">LogoutDialog</string>
+    <string name="dialog_change_cancel">ChangeCancelDialog</string>
+    <string name="dialog_change_cancel_title">나가기</string>
+    <string name="dialog_withdrawal">WithdrawalDialog</string>
     <string name="dialog_delete_title">삭제하기</string>
     <string name="dialog_delete_contents">’서로에게 한마디’를 삭제하시겠습니까?</string>
     <string name="dialog_edit">EditMyWordDialog</string>
@@ -14,6 +19,7 @@
     <string name="dialog_write_cancel_title">작성 취소</string>
     <string name="dialog_write_cancel_contents">작성한 내용 모두 사라집니다.\n작성을 취소하시겠습니까?</string>
     <string name="dialog_edit_cancel_contents">수정 이전 내용으로 되돌아갑니다.\n수정을 취소하시겠습니까?</string>
+    <string name="dialog_change_cancel_contents">변경한 내용 모두 사라집니다.\n그래도 나가시겠습니까?</string>
 
     <!-- 로그인 + 가입 -->
     <string name="owori_splash_subtitle">모여봐요 우리 가족</string>
@@ -71,10 +77,37 @@
     <string name="label_birth">생년월일</string>
     <string name="label_incorrect_birth">숫자 8자리에 맞게 다시 입력해주세요.</string>
     <string name="label_correct_birth">올바르게 입력했어요.</string>
+    <string name="label_story">작성한 이야기</string>
+    <string name="label_liked_story">좋아하는 이야기</string>
+    <string name="label_mailbox">우편함</string>
     <string name="label_my_color">마이 컬러</string>
-    <string name="hint_nickname">닉네임을 입력해주세요.</string>
-    <string name="hint_birth">생년월일을 입력해주세요.</string>
+    <string name="hint_default">숫자, 특수문자, 이모티콘 모두 사용 가능</string>
+    <string name="hint_birth">8개의 숫자를 입력</string>
     <string name="message_wrong_input">입력값이 잘못되었어요 😢</string>
+
+    <!-- 홈 : 마이페이지 : 설정 -->
+    <string name="label_settings">설정</string>
+    <string name="label_custom_settings">맞춤설정</string>
+    <string name="label_auto_login">자동 로그인</string>
+    <string name="label_change_family_name">가족 그룹명 변경</string>
+    <string name="label_invitation">초대하기</string>
+    <string name="label_customer_center">고객센터</string>
+    <string name="label_faq">자주 묻는 질문</string>
+    <string name="label_feedback">개발자에게 피드백 보내기</string>
+    <string name="label_app_info">앱 정보</string>
+    <string name="label_agreement">이용약관</string>
+    <string name="label_privacy_policy">개인정보 처리 방침</string>
+    <string name="label_open_source_license">오픈소스 라이센스</string>
+    <string name="label_version_info">버전정보</string>
+    <string name="label_owori_info">About 오월이</string>
+    <string name="label_owori_instagram">오월이 인스타그램</string>
+    <string name="label_etc">기타</string>
+    <string name="label_logout">로그아웃</string>
+    <string name="label_withdrawal">탈퇴하기</string>
+    <string name="label_logout_contents">로그아웃 하시겠습니까?</string>
+    <string name="label_withdrawal_contents">서비스를 탈퇴하더라도 작성하신 글은 자동\n으로 삭제되지 않습니다.\n탈퇴 하시겠습니까?</string>
+    <string name="label_change_group_name">변경할 가족 그룹명을 입력해주세요.</string>
+    <string name="label_family_group_name">가족 그룹명</string>
 
     <!-- key -->
     <string name="kakao_login_key">6c28960f69d4c7f00043b02d890dd6e0</string>

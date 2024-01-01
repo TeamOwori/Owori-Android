@@ -13,6 +13,8 @@ import com.owori.android.databinding.DialogBaseBinding
 class BaseDialogFragment(
     private val title: String,
     private val contents: String,
+    private val positiveButtonText: String? = null,
+    private val cancelButtonText: String? = null,
     private val onClickPositiveButton: () -> Unit = {}
 ) : DialogFragment() {
     private var _binding: DialogBaseBinding? = null
@@ -30,6 +32,9 @@ class BaseDialogFragment(
         with(binding) {
             titleTextview.text = title
             contentsTextview.text = contents
+
+            positiveButtonText?.let { positiveText.text = it }
+            cancelButtonText?.let { cancelText.text = it }
 
             cancelButton.setOnClickListener {
                 dialog?.dismiss()

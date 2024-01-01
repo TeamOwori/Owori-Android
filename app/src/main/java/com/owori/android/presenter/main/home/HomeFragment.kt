@@ -15,8 +15,8 @@ import com.owori.android.presenter.main.home.adapter.DdayAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyMemberAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyMemberWordAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyPhotoAdapter
-import com.owori.android.presenter.mypage.MyPageActivity
-import com.owori.android.presenter.notice.NoticeActivity
+import com.owori.android.presenter.main.home.mypage.MyPageActivity
+import com.owori.android.presenter.main.home.notice.NoticeActivity
 import com.owori.android.presenter.util.SnapPagerScrollListener
 import com.owori.android.presenter.util.SnapPagerScrollListener.Companion.ON_SCROLL
 import dagger.hilt.android.AndroidEntryPoint
