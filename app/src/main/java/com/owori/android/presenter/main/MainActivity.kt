@@ -2,6 +2,7 @@ package com.owori.android.presenter.main
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.owori.android.R
@@ -21,6 +22,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
 
     override fun initView() {
         initBottomNavigation()
+        Log.d("DAOUTECH", "hello: world")
     }
 
     private fun initBottomNavigation() {

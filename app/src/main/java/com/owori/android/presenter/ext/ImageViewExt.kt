@@ -54,9 +54,9 @@ fun ImageView.setMyColor(color: MyColorType) {
 @BindingAdapter("setRedColor")
 fun ImageView.setRedColor(status: ColorStatus) {
     background = when (status) {
-        ABLE -> context.getDrawable(R.drawable.icon_my_color_red)
-        DISABLED -> context.getDrawable(R.drawable.shp_grey_r12)
-        CHECKED -> context.getDrawable(R.drawable.icon_my_color_red_checked)
+        ABLE -> getDrawable(context, R.drawable.icon_my_color_red)
+        DISABLED -> getDrawable(context, R.drawable.icon_my_color_red_blocked)
+        CHECKED -> getDrawable(context, R.drawable.icon_my_color_red_checked)
     }
 }
 
@@ -64,54 +64,54 @@ fun ImageView.setRedColor(status: ColorStatus) {
 fun ImageView.setPinkColor(status: ColorStatus) {
     Log.d("status", "${status}")
     background = when (status) {
-        ABLE -> context.getDrawable(R.drawable.icon_my_color_pink)
-        DISABLED -> context.getDrawable(R.drawable.shp_grey_r12)
-        CHECKED -> context.getDrawable(R.drawable.icon_my_color_pink_checked)
+        ABLE -> getDrawable(context, R.drawable.icon_my_color_pink)
+        DISABLED -> getDrawable(context, R.drawable.icon_my_color_pink_blocked)
+        CHECKED -> getDrawable(context, R.drawable.icon_my_color_pink_checked)
     }
 }
 
 @BindingAdapter("setYellowColor")
 fun ImageView.setYellowColor(status: ColorStatus) {
     background = when (status) {
-        ABLE -> context.getDrawable(R.drawable.icon_my_color_yellow)
-        DISABLED -> context.getDrawable(R.drawable.shp_grey_r12)
-        CHECKED -> context.getDrawable(R.drawable.icon_my_color_yellow_checked)
+        ABLE -> getDrawable(context, R.drawable.icon_my_color_yellow)
+        DISABLED -> getDrawable(context, R.drawable.icon_my_color_yellow_blocked)
+        CHECKED -> getDrawable(context, R.drawable.icon_my_color_yellow_checked)
     }
 }
 
 @BindingAdapter("setGreenColor")
 fun ImageView.setGreenColor(status: ColorStatus) {
     background = when (status) {
-        ABLE -> context.getDrawable(R.drawable.icon_my_color_green)
-        DISABLED -> context.getDrawable(R.drawable.shp_grey_r12)
-        CHECKED -> context.getDrawable(R.drawable.icon_my_color_green_checked)
+        ABLE -> getDrawable(context, R.drawable.icon_my_color_green)
+        DISABLED -> getDrawable(context, R.drawable.icon_my_color_green_blocked)
+        CHECKED -> getDrawable(context, R.drawable.icon_my_color_green_checked)
     }
 }
 
 @BindingAdapter("setAzureColor")
 fun ImageView.setAzureColor(status: ColorStatus) {
     background = when (status) {
-        ABLE -> context.getDrawable(R.drawable.icon_my_color_azure)
-        DISABLED -> context.getDrawable(R.drawable.shp_grey_r12)
-        CHECKED -> context.getDrawable(R.drawable.icon_my_color_azure_checked)
+        ABLE -> getDrawable(context, R.drawable.icon_my_color_azure)
+        DISABLED -> getDrawable(context, R.drawable.icon_my_color_azure_blocked)
+        CHECKED -> getDrawable(context, R.drawable.icon_my_color_azure_checked)
     }
 }
 
 @BindingAdapter("setNavyColor")
 fun ImageView.setNavyColor(status: ColorStatus) {
     background = when (status) {
-        ABLE -> context.getDrawable(R.drawable.icon_my_color_navy)
-        DISABLED -> context.getDrawable(R.drawable.shp_grey_r12)
-        CHECKED -> context.getDrawable(R.drawable.icon_my_color_navy_checked)
+        ABLE -> getDrawable(context, R.drawable.icon_my_color_navy)
+        DISABLED -> getDrawable(context, R.drawable.icon_my_color_navy_blocked)
+        CHECKED -> getDrawable(context, R.drawable.icon_my_color_navy_checked)
     }
 }
 
 @BindingAdapter("setPurpleColor")
 fun ImageView.setPurpleColor(status: ColorStatus) {
     background = when (status) {
-        ABLE -> context.getDrawable(R.drawable.icon_my_color_purple)
-        DISABLED -> context.getDrawable(R.drawable.shp_grey_r12)
-        CHECKED -> context.getDrawable(R.drawable.icon_my_color_purple_checked)
+        ABLE -> getDrawable(context, R.drawable.icon_my_color_purple)
+        DISABLED -> getDrawable(context, R.drawable.icon_my_color_purple_blocked)
+        CHECKED -> getDrawable(context, R.drawable.icon_my_color_purple_checked)
     }
 }
 

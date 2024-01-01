@@ -56,7 +56,6 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
     }
 
     fun onClickSaveButton() {
-        _isEditMode.value = false
         _saveButtonClicked.call()
     }
 
@@ -88,6 +87,7 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
                 null
             )
         }
+        _isEditMode.value = false
     }
 
     fun onClickMyColor(myColorType: MyColorType) {

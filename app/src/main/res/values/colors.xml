@@ -23,4 +23,8 @@
     <!-- home 화면 -->
     <color name="yellow_ffeeb2">#FFEEB2</color>
 
+    <color name="red_ff3f3f">#FF3F3F</color>
+
+    <color name="blue_1c86ff">#1C86FF</color>
+
 </resources>
