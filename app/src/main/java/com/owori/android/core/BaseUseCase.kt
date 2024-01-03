@@ -1,6 +1,5 @@
 package com.owori.android.core
 
-import com.owori.android.data.OworiResponse
 import retrofit2.Response
 
 open class BaseUseCase {

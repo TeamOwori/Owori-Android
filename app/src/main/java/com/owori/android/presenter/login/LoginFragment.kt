@@ -24,6 +24,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
             Log.e(ContentValues.TAG, "Failed to Kakao Login", error)
         } else if (token != null) {
             Log.i(ContentValues.TAG, "Success Kakao Login token : ${token.accessToken}")
+
             MainActivity.startActivity(requireActivity())
         }
     }
