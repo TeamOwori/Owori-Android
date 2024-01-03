@@ -33,7 +33,7 @@ fun ImageView.setCircleImageView(image: Any?) {
 fun ImageView.setImageView(image: Any?) {
     this.load(image) {
         crossfade(true)
-        placeholder(R.drawable.member_profile)
+        placeholder(R.drawable.image_placeholder)
     }
 }
 

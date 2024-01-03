@@ -40,6 +40,8 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     val showDeleteMyWordDialog: LiveData<Unit> = _showDeleteMyWordDialog
     private val _showEditCancelMyWordDialog: SingleLiveEvent<Unit> = SingleLiveEvent()
     val showEditCancelMyWordDialog: LiveData<Unit> = _showEditCancelMyWordDialog
+    private val _showInformationDialog: MutableLiveData<Boolean> = MutableLiveData(false)
+    val showInformationDialog: LiveData<Boolean> = _showInformationDialog
 
     init {
         fetchFamilyEmotionList()
@@ -131,6 +133,14 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
 
     fun onClickEditCompleteMyWordButton() {
         _editCompleted.call()
+    }
+
+    fun onClickInformationButton() {
+        if (_showInformationDialog.value != true) _showInformationDialog.value = true
+    }
+
+    fun setInformationDialog(showDialog: Boolean) {
+        _showInformationDialog.value = showDialog
     }
 
     fun editMyWord(myWord: String) {

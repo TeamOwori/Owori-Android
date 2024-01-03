@@ -282,6 +282,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/icon_information"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/icon_information"
+                    android:onClick="@{() -> vm.onClickEditMyWordButton()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/wordEachOtherTitle"
+                    app:layout_constraintStart_toEndOf="@+id/wordEachOtherTitle"
+                    app:layout_constraintTop_toTopOf="@+id/wordEachOtherTitle" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/myWordLayout"
                     android:layout_width="match_parent"
