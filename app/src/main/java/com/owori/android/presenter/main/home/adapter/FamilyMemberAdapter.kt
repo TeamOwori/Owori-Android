@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.owori.android.databinding.ItemFamilyMemberBinding
 import com.owori.android.presenter.model.ProfileItem
 
-class FamilyMemberAdapter(private val onClickMemberItem: (id: Int) -> Unit = {} ) : ListAdapter<ProfileItem, FamilyMemberAdapterViewHolder>(MemberDiffUtil()) {
+class FamilyMemberAdapter(private val onClickMemberItem: (id: Int) -> Unit = {} ) : ListAdapter<ProfileItem, FamilyMemberAdapterViewHolder>(memberDiffUtil) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -21,6 +21,18 @@ class FamilyMemberAdapter(private val onClickMemberItem: (id: Int) -> Unit = {} 
     override fun onBindViewHolder(holder: FamilyMemberAdapterViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
+    companion object {
+        private val memberDiffUtil = object : DiffUtil.ItemCallback<ProfileItem>(){
+            override fun areItemsTheSame(oldItem: ProfileItem, newItem: ProfileItem): Boolean {
+                return oldItem.name == newItem.name
+            }
+
+            override fun areContentsTheSame(oldItem: ProfileItem, newItem: ProfileItem): Boolean {
+                return oldItem.hashCode() == newItem.hashCode()
+            }
+        }
+    }
 }
 
 class FamilyMemberAdapterViewHolder(private val binding: ItemFamilyMemberBinding, private val onClickMemberItem: (id: Int) -> Unit = {}) : RecyclerView.ViewHolder(binding.root) {
@@ -29,15 +41,5 @@ class FamilyMemberAdapterViewHolder(private val binding: ItemFamilyMemberBinding
             data = memberItem
             memberProfileLayout.setOnClickListener { onClickMemberItem(memberItem.id) }
         }
-    }
-}
-
-class MemberDiffUtil : DiffUtil.ItemCallback<ProfileItem>(){
-    override fun areItemsTheSame(oldItem: ProfileItem, newItem: ProfileItem): Boolean {
-        return oldItem.name == newItem.name
-    }
-
-    override fun areContentsTheSame(oldItem: ProfileItem, newItem: ProfileItem): Boolean {
-        return oldItem.hashCode() == newItem.hashCode()
     }
 }

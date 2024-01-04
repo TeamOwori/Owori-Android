@@ -11,8 +11,7 @@ import javax.inject.Inject
 class FamilyNameViewModel @Inject constructor() : BaseViewModel() {
     private val _saveButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val saveButtonClicked: LiveData<Unit> = _saveButtonClicked
-    private val _cancelButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
-    val cancelButtonClicked: LiveData<Unit> = _cancelButtonClicked
+
     private val _familyGroupName: MutableLiveData<String> = MutableLiveData()
     val familyGroupName: LiveData<String> = _familyGroupName
 
@@ -22,10 +21,6 @@ class FamilyNameViewModel @Inject constructor() : BaseViewModel() {
 
     fun onClickSaveButton() {
         _saveButtonClicked.call()
-    }
-
-    fun onClickCancelButton() {
-        _cancelButtonClicked.call()
     }
 
     fun saveFamilyGroupName(name: String) {

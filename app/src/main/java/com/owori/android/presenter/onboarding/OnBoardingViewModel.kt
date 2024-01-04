@@ -11,6 +11,7 @@ import javax.inject.Inject
 class OnBoardingViewModel @Inject constructor() : BaseViewModel() {
     private val _currentItemIndex: MutableLiveData<Int> = MutableLiveData(0)
     val currentItemIndex: LiveData<Int> = _currentItemIndex
+
     private val _finishOnBoarding: SingleLiveEvent<Unit> = SingleLiveEvent();
     val finishOnBoarding: LiveData<Unit> = _finishOnBoarding;
 

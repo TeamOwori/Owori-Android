@@ -3,7 +3,7 @@ package com.owori.android.presenter.main.home
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.owori.android.R
@@ -59,8 +59,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     private val familyPhotoSnapHelper = PagerSnapHelper()
     override fun onResume() {
         super.onResume()
-        requireActivity().window.statusBarColor =
-            ContextCompat.getColor(requireContext(), R.color.yellow_ffeeb2)
+        setStatusBarColor(getColor(requireContext(), R.color.yellow_ffeeb2))
     }
 
     private val familyPhotoScrollListener = SnapPagerScrollListener(familyPhotoSnapHelper,
@@ -120,10 +119,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             showDeleteMyWordDialog.observe(viewLifecycleOwner) {
                 BaseDialogFragment(title = getString(R.string.dialog_delete_title),
                     contents = getString(R.string.dialog_delete_contents),
-                    onClickPositiveButton = { deleteMyWord() }).show(
-                    requireActivity().supportFragmentManager,
-                    getString(R.string.dialog_delete)
-                )
+                    onClickPositiveButton = { deleteMyWord() })
+                    .show(
+                        requireActivity().supportFragmentManager,
+                        getString(R.string.dialog_delete)
+                    )
             }
             showEditCancelMyWordDialog.observe(viewLifecycleOwner) {
                 BaseDialogFragment(

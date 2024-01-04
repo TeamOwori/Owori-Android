@@ -2,12 +2,12 @@ package com.owori.android.presenter.splash
 
 import android.os.Handler
 import android.os.Looper
-import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.viewModels
-import com.owori.android.core.BaseFragment
 import com.owori.android.R
-import com.owori.android.databinding.FragmentSplashBinding
+import com.owori.android.core.BaseFragment
 import com.owori.android.core.navigateTo
+import com.owori.android.databinding.FragmentSplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -24,12 +24,12 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>(R.la
 
     override fun onResume() {
         super.onResume()
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.owori_red)
+        setStatusBarColor(getColor(requireContext(), R.color.owori_red))
     }
 
     override fun onStop() {
         super.onStop()
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
+        setStatusBarColor(getColor(requireContext(), R.color.white))
     }
 
     private fun navigateToLogin() {

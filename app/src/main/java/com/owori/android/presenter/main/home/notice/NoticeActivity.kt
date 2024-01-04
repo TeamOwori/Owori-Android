@@ -3,7 +3,7 @@ package com.owori.android.presenter.main.home.notice
 import android.content.Context
 import android.content.Intent
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
 import com.owori.android.databinding.ActivityNoticeBinding
@@ -23,7 +23,7 @@ class NoticeActivity : BaseActivity<ActivityNoticeBinding, NoticeViewModel>(R.la
     }
     override fun onResume() {
         super.onResume()
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        setStatusBarColor(getColor(this, R.color.white))
     }
 
     override fun initObserver() {

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.owori.android.databinding.ItemEmotionBinding
 import com.owori.android.presenter.model.EmotionItem
 
-class EmotionAdapter(private val clickEvent: (emotionItem: EmotionItem) -> Unit = {}) : ListAdapter<EmotionItem, EmotionAdapterViewHolder>(EmotionItemDiffUtil()) {
+class EmotionAdapter(private val clickEvent: (emotionItem: EmotionItem) -> Unit = {}) : ListAdapter<EmotionItem, EmotionAdapterViewHolder>(emotionDiffUtil) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -21,6 +21,18 @@ class EmotionAdapter(private val clickEvent: (emotionItem: EmotionItem) -> Unit 
     override fun onBindViewHolder(holder: EmotionAdapterViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
+    companion object {
+        private val emotionDiffUtil = object : DiffUtil.ItemCallback<EmotionItem>(){
+            override fun areItemsTheSame(oldItem: EmotionItem, newItem: EmotionItem): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: EmotionItem, newItem: EmotionItem): Boolean {
+                return oldItem.hashCode() == newItem.hashCode()
+            }
+        }
+    }
 }
 
 class EmotionAdapterViewHolder(private val binding: ItemEmotionBinding, private val clickEvent: (emotionItem: EmotionItem) -> Unit = {}) : RecyclerView.ViewHolder(binding.root) {
@@ -29,16 +41,6 @@ class EmotionAdapterViewHolder(private val binding: ItemEmotionBinding, private 
             data = emotionItem
             emotionItemLayout.setOnClickListener { clickEvent(emotionItem) }
         }
-    }
-}
-
-class EmotionItemDiffUtil : DiffUtil.ItemCallback<EmotionItem>(){
-    override fun areItemsTheSame(oldItem: EmotionItem, newItem: EmotionItem): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: EmotionItem, newItem: EmotionItem): Boolean {
-        return oldItem.hashCode() == newItem.hashCode()
     }
 }
 

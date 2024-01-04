@@ -11,18 +11,25 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor() : BaseViewModel() {
     private val _familyGroupName: MutableLiveData<String> = MutableLiveData()
     val familyGroupName: LiveData<String> = _familyGroupName
+
     private val _isAutoLogin: MutableLiveData<Boolean> = MutableLiveData(true)
     val isAutoLogin: LiveData<Boolean> = _isAutoLogin
+
     private val _closeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val closeButtonClicked: LiveData<Unit> = _closeButtonClicked
+
     private val _changeFamilyNameButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val changeFamilyNameButtonClicked: LiveData<Unit> = _changeFamilyNameButtonClicked
+
     private val _invitationButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val invitationButtonClicked: LiveData<Unit> = _invitationButtonClicked
+
     private val _logoutButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val logoutButtonClicked: LiveData<Unit> = _logoutButtonClicked
+
     private val _withdrawalButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val withdrawalButtonClicked: LiveData<Unit> = _withdrawalButtonClicked
+
     private val _uriToMove: MutableLiveData<String> = MutableLiveData()
     val uriToMove: LiveData<String> = _uriToMove
 
