@@ -24,18 +24,23 @@ import javax.inject.Inject
 class MyPageViewModel @Inject constructor() : BaseViewModel() {
     private val _closeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val closeButtonClicked: LiveData<Unit> = _closeButtonClicked
+
     private val _editButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val editButtonClicked: LiveData<Unit> = _editButtonClicked
+
     private val _settingsButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val settingsButtonClicked: LiveData<Unit> = _settingsButtonClicked
+
     private val _saveButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val saveButtonClicked: LiveData<Unit> = _saveButtonClicked
+
     private val _isEditMode: MutableLiveData<Boolean> = MutableLiveData(false)
     val isEditMode: LiveData<Boolean> = _isEditMode
+
     private val _myProfile: MutableLiveData<MyPageData> = MutableLiveData()
     val myProfile: LiveData<MyPageData> = _myProfile
-    private val _myColorStatus: MutableLiveData<MutableMap<MyColorType, ColorStatus>> =
-        MutableLiveData()
+
+    private val _myColorStatus: MutableLiveData<MutableMap<MyColorType, ColorStatus>> = MutableLiveData()
     val myColorStatus: LiveData<MutableMap<MyColorType, ColorStatus>> = _myColorStatus
 
     init {

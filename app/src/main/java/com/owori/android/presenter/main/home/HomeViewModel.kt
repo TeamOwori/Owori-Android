@@ -20,26 +20,37 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor() : BaseViewModel() {
     private val _familyEmotionList: MutableLiveData<List<ProfileItem>> = MutableLiveData()
     val familyEmotionList: LiveData<List<ProfileItem>> = _familyEmotionList
+
     private val _dDayList: MutableLiveData<List<DdayData>> = MutableLiveData()
     val dDayList: LiveData<List<DdayData>> = _dDayList
+
     private val _familyPhotoList: MutableLiveData<List<FamilyPhotoItem>> = MutableLiveData()
     val familyPhotoList: LiveData<List<FamilyPhotoItem>> = _familyPhotoList
+
     private val _familyInfo: MutableLiveData<FamilyInfo?> = MutableLiveData()
     val familyInfo: LiveData<FamilyInfo?> = _familyInfo
+
     private val _familyMemberList: MutableLiveData<List<FamilyMemberData>> = MutableLiveData()
     val familyMemberList: LiveData<List<FamilyMemberData>> = _familyMemberList
+
     private val _noticeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val noticeButtonClicked: LiveData<Unit> = _noticeButtonClicked
+
     private val _emotionButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val emotionButtonClicked: LiveData<Unit> = _emotionButtonClicked
+
     private val _isEditMode: MutableLiveData<Boolean> = MutableLiveData(false)
     val isEditMode: LiveData<Boolean> = _isEditMode
+
     private val _editCompleted: SingleLiveEvent<Unit> = SingleLiveEvent()
     val editCompleted: LiveData<Unit> = _editCompleted
+
     private val _showDeleteMyWordDialog: SingleLiveEvent<Unit> = SingleLiveEvent()
     val showDeleteMyWordDialog: LiveData<Unit> = _showDeleteMyWordDialog
+
     private val _showEditCancelMyWordDialog: SingleLiveEvent<Unit> = SingleLiveEvent()
     val showEditCancelMyWordDialog: LiveData<Unit> = _showEditCancelMyWordDialog
+
     private val _showInformationDialog: MutableLiveData<Boolean> = MutableLiveData(false)
     val showInformationDialog: LiveData<Boolean> = _showInformationDialog
 

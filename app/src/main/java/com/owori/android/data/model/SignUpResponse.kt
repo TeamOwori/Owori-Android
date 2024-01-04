@@ -8,12 +8,7 @@ data class SignUpResponse(
     @SerializedName("is_service_member")
     val isMember: Boolean,
     @SerializedName("jwt_token")
-    val token: Token,
+    val token: SignUpResponseToken,
 ) {
-    data class Token (
-        @SerializedName("access_token")
-        val accessToken: String,
-        @SerializedName("refresh_token")
-        val refreshToken: String,
-    )
+
 }

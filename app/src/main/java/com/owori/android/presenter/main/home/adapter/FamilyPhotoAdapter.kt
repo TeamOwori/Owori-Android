@@ -12,7 +12,7 @@ import com.owori.android.databinding.ItemFamilyPhotoBinding
 import com.owori.android.presenter.model.FamilyPhotoItem
 
 class FamilyPhotoAdapter(private val onClickAddPhoto: () -> Unit = {}) :
-    ListAdapter<FamilyPhotoItem, CommonViewHolder>(FamilyPhotoDiffUtil()) {
+    ListAdapter<FamilyPhotoItem, CommonViewHolder>(familyPhotoDiffUtil) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -47,15 +47,17 @@ class FamilyPhotoAdapter(private val onClickAddPhoto: () -> Unit = {}) :
     override fun onBindViewHolder(holder: CommonViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-}
 
-class FamilyPhotoDiffUtil : DiffUtil.ItemCallback<FamilyPhotoItem>() {
-    override fun areItemsTheSame(oldItem: FamilyPhotoItem, newItem: FamilyPhotoItem): Boolean {
-        return oldItem.viewType == newItem.viewType
-    }
+    companion object {
+        private val familyPhotoDiffUtil = object : DiffUtil.ItemCallback<FamilyPhotoItem>() {
+            override fun areItemsTheSame(oldItem: FamilyPhotoItem, newItem: FamilyPhotoItem): Boolean {
+                return oldItem.viewType == newItem.viewType
+            }
 
-    override fun areContentsTheSame(oldItem: FamilyPhotoItem, newItem: FamilyPhotoItem): Boolean {
-        return oldItem.hashCode() == newItem.hashCode()
+            override fun areContentsTheSame(oldItem: FamilyPhotoItem, newItem: FamilyPhotoItem): Boolean {
+                return oldItem.hashCode() == newItem.hashCode()
+            }
+        }
     }
 }
 

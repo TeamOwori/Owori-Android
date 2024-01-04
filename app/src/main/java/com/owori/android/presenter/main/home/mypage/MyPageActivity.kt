@@ -10,9 +10,10 @@ import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
+import com.owori.android.core.Constants.OWORI_DATE_FORMAT
 import com.owori.android.databinding.ActivityMyPageBinding
 import com.owori.android.presenter.main.home.settings.SettingsActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +38,7 @@ class MyPageActivity :
 
     override fun onResume() {
         super.onResume()
-        window.statusBarColor = ContextCompat.getColor(this, R.color.yellow_ffeeb2)
+        setStatusBarColor(getColor(this, R.color.yellow_ffeeb2))
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -53,16 +54,20 @@ class MyPageActivity :
                 SettingsActivity.startActivity(this@MyPageActivity)
             }
             saveButtonClicked.observe(this@MyPageActivity) {
-                with (binding) {
-                    if (labelBirthWarn.currentTextColor == getColor(R.color.blue_1c86ff) && labelNicknameWarn.currentTextColor == getColor(R.color.blue_1c86ff) && checkDate(birthTextViewEdit.text.toString())) {
-                        saveMyData(
-                            nicknameTextViewEdit.text.toString(),
-                            birthTextViewEdit.text.toString()
-                        )
+                with(binding) {
+                    if (labelBirthWarn.currentTextColor == getColor(R.color.blue_1c86ff)
+                        && labelNicknameWarn.currentTextColor == getColor(R.color.blue_1c86ff)
+                        && checkDate(birthTextViewEdit.text.toString())
+                    ) {
+                        saveMyData(nicknameTextViewEdit.text.toString(), birthTextViewEdit.text.toString())
                         nicknameTextViewEdit.text.clear()
                         birthTextViewEdit.text.clear()
                     } else {
-                        Toast.makeText(this@MyPageActivity, getString(R.string.message_wrong_input), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@MyPageActivity,
+                            getString(R.string.message_wrong_input),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
@@ -71,7 +76,7 @@ class MyPageActivity :
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun checkDate(dateString: String): Boolean {
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val formatter = DateTimeFormatter.ofPattern(OWORI_DATE_FORMAT)
         return try {
             LocalDate.parse(dateString, formatter).isBefore(LocalDate.now())
         } catch (e: DateTimeParseException) {
@@ -87,24 +92,29 @@ class MyPageActivity :
                     nicknameLengthTextView.visibility = VISIBLE
                     nicknameLengthTextView.text = "${nicknameTextViewEdit.text.length}/7"
                     labelNicknameWarn.visibility = VISIBLE
-                }
-                else {
+                } else {
                     nicknameDivider.visibility = GONE
                     nicknameLengthTextView.visibility = GONE
                     labelNicknameWarn.visibility = GONE
                 }
             }
             nicknameTextViewEdit.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) = Unit
+                override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) = Unit
 
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     nicknameLengthTextView.text = "${nicknameTextViewEdit.text.length}/7"
                     setLabelNickNameWarn(nicknameTextViewEdit.text.isNotBlank())
                 }
+
                 override fun afterTextChanged(s: Editable?) = Unit
 
                 private fun setLabelNickNameWarn(isValid: Boolean) {
-                    with (labelNicknameWarn) {
+                    with(labelNicknameWarn) {
                         text = if (isValid) {
                             setTextColor(getColor(R.color.blue_1c86ff))
                             getString(R.string.label_correct_nickname)
@@ -124,8 +134,7 @@ class MyPageActivity :
                 if (hasFocus) {
                     birthDivider.visibility = VISIBLE
                     labelBirthWarn.visibility = VISIBLE
-                }
-                else {
+                } else {
                     birthDivider.visibility = GONE
                     labelBirthWarn.visibility = GONE
                 }
@@ -137,30 +146,36 @@ class MyPageActivity :
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     with(birthTextViewEdit) {
                         if (isFocusable && s.toString() != "") {
-                            if (text.length == 4 && before != 1) {
-                                setText("$text-")
-                                setSelection(text.length)
-                                setLabelBirthWarn(false)
-                            } else if (text.length == 7 && before != 1) {
-                                setText("$text-")
-                                setSelection(text.length)
-                                labelBirthWarn.setTextColor(getColor(R.color.red_ff3f3f))
-                                labelBirthWarn.text = getString(R.string.label_incorrect_birth)
-                            } else if (text.length == 5 && text.substring(4, 5) != "-") {
-                                setText(text.substring(0, 4) + "-" + text.substring(4))
-                                setSelection(text.length)
-                            } else if (text.length == 8 && text.substring(7, 8) != "-") {
-                                setText(text.substring(0, 7) + "-" + text.substring(7))
-                                setSelection(text.length)
+                            when {
+                                text.length == 4 && before != 1 -> {
+                                    setText("$text-")
+                                    setSelection(text.length)
+                                    setLabelBirthWarn(false)
+                                }
+                                text.length == 7 && before != 1 -> {
+                                    setText("$text-")
+                                    setSelection(text.length)
+                                    labelBirthWarn.setTextColor(getColor(R.color.red_ff3f3f))
+                                    labelBirthWarn.text = getString(R.string.label_incorrect_birth)
+                                }
+                                text.length == 5 && text.substring(4, 5) != "-" -> {
+                                    setText(text.substring(0, 4) + "-" + text.substring(4))
+                                    setSelection(text.length)
+                                }
+                                text.length == 8 && text.substring(7, 8) != "-" -> {
+                                    setText(text.substring(0, 7) + "-" + text.substring(7))
+                                    setSelection(text.length)
+                                }
                             }
-                            setLabelBirthWarn(text.length == 10)
+                            setLabelBirthWarn(text.length == MAX_BIRTH_LENGTH)
                         }
                     }
                 }
+
                 override fun afterTextChanged(s: Editable?) = Unit
 
                 private fun setLabelBirthWarn(isValid: Boolean) {
-                    with (labelBirthWarn) {
+                    with(labelBirthWarn) {
                         if (isValid) {
                             setTextColor(getColor(R.color.blue_1c86ff))
                             text = getString(R.string.label_correct_birth)
@@ -180,5 +195,7 @@ class MyPageActivity :
                 context.startActivity(this)
             }
         }
+
+        private const val MAX_BIRTH_LENGTH = 10
     }
 }

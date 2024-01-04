@@ -4,13 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
 import com.owori.android.core.BaseDialogFragment
 import com.owori.android.databinding.ActivitySettingsBinding
 import com.owori.android.presenter.main.home.familyname.FamilyNameActivity
-import com.owori.android.presenter.main.home.familyname.FamilyNameViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -40,20 +39,22 @@ class SettingsActivity :
                     contents = getString(R.string.label_logout_contents),
                     positiveButtonText = getString(R.string.label_logout),
                     cancelButtonText = getString(R.string.dialog_cancel),
-                    onClickPositiveButton = { logout() }).show(
-                    this@SettingsActivity.supportFragmentManager,
-                    getString(R.string.dialog_logout)
-                )
+                    onClickPositiveButton = { logout() })
+                    .show(
+                        this@SettingsActivity.supportFragmentManager,
+                        getString(R.string.dialog_logout)
+                    )
             }
             withdrawalButtonClicked.observe(this@SettingsActivity) {
                 BaseDialogFragment(title = getString(R.string.label_withdrawal),
                     contents = getString(R.string.label_withdrawal_contents),
                     positiveButtonText = getString(R.string.label_withdrawal),
                     cancelButtonText = getString(R.string.dialog_cancel),
-                    onClickPositiveButton = { withdrawal() }).show(
-                    this@SettingsActivity.supportFragmentManager,
-                    getString(R.string.dialog_withdrawal)
-                )
+                    onClickPositiveButton = { withdrawal() })
+                    .show(
+                        this@SettingsActivity.supportFragmentManager,
+                        getString(R.string.dialog_withdrawal)
+                    )
             }
             invitationButtonClicked.observe(this@SettingsActivity) {
 
@@ -66,7 +67,7 @@ class SettingsActivity :
 
     override fun onResume() {
         super.onResume()
-        window.statusBarColor = ContextCompat.getColor(this, R.color.yellow_ffeeb2)
+        setStatusBarColor(getColor(this, R.color.yellow_ffeeb2))
     }
 
     private fun initAutoLoginSwitch() {

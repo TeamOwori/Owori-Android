@@ -31,18 +31,24 @@ class FamilyNameActivity :
     override fun initObserver() {
         with(viewModel) {
             cancelButtonClicked.observe(this@FamilyNameActivity) {
-                BaseDialogFragment(title = getString(R.string.dialog_change_cancel_title),
+                BaseDialogFragment(
+                    title = getString(R.string.dialog_change_cancel_title),
                     contents = getString(R.string.dialog_change_cancel_contents),
                     positiveButtonText = getString(R.string.dialog_change_cancel_title),
                     cancelButtonText = getString(R.string.dialog_cancel),
-                    onClickPositiveButton = { finish() }).show(
-                    this@FamilyNameActivity.supportFragmentManager,
-                    getString(R.string.dialog_change_cancel)
-                )
+                    onClickPositiveButton = { finish() })
+                    .show(
+                        this@FamilyNameActivity.supportFragmentManager,
+                        getString(R.string.dialog_change_cancel)
+                    )
             }
             saveButtonClicked.observe(this@FamilyNameActivity) {
                 if (binding.familyGroupNameTextViewEdit.text.isEmpty()) {
-                    Toast.makeText(this@FamilyNameActivity, getString(R.string.message_wrong_input), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@FamilyNameActivity,
+                        getString(R.string.message_wrong_input),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 } else {
                     saveFamilyGroupName(binding.familyGroupNameTextViewEdit.text.toString())
                     finish()
@@ -57,47 +63,53 @@ class FamilyNameActivity :
             contents = getString(R.string.dialog_change_cancel_contents),
             positiveButtonText = getString(R.string.dialog_change_cancel_title),
             cancelButtonText = getString(R.string.dialog_cancel),
-            onClickPositiveButton = { finish() }).show(
-            this@FamilyNameActivity.supportFragmentManager,
-            getString(R.string.dialog_change_cancel)
-        )
+            onClickPositiveButton = { finish() })
+            .show(
+                this@FamilyNameActivity.supportFragmentManager,
+                getString(R.string.dialog_change_cancel)
+            )
     }
 
     override fun onResume() {
         super.onResume()
-        window.statusBarColor = getColor(this, R.color.yellow_fefaea)
+        setStatusBarColor(getColor(this, R.color.yellow_fefaea))
     }
 
     private fun initNickNameTextViewEdit() {
         with(binding) {
             familyGroupNameTextViewEdit.setOnFocusChangeListener { view, hasFocus ->
-                if (hasFocus) {
-                    familyGroupNameDivider.visibility = View.VISIBLE
-                    familyGroupNameLengthTextView.visibility = View.VISIBLE
-                    familyGroupNameLengthTextView.text =
-                        "${familyGroupNameTextViewEdit.text.length}/10"
-                    labelFamilyGroupNameWarn.visibility = View.VISIBLE
+                familyGroupNameDivider.visibility = if (hasFocus) {
+                    View.VISIBLE
                 } else {
-                    familyGroupNameDivider.visibility = View.GONE
-                    familyGroupNameLengthTextView.visibility = View.GONE
-                    labelFamilyGroupNameWarn.visibility = View.GONE
+                    View.GONE
+                }
+                familyGroupNameLengthTextView.visibility = if (hasFocus) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
+                labelFamilyGroupNameWarn.visibility = if (hasFocus) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
+                if (hasFocus) {
+                    familyGroupNameLengthTextView.text =
+                        "${familyGroupNameTextViewEdit.text.length}/$MAX_NAME_LENGTH"
                 }
             }
             familyGroupNameTextViewEdit.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(
-                    s: CharSequence,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) = Unit
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) = Unit
 
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     familyGroupNameLengthTextView.text =
-                        "${familyGroupNameTextViewEdit.text.length}/10"
+                        "${familyGroupNameTextViewEdit.text.length}/$MAX_NAME_LENGTH"
                     familyGroupNameLengthTextView.visibility =
-                        if (familyGroupNameTextViewEdit.text.isEmpty())
+                        if (familyGroupNameTextViewEdit.text.isEmpty()) {
                             View.GONE
-                        else View.VISIBLE
+                        } else {
+                            View.VISIBLE
+                        }
                     setLabelNickNameWarn(familyGroupNameTextViewEdit.text.isNotBlank())
                 }
 
@@ -125,5 +137,7 @@ class FamilyNameActivity :
                 context.startActivity(this)
             }
         }
+
+        private const val MAX_NAME_LENGTH = 10
     }
 }

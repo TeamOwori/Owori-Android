@@ -6,8 +6,4 @@ data class SignUpRequest(
     val token: String,
     @SerializedName("auth_provider")
     val authProvider: AuthProvider
-) {
-    enum class AuthProvider {
-        GOOGLE, KAKAO, APPLE
-    }
-}
+)

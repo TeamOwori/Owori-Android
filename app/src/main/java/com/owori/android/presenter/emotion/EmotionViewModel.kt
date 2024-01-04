@@ -12,10 +12,13 @@ import javax.inject.Inject
 class EmotionViewModel @Inject constructor() : BaseViewModel() {
     private val _closeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val closeButtonClicked: LiveData<Unit> = _closeButtonClicked
+
     private val _emotionList: MutableLiveData<List<EmotionItem>> = MutableLiveData()
     val emotionList: LiveData<List<EmotionItem>> = _emotionList
+
     private val _currentEmotion: MutableLiveData<EmotionItem> = MutableLiveData()
     val currentEmotion: LiveData<EmotionItem> = _currentEmotion
+
     private val _callClickSubmitButton: SingleLiveEvent<Unit> = SingleLiveEvent()
     val callClickSubmitButton: LiveData<Unit> = _callClickSubmitButton
 

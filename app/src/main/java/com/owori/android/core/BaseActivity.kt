@@ -15,6 +15,11 @@ abstract class BaseActivity<B : ViewDataBinding, V : BaseViewModel>(@LayoutRes p
     abstract fun initView()
     protected abstract fun initObserver()
     protected open fun navigate(navigation: Navigation) {}
+
+    protected open fun setStatusBarColor(color: Int) {
+        window.statusBarColor = color
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId)

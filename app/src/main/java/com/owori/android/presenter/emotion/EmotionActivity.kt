@@ -5,7 +5,7 @@ import android.content.Intent
 import android.widget.Toast.LENGTH_SHORT
 import android.widget.Toast.makeText
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
 import com.owori.android.databinding.ActivityEmotionBinding
@@ -32,7 +32,7 @@ class EmotionActivity :
 
     override fun onResume() {
         super.onResume()
-        window.statusBarColor = ContextCompat.getColor(this, R.color.yellow_ffeeb2)
+        setStatusBarColor(getColor(this, R.color.yellow_ffeeb2))
     }
 
     override fun initObserver() =

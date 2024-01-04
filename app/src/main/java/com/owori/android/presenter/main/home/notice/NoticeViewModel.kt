@@ -12,6 +12,7 @@ import javax.inject.Inject
 class NoticeViewModel @Inject constructor() : BaseViewModel() {
     private val _closeButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val closeButtonClicked: LiveData<Unit> = _closeButtonClicked
+
     private val _noticeList: MutableLiveData<List<NoticeData>> = MutableLiveData()
     val noticeList: LiveData<List<NoticeData>> = _noticeList
 

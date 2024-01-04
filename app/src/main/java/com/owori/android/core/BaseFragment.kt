@@ -22,6 +22,10 @@ abstract class BaseFragment<B : ViewDataBinding, V : BaseViewModel>(@LayoutRes p
 
     protected open fun navigate(navigation: Navigation) {}
 
+    protected open fun setStatusBarColor(color: Int) {
+        requireActivity().window.statusBarColor = color
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
