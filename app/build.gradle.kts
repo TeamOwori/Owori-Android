@@ -66,9 +66,12 @@ dependencies {
 
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
+
     implementation(libs.okhttp.logging)
     implementation(libs.retrofit)
     implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.converter.scalars)
 
     implementation(libs.coroutines.core)
     implementation(libs.fragment.ktx)
@@ -91,7 +94,7 @@ dependencies {
     implementation(libs.play.service.auth)
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
-
+    implementation(libs.coil)
     implementation(libs.kakao.login)
 }
 
