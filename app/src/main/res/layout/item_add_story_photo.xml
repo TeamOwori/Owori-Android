@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.owori.android.presenter.model.PhotoData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginVertical="4dp"
+            app:cardCornerRadius="12dp"
+            android:background="@drawable/shp_grey_c6c6c6_stroke_r12"
+            app:cardPreventCornerOverlap="false"
+            android:outlineAmbientShadowColor="@color/grey_464646"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/familyPhoto"
+                android:scaleType="centerCrop"
+                setImageView="@{data.imageSrc}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:visibility="@{data.isThumbnail == true ? View.VISIBLE : View.GONE}"
+                android:layout_gravity="bottom"
+                android:textColor="@color/white"
+                android:text="@string/label_thumbnail"
+                android:textAlignment="center"
+                style="@style/TextCaptionRegular"
+                android:includeFontPadding="false"
+                android:paddingVertical="2dp"
+                android:background="@color/black_85000000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

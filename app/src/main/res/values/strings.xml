@@ -8,6 +8,7 @@
     <!-- 다이얼로그 -->
     <string name="dialog_delete">DeleteMyWordDialog</string>
     <string name="dialog_cancel">취소</string>
+    <string name="dialog_filter">FilterBottomSheetFragmentDialog</string>
     <string name="dialog_logout">LogoutDialog</string>
     <string name="dialog_change_cancel">ChangeCancelDialog</string>
     <string name="dialog_change_cancel_title">나가기</string>
@@ -108,6 +109,23 @@
     <string name="label_withdrawal_contents">서비스를 탈퇴하더라도 작성하신 글은 자동\n으로 삭제되지 않습니다.\n탈퇴 하시겠습니까?</string>
     <string name="label_change_group_name">변경할 가족 그룹명을 입력해주세요.</string>
     <string name="label_family_group_name">가족 그룹명</string>
+
+    <!-- 스토리 -->
+    <string name="label_story_title">우리가족 추억저장소</string>
+    <string name="label_filter_latest">최신순</string>
+    <string name="label_filter_date">날짜순</string>
+    <string name="label_post_story">기록하기</string>
+    <string name="label_save_post">작성 완료</string>
+    <string name="hint_search_edit">추억을 검색해보세요.</string>
+    <string name="hint_title">제목을 입력해주세요.</string>
+    <string name="hint_story">추억을 기록해봐요:)\n500자까지 입력할 수 있어요</string>
+    <string name="label_start_date">시작일</string>
+    <string name="label_end_date">종료일</string>
+    <string name="label_title">제목</string>
+    <string name="label_my_story">추억 이야기</string>
+    <string name="label_photo_title">사진(최대 10장)</string>
+    <string name="label_add_photo">사진올리기</string>
+    <string name="label_thumbnail">대표사진</string>
 
     <!-- key -->
     <string name="kakao_login_key">6c28960f69d4c7f00043b02d890dd6e0</string>

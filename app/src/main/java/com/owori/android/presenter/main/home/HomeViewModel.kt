@@ -86,10 +86,10 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
     fun fetchFamilyPhotoList() {
         // TODO : API 연동 후, 데이터 fetch 로직 추가
         _familyPhotoList.value = listOf(
-            FamilyPhotoItem(PHOTO, PhotoData(0, "https://cdn.nanamcom.co.kr/news/photo/202306/2292_7667_36.jpg")),
-            FamilyPhotoItem(PHOTO, PhotoData(0, "https://www.sisajournal.com/news/photo/first/201706/img_169929_1.png")),
-            FamilyPhotoItem(PHOTO, PhotoData(0, "https://img3.yna.co.kr/etc/inner/KR/2020/08/18/AKR20200818040200009_01_i_P2.jpg")),
-            FamilyPhotoItem(PHOTO, PhotoData(0, "https://img2.sbs.co.kr/ops_clip_img/2020/05/14/32709ee9-0d73-4ac4-82ce-9266e6ff7700216w640.jpg")),
+            FamilyPhotoItem(PHOTO, PhotoData(id = 0, imageSrc = "https://cdn.nanamcom.co.kr/news/photo/202306/2292_7667_36.jpg")),
+            FamilyPhotoItem(PHOTO, PhotoData(id = 0, imageSrc = "https://www.sisajournal.com/news/photo/first/201706/img_169929_1.png")),
+            FamilyPhotoItem(PHOTO, PhotoData(id = 0, imageSrc = "https://img3.yna.co.kr/etc/inner/KR/2020/08/18/AKR20200818040200009_01_i_P2.jpg")),
+            FamilyPhotoItem(PHOTO, PhotoData(id = 0, imageSrc =  "https://img2.sbs.co.kr/ops_clip_img/2020/05/14/32709ee9-0d73-4ac4-82ce-9266e6ff7700216w640.jpg")),
             FamilyPhotoItem(ADD_PHOTO),
         )
     }
