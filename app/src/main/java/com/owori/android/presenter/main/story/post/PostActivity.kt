@@ -4,20 +4,28 @@ import android.content.Context
 import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.MotionEvent
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat.getColor
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
 import com.owori.android.core.BaseDialogFragment
 import com.owori.android.databinding.ActivityPostBinding
+import com.owori.android.presenter.main.home.adapter.AddPhotoListAdapter
+import com.owori.android.presenter.model.PhotoData
 import dagger.hilt.android.AndroidEntryPoint
+import gun0912.tedimagepicker.builder.TedImagePicker
 
 
 @AndroidEntryPoint
 class PostActivity :
     BaseActivity<ActivityPostBinding, PostViewModel>(R.layout.activity_post) {
     override val viewModel: PostViewModel by viewModels()
+    private val photoListAdapter: AddPhotoListAdapter by lazy {
+        AddPhotoListAdapter { id -> viewModel.onClickDeletePhotoButton(id) }
+    }
 
     override fun setBindingVariables(binding: ActivityPostBinding) {
         binding.vm = viewModel
@@ -25,6 +33,7 @@ class PostActivity :
 
     override fun initView() {
         initStoryEdit()
+        initPhotoListAdapter()
     }
 
     override fun onResume() {
@@ -48,6 +57,24 @@ class PostActivity :
                         this@PostActivity.supportFragmentManager,
                         getString(R.string.dialog_change_cancel)
                     )
+            }
+            showImagePicker.observe(this@PostActivity) {
+                photoList.value?.let {
+                    if (it.size != MAX_PHOTO_SIZE) {
+                        TedImagePicker.with(this@PostActivity)
+                            .max(MAX_PHOTO_SIZE - it.size, SIZE_WARN)
+                            .showCameraTile(false)
+                            .startMultiImage { uris ->
+                                viewModel.setPhotoList(uris.mapIndexed { index, uri ->
+                                    PhotoData(index == 0, index, uri.toString())
+                                })
+                            }
+                    } else Toast.makeText(this@PostActivity, SIZE_WARN, Toast.LENGTH_SHORT)
+                }
+            }
+            photoList.observe(this@PostActivity) {
+                Log.d("hello", "$it")
+                photoListAdapter.submitList(it)
             }
         }
     }
@@ -106,7 +133,13 @@ class PostActivity :
         }
     }
 
+    private fun initPhotoListAdapter() {
+        binding.addPhotoListAdapter.adapter = photoListAdapter
+    }
+
     companion object {
+        private const val MAX_PHOTO_SIZE = 10
+        private const val SIZE_WARN = "최대 10장의 사진만 선택 가능합니다."
         fun startActivity(context: Context) {
             Intent(context, PostActivity::class.java).apply {
                 context.startActivity(this)

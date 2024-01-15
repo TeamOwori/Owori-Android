@@ -1,8 +1,10 @@
 package com.owori.android.presenter.main.story.post
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.owori.android.core.BaseViewModel
+import com.owori.android.presenter.model.PhotoData
 import com.owori.android.presenter.util.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -27,6 +29,12 @@ class PostViewModel @Inject constructor() : BaseViewModel() {
     private val _endDate: MutableLiveData<String> = MutableLiveData()
     val endDate: LiveData<String> = _endDate
 
+    private val _showDatePickerDialog: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val showDatePickerDialog: LiveData<Unit> = _showDatePickerDialog
+
+    private val _photoList: MutableLiveData<List<PhotoData>> = MutableLiveData(listOf())
+    val photoList: LiveData<List<PhotoData>> = _photoList
+
     fun onClickChooseImageButton() {
         _showImagePicker.call()
     }
@@ -43,5 +51,25 @@ class PostViewModel @Inject constructor() : BaseViewModel() {
 
     fun setPostMode(isActivated: Boolean) {
         _isPostModeActivated.value = isActivated
+    }
+
+    fun onClickDatePickerDialogButton() {
+        _showDatePickerDialog.call()
+    }
+
+    fun setPhotoList(photoList: List<PhotoData>) {
+        _photoList.value = photoList
+    }
+
+    fun onClickDeletePhotoButton(id: Int) {
+        _photoList.value = _photoList.value?.filter { photo ->
+            photo.id != id
+        }?.mapIndexed{ index, photo ->
+            if (index == 0) {
+                PhotoData(true, photo.id, photo.imageSrc)
+            } else {
+                photo
+            }
+        }
     }
 }

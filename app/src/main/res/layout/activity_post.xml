@@ -123,6 +123,7 @@
                             android:includeFontPadding="false"
                             android:paddingHorizontal="12dp"
                             android:paddingVertical="6dp"
+                            android:onClick="@{() -> vm.onClickDatePickerDialogButton()}"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/label_start_date"
@@ -168,6 +169,7 @@
                             android:paddingHorizontal="12dp"
                             android:paddingVertical="6dp"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            android:onClick="@{() -> vm.onClickDatePickerDialogButton()}"
                             android:background="@{vm.endDate == null ? @drawable/shp_grey_stroke_r4 : @drawable/shp_owori_red_stroke_r4}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/label_end_date"
@@ -312,6 +314,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/add_photo_list_adapter"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_marginStart="8dp"
