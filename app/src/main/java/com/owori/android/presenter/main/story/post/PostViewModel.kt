@@ -72,4 +72,8 @@ class PostViewModel @Inject constructor() : BaseViewModel() {
             }
         }
     }
+
+    fun setDate(startDate: Any, endDate: Any) {
+        Log.d("date", "startDate: $startDate,\n $endDate")
+    }
 }

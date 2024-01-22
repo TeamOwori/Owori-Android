@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Owori" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.Owori" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/owori_red</item>
+        <item name="colorSecondary">@color/owori_sub_red</item>
+
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="colorControlActivated">@color/owori_red</item>
@@ -13,7 +16,12 @@
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
-    <style name="Theme.Owori" parent="Base.Theme.Owori" />
+
+    <style name="Theme.Owori" parent="Base.Theme.Owori">
+        <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
+        <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
+        <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
+    </style>
 
     <style name="AppBottomSheetDialogTheme"
         parent="Theme.Design.Light.BottomSheetDialog">

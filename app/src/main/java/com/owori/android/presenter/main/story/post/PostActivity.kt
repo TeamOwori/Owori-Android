@@ -9,6 +9,8 @@ import android.view.MotionEvent
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat.getColor
+import androidx.core.util.Pair
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
 import com.owori.android.core.BaseDialogFragment
@@ -17,6 +19,7 @@ import com.owori.android.presenter.main.home.adapter.AddPhotoListAdapter
 import com.owori.android.presenter.model.PhotoData
 import dagger.hilt.android.AndroidEntryPoint
 import gun0912.tedimagepicker.builder.TedImagePicker
+import java.util.Calendar
 
 
 @AndroidEntryPoint
@@ -69,12 +72,15 @@ class PostActivity :
                                     PhotoData(index == 0, index, uri.toString())
                                 })
                             }
-                    } else Toast.makeText(this@PostActivity, SIZE_WARN, Toast.LENGTH_SHORT)
+                    } else Toast.makeText(this@PostActivity, SIZE_WARN, Toast.LENGTH_SHORT).show()
                 }
             }
             photoList.observe(this@PostActivity) {
                 Log.d("hello", "$it")
                 photoListAdapter.submitList(it)
+            }
+            showDatePickerDialog.observe(this@PostActivity) {
+                fetchDatePicker()
             }
         }
     }
@@ -135,6 +141,17 @@ class PostActivity :
 
     private fun initPhotoListAdapter() {
         binding.addPhotoListAdapter.adapter = photoListAdapter
+    }
+
+    private fun fetchDatePicker() {
+        val builder = MaterialDatePicker.Builder.dateRangePicker()
+        val now = Calendar.getInstance()
+        builder.setSelection(Pair(now.timeInMillis, now.timeInMillis))
+        val picker = builder.build()
+        picker.show(supportFragmentManager, picker.toString())
+        picker.addOnPositiveButtonClickListener {
+            viewModel.setDate(it.first, it.second)
+        }
     }
 
     companion object {
