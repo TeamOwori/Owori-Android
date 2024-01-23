@@ -17,6 +17,7 @@ import com.owori.android.core.Constants.OWORI_DATE_FORMAT
 import com.owori.android.databinding.ActivityMyPageBinding
 import com.owori.android.presenter.main.home.settings.SettingsActivity
 import dagger.hilt.android.AndroidEntryPoint
+import gun0912.tedimagepicker.builder.TedImagePicker
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
@@ -70,6 +71,13 @@ class MyPageActivity :
                         ).show()
                     }
                 }
+            }
+            showTedImagePicker.observe(this@MyPageActivity) {
+                TedImagePicker.with(this@MyPageActivity)
+                    .showCameraTile(false)
+                    .start { uri ->
+                        viewModel.setProfileImage(uri.toString())
+                    }
             }
         }
     }

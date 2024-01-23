@@ -14,6 +14,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
 import com.owori.android.core.BaseDialogFragment
+import com.owori.android.core.DateFormatter.toDashDateFormat
 import com.owori.android.databinding.ActivityPostBinding
 import com.owori.android.presenter.main.home.adapter.AddPhotoListAdapter
 import com.owori.android.presenter.model.PhotoData
@@ -23,8 +24,7 @@ import java.util.Calendar
 
 
 @AndroidEntryPoint
-class PostActivity :
-    BaseActivity<ActivityPostBinding, PostViewModel>(R.layout.activity_post) {
+class PostActivity : BaseActivity<ActivityPostBinding, PostViewModel>(R.layout.activity_post) {
     override val viewModel: PostViewModel by viewModels()
     private val photoListAdapter: AddPhotoListAdapter by lazy {
         AddPhotoListAdapter { id -> viewModel.onClickDeletePhotoButton(id) }
@@ -82,6 +82,10 @@ class PostActivity :
             showDatePickerDialog.observe(this@PostActivity) {
                 fetchDatePicker()
             }
+            savePostButtonClicked.observe(this@PostActivity) {
+                // TODO : 게시물 작성 API 호출 -> Toast로 성공 실패 여부 출력.
+                finish()
+            }
         }
     }
 
@@ -130,7 +134,7 @@ class PostActivity :
     }
 
     private fun checkPostData() {
-        with (binding) {
+        with(binding) {
             if (storyEdit.text.isNotEmpty() && titleEdit.text.isNotEmpty()) {
                 viewModel.setPostMode(true)
             } else {
@@ -150,7 +154,7 @@ class PostActivity :
         val picker = builder.build()
         picker.show(supportFragmentManager, picker.toString())
         picker.addOnPositiveButtonClickListener {
-            viewModel.setDate(it.first, it.second)
+            viewModel.setDate(toDashDateFormat(it.first), toDashDateFormat(it.second))
         }
     }
 

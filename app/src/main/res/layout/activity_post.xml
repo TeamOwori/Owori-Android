@@ -86,7 +86,7 @@
                     android:id="@+id/date_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginHorizontal="18dp"
                     android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -115,22 +115,22 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <Button
+                        <com.google.android.material.button.MaterialButton
                             style="@style/TextBodyRegular.02"
                             android:layout_width="wrap_content"
-                            android:layout_height="32dp"
+                            android:layout_height="38dp"
                             android:layout_marginStart="12dp"
                             android:includeFontPadding="false"
                             android:paddingHorizontal="12dp"
-                            android:paddingVertical="6dp"
+                            android:textColor="@color/black"
+                            android:text="@{vm.startDate}"
+                            android:background="@{vm.startDate == null ? @drawable/shp_grey_stroke_r4 : @drawable/shp_owori_red_stroke_r4}"
                             android:onClick="@{() -> vm.onClickDatePickerDialogButton()}"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/label_start_date"
                             app:layout_constraintTop_toTopOf="parent"
-                            android:background="@{vm.startDate == null ? @drawable/shp_grey_stroke_r4 : @drawable/shp_owori_red_stroke_r4}"
                             tools:background="@drawable/shp_owori_red_stroke_r4"
-                            android:text="2023.01.15"
+                            app:backgroundTint="@null"
                             tools:text="2023.01.15" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -139,14 +139,14 @@
                         android:id="@+id/end_date_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.3"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/start_date_layout"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
+                            android:layout_marginStart="12dp"
                             android:id="@+id/label_end_date"
                             style="@style/TextBodyRegular.01"
                             android:layout_width="wrap_content"
@@ -163,18 +163,18 @@
                             android:id="@+id/end_date_button"
                             style="@style/TextBodyRegular.02"
                             android:layout_width="wrap_content"
-                            android:layout_height="32dp"
+                            android:layout_height="38dp"
                             android:layout_marginStart="12dp"
                             android:includeFontPadding="false"
                             android:paddingHorizontal="12dp"
-                            android:paddingVertical="6dp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            android:onClick="@{() -> vm.onClickDatePickerDialogButton()}"
+                            android:textColor="@color/black"
+                            app:backgroundTint="@null"
+                            android:text="@{vm.endDate}"
                             android:background="@{vm.endDate == null ? @drawable/shp_grey_stroke_r4 : @drawable/shp_owori_red_stroke_r4}"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            android:onClick="@{() -> vm.onClickDatePickerDialogButton()}"
                             app:layout_constraintStart_toEndOf="@id/label_end_date"
                             app:layout_constraintTop_toTopOf="parent"
-                            android:text="2023.01.15"
                             tools:background="@drawable/shp_owori_red_stroke_r4"
                             tools:text="2023.01.15" />
 

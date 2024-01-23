@@ -1,12 +1,13 @@
 package com.owori.android.presenter.main.story.post
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.owori.android.core.BaseViewModel
+import com.owori.android.core.DateFormatter
 import com.owori.android.presenter.model.PhotoData
 import com.owori.android.presenter.util.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.util.Calendar
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,10 +24,11 @@ class PostViewModel @Inject constructor() : BaseViewModel() {
     private val _showImagePicker: SingleLiveEvent<Unit> = SingleLiveEvent()
     val showImagePicker: LiveData<Unit> = _showImagePicker
 
-    private val _startDate: MutableLiveData<String> = MutableLiveData()
+    private val _startDate: MutableLiveData<String> = MutableLiveData(DateFormatter.toDashDateFormat(
+        Calendar.getInstance().timeInMillis))
     val startDate: LiveData<String> = _startDate
 
-    private val _endDate: MutableLiveData<String> = MutableLiveData()
+    private val _endDate: MutableLiveData<String> = MutableLiveData(_startDate.value)
     val endDate: LiveData<String> = _endDate
 
     private val _showDatePickerDialog: SingleLiveEvent<Unit> = SingleLiveEvent()
@@ -73,7 +75,8 @@ class PostViewModel @Inject constructor() : BaseViewModel() {
         }
     }
 
-    fun setDate(startDate: Any, endDate: Any) {
-        Log.d("date", "startDate: $startDate,\n $endDate")
+    fun setDate(startDate: String, endDate: String) {
+        _startDate.value = startDate
+        _endDate.value = endDate
     }
 }

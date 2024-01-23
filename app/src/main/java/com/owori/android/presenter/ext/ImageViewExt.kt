@@ -23,7 +23,7 @@ import com.owori.android.presenter.model.MyColorType.YELLOW
 @BindingAdapter("setCircleImageView")
 fun ImageView.setCircleImageView(image: Any?) {
     this.load(image) {
-        crossfade(true)
+        crossfade(false)
         placeholder(R.drawable.member_profile)
         transformations(CircleCropTransformation())
     }
@@ -32,7 +32,7 @@ fun ImageView.setCircleImageView(image: Any?) {
 @BindingAdapter("setImageView")
 fun ImageView.setImageView(image: Any?) {
     this.load(image) {
-        crossfade(true)
+        crossfade(false)
         placeholder(R.drawable.image_placeholder)
     }
 }
