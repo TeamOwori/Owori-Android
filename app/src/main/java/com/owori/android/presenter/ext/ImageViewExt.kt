@@ -6,6 +6,7 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.databinding.BindingAdapter
 import coil.load
 import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
 import com.owori.android.R
 import com.owori.android.presenter.model.ColorStatus
 import com.owori.android.presenter.model.ColorStatus.ABLE
@@ -34,6 +35,15 @@ fun ImageView.setImageView(image: Any?) {
     this.load(image) {
         crossfade(false)
         placeholder(R.drawable.image_placeholder)
+    }
+}
+
+@BindingAdapter("setRoundedCornerImageView")
+fun ImageView.setRoundedCornerImageView(image: Any?) {
+    this.load(image) {
+        crossfade(false)
+        transformations(RoundedCornersTransformation(12f, 12f, 12f, 12f))
+        placeholder(R.drawable.resource_default)
     }
 }
 

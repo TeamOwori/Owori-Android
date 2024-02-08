@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    
+
     <data>
+
         <variable
             name="vm"
             type="com.owori.android.presenter.main.story.post.PostViewModel" />
@@ -13,9 +14,9 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -78,9 +79,9 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:paddingBottom="96dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="96dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/date_layout"
@@ -104,7 +105,7 @@
 
                         <TextView
                             android:id="@+id/label_start_date"
-                            style="@style/TextBodyRegular.01"
+                            style="@style/TextBodyRegular.03"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -115,22 +116,23 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.google.android.material.button.MaterialButton
-                            style="@style/TextBodyRegular.02"
+                        <Button
+                            style="@style/TextCaptionRegular"
                             android:layout_width="wrap_content"
-                            android:layout_height="38dp"
+                            android:layout_height="36dp"
                             android:layout_marginStart="12dp"
-                            android:includeFontPadding="false"
-                            android:paddingHorizontal="12dp"
-                            android:textColor="@color/black"
-                            android:text="@{vm.startDate}"
                             android:background="@{vm.startDate == null ? @drawable/shp_grey_stroke_r4 : @drawable/shp_owori_red_stroke_r4}"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:includeFontPadding="false"
                             android:onClick="@{() -> vm.onClickDatePickerDialogButton()}"
+                            android:paddingHorizontal="12dp"
+                            android:text="@{vm.startDate}"
+                            android:textColor="@color/black"
+                            app:backgroundTint="@null"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@id/label_start_date"
                             app:layout_constraintTop_toTopOf="parent"
                             tools:background="@drawable/shp_owori_red_stroke_r4"
-                            app:backgroundTint="@null"
                             tools:text="2023.01.15" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -146,11 +148,11 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:layout_marginStart="12dp"
                             android:id="@+id/label_end_date"
-                            style="@style/TextBodyRegular.01"
+                            style="@style/TextBodyRegular.03"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
                             android:includeFontPadding="false"
                             android:text="@string/label_end_date"
                             android:textColor="@color/black"
@@ -161,18 +163,20 @@
 
                         <Button
                             android:id="@+id/end_date_button"
-                            style="@style/TextBodyRegular.02"
+                            style="@style/TextCaptionRegular"
                             android:layout_width="wrap_content"
-                            android:layout_height="38dp"
+                            android:layout_height="36dp"
                             android:layout_marginStart="12dp"
+                            android:background="@{vm.endDate == null ? @drawable/shp_grey_stroke_r4 : @drawable/shp_owori_red_stroke_r4}"
+                            android:foreground="?attr/selectableItemBackground"
                             android:includeFontPadding="false"
+                            android:onClick="@{() -> vm.onClickDatePickerDialogButton()}"
                             android:paddingHorizontal="12dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@{vm.endDate}"
                             android:textColor="@color/black"
                             app:backgroundTint="@null"
-                            android:text="@{vm.endDate}"
-                            android:background="@{vm.endDate == null ? @drawable/shp_grey_stroke_r4 : @drawable/shp_owori_red_stroke_r4}"
-                            android:onClick="@{() -> vm.onClickDatePickerDialogButton()}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/label_end_date"
                             app:layout_constraintTop_toTopOf="parent"
                             tools:background="@drawable/shp_owori_red_stroke_r4"
@@ -200,14 +204,14 @@
                     android:id="@+id/title_edit"
                     style="@style/TextBodyMedium.01"
                     android:layout_width="0dp"
-                    android:lines="1"
                     android:layout_height="48dp"
                     android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="8dp"
-                    android:maxLength="20"
                     android:background="@drawable/shp_grey_c6c6c6_stroke_r8"
                     android:hint="@string/hint_title"
                     android:includeFontPadding="false"
+                    android:lines="1"
+                    android:maxLength="20"
                     android:paddingHorizontal="8dp"
                     android:textColorHint="@color/grey_c6c6c6"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -233,7 +237,6 @@
                     style="@style/TextBodyMedium.01"
                     android:layout_width="0dp"
                     android:layout_height="636dp"
-                    android:scrollbars="vertical"
                     android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/shp_grey_c6c6c6_stroke_r8"
@@ -245,6 +248,7 @@
                     android:paddingStart="12dp"
                     android:paddingTop="16dp"
                     android:paddingBottom="42dp"
+                    android:scrollbars="vertical"
                     android:textColorHint="@color/grey_c6c6c6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -255,10 +259,10 @@
                     style="@style/TextBodyRegular.02"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp"
                     android:layout_marginEnd="16dp"
                     android:includeFontPadding="false"
                     android:text="0/500"
-                    android:layout_marginVertical="12dp"
                     android:textColor="@color/grey_c6c6c6"
                     app:layout_constraintBottom_toBottomOf="@+id/story_edit"
                     app:layout_constraintEnd_toEndOf="@+id/story_edit"
@@ -282,9 +286,11 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginStart="24dp"
-                    android:onClick="@{() -> vm.onClickChooseImageButton()}"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/shp_grey_c6c6c6_stroke_r12"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{() -> vm.onClickChooseImageButton()}"
+                    android:visibility="@{vm.photoList.size() == 10 ? View.GONE : View.VISIBLE}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/label_photo_title">
 
@@ -315,17 +321,17 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/add_photo_list_adapter"
+                    marginImageAdder="@{vm.photoList.size() == 10}"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="112dp"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintBottom_toBottomOf="@+id/add_photo_layout"
-                    tools:listitem="@layout/item_add_story_photo"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/add_photo_layout"
-                    app:layout_constraintTop_toTopOf="@+id/add_photo_layout" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_photo_title"
+                    tools:listitem="@layout/item_add_story_photo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -335,14 +341,14 @@
             android:id="@+id/save_post_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@{vm.isPostModeActivated == true ? @drawable/shp_owori_red_r12 : @drawable/shp_grey_e9e9e9_r12}"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{() -> vm.onClickSavePostButton()}"
             android:paddingVertical="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginBottom="20dp"
-            android:onClick="@{() -> vm.onClickSavePostButton()}"
-            android:background="@{vm.isPostModeActivated == true ? @drawable/shp_owori_red_r12 : @drawable/shp_grey_e9e9e9_r12}"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             app:layout_constraintStart_toStartOf="parent"
             tools:background="@drawable/shp_grey_e9e9e9_r12">
 

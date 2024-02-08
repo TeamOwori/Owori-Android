@@ -71,6 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{() -> vm.onClickListViewMode()}"
             android:padding="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_bar">
@@ -80,7 +82,6 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@{vm.isListMode == true ? @drawable/icon_list : @drawable/icon_list_disabled}"
-                android:onClick="@{() -> vm.onClickListViewMode()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,8 +94,9 @@
             android:id="@+id/card_button_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{() -> vm.onClickCardViewMode()}"
+            android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/list_button_layout"
             app:layout_constraintStart_toEndOf="@+id/list_button_layout"
             app:layout_constraintTop_toTopOf="@+id/list_button_layout">
@@ -104,7 +106,6 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@{vm.isListMode != true ? @drawable/icon_card : @drawable/icon_card_disabled}"
-                android:onClick="@{() -> vm.onClickCardViewMode()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -158,10 +159,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="@{vm.isListMode == true ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_button_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/card_button_layout"
+            tools:listitem="@layout/item_post" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/card_recycler_view"
@@ -179,6 +182,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/icon_story_no_contents"
+            android:visibility="@{vm.postList.size() > 0 ? View.GONE : View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -191,8 +195,10 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/shp_owori_red_r28"
             android:elevation="4dp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:paddingHorizontal="20dp"
             android:paddingVertical="8dp"
+            android:onClick="@{() -> vm.onClickPostStoryButton()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -203,7 +209,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
-                android:onClick="@{() -> vm.onClickPostStoryButton()}"
                 android:text="@string/label_post_story"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"

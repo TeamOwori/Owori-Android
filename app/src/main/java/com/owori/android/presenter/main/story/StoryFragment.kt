@@ -6,6 +6,8 @@ import androidx.fragment.app.viewModels
 import com.owori.android.R
 import com.owori.android.core.BaseFragment
 import com.owori.android.databinding.FragmentStoryBinding
+import com.owori.android.presenter.main.story.adapter.PostListAdapter
+import com.owori.android.presenter.main.story.detail.DetailActivity
 import com.owori.android.presenter.main.story.dialog.FilterBottomSheetDialogFragment
 import com.owori.android.presenter.main.story.post.PostActivity
 import com.owori.android.presenter.main.story.search.SearchActivity
@@ -16,6 +18,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class StoryFragment : BaseFragment<FragmentStoryBinding, StoryViewModel>(R.layout.fragment_story) {
     override val viewModel: StoryViewModel by viewModels()
+
+    private val postListAdapter: PostListAdapter by lazy {
+        PostListAdapter { postData ->
+            DetailActivity.startActivity(requireContext(), postData)
+        }
+    }
     override fun onResume() {
         super.onResume()
         setStatusBarColor(getColor(requireContext(), R.color.yellow_ffeeb2))
@@ -42,8 +50,17 @@ class StoryFragment : BaseFragment<FragmentStoryBinding, StoryViewModel>(R.layou
                     currentStoryFilter.value ?: RECENT.label
                 ).show(childFragmentManager, getString(R.string.dialog_filter))
             }
+            postList.observe(viewLifecycleOwner) {
+                postListAdapter.submitList(it)
+            }
         }
     }
 
-    override fun initView() {}
+    override fun initView() {
+        initListRecyclerView()
+    }
+
+    private fun initListRecyclerView() {
+        binding.listRecyclerView.adapter = postListAdapter
+    }
 }
