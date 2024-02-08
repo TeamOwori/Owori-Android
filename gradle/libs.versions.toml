@@ -35,6 +35,7 @@ hilt-compiler = "2.44"
 coil = "2.4.0"
 kakao-login = "2.17.0"
 ted = "1.4.2"
+swipe-refresh-layout = "1.1.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -80,9 +81,10 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 play-service-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "play-service-auth" }
 dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger-hilt" }
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt-compiler" }
-coil = { group = "io.coil-kt", name = "coil", version.ref = "coil"}
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 kakao-login = { group = "com.kakao.sdk", name = "v2-user", version.ref = "kakao-login" }
-ted-image-picker = { group = "io.github.ParkSangGwon", name = "tedimagepicker", version.ref = "ted"}
+ted-image-picker = { group = "io.github.ParkSangGwon", name = "tedimagepicker", version.ref = "ted" }
+swipe-refresh-layout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swipe-refresh-layout" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -63,7 +63,7 @@ class StoryViewModel @Inject constructor() : BaseViewModel() {
         _currentStoryFilter.value = filter
     }
 
-    private fun initPostList() {
+    fun initPostList() {
         // TODO : API 연동 필요
         _postList.value = listOf(
             PostData(

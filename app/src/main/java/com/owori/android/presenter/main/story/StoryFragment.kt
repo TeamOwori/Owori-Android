@@ -24,6 +24,7 @@ class StoryFragment : BaseFragment<FragmentStoryBinding, StoryViewModel>(R.layou
             DetailActivity.startActivity(requireContext(), postData)
         }
     }
+
     override fun onResume() {
         super.onResume()
         setStatusBarColor(getColor(requireContext(), R.color.yellow_ffeeb2))
@@ -58,9 +59,29 @@ class StoryFragment : BaseFragment<FragmentStoryBinding, StoryViewModel>(R.layou
 
     override fun initView() {
         initListRecyclerView()
+        initGalleryRefreshLayout()
+        initListRefreshLayout()
     }
 
     private fun initListRecyclerView() {
         binding.listRecyclerView.adapter = postListAdapter
+    }
+
+    private fun initGalleryRefreshLayout() {
+        with(binding.galleryRefreshLayout) {
+            setOnRefreshListener {
+                viewModel.initPostList()
+                isRefreshing = false
+            }
+        }
+    }
+
+    private fun initListRefreshLayout() {
+        with(binding.listRefreshLayout) {
+            setOnRefreshListener {
+                viewModel.initPostList()
+                isRefreshing = false
+            }
+        }
     }
 }
