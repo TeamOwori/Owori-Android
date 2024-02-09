@@ -5,7 +5,8 @@ data class PostData(
     val photoList: List<PostPhotoData>?,
     val title: String,
     val contents: String,
-    val time: String,
+    val startDate: String,
+    val endDate: String = startDate,
     val likeCount: Int,
     val commentList: List<CommentData>?,
     val author: String

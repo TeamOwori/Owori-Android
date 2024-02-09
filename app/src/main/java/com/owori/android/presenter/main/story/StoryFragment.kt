@@ -3,9 +3,11 @@ package com.owori.android.presenter.main.story
 import android.util.Log
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import com.owori.android.R
 import com.owori.android.core.BaseFragment
 import com.owori.android.databinding.FragmentStoryBinding
+import com.owori.android.presenter.main.story.adapter.GalleryListAdapter
 import com.owori.android.presenter.main.story.adapter.PostListAdapter
 import com.owori.android.presenter.main.story.detail.DetailActivity
 import com.owori.android.presenter.main.story.dialog.FilterBottomSheetDialogFragment
@@ -21,6 +23,12 @@ class StoryFragment : BaseFragment<FragmentStoryBinding, StoryViewModel>(R.layou
 
     private val postListAdapter: PostListAdapter by lazy {
         PostListAdapter { postData ->
+            DetailActivity.startActivity(requireContext(), postData)
+        }
+    }
+
+    private val galleryListAdapter: GalleryListAdapter by lazy {
+        GalleryListAdapter { postData ->
             DetailActivity.startActivity(requireContext(), postData)
         }
     }
@@ -54,11 +62,16 @@ class StoryFragment : BaseFragment<FragmentStoryBinding, StoryViewModel>(R.layou
             postList.observe(viewLifecycleOwner) {
                 postListAdapter.submitList(it)
             }
+            galleryList.observe(viewLifecycleOwner) {
+                Log.d("가나다라","$it")
+                galleryListAdapter.submitList(it)
+            }
         }
     }
 
     override fun initView() {
         initListRecyclerView()
+        initGalleryRecyclerView()
         initGalleryRefreshLayout()
         initListRefreshLayout()
     }
@@ -67,10 +80,24 @@ class StoryFragment : BaseFragment<FragmentStoryBinding, StoryViewModel>(R.layou
         binding.listRecyclerView.adapter = postListAdapter
     }
 
+    private fun initGalleryRecyclerView() {
+        val gridLayoutManager = GridLayoutManager(requireContext(), 3)
+
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return if (galleryListAdapter.getItemViewType(position) == GalleryListAdapter.TYPE_HEADER) 3 else 1
+            }
+        }
+
+        with(binding.cardRecyclerView) {
+            layoutManager = gridLayoutManager
+            adapter = galleryListAdapter
+        }
+    }
+
     private fun initGalleryRefreshLayout() {
         with(binding.galleryRefreshLayout) {
             setOnRefreshListener {
-                viewModel.initPostList()
                 isRefreshing = false
             }
         }
@@ -79,7 +106,6 @@ class StoryFragment : BaseFragment<FragmentStoryBinding, StoryViewModel>(R.layou
     private fun initListRefreshLayout() {
         with(binding.listRefreshLayout) {
             setOnRefreshListener {
-                viewModel.initPostList()
                 isRefreshing = false
             }
         }

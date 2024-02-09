@@ -13,14 +13,11 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.getColor
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
-import com.owori.android.core.Constants.OWORI_DATE_FORMAT
 import com.owori.android.databinding.ActivityMyPageBinding
+import com.owori.android.presenter.ext.checkDate
 import com.owori.android.presenter.main.home.settings.SettingsActivity
 import dagger.hilt.android.AndroidEntryPoint
 import gun0912.tedimagepicker.builder.TedImagePicker
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.time.format.DateTimeParseException
 
 
 @AndroidEntryPoint
@@ -60,7 +57,10 @@ class MyPageActivity :
                         && labelNicknameWarn.currentTextColor == getColor(R.color.blue_1c86ff)
                         && checkDate(birthTextViewEdit.text.toString())
                     ) {
-                        saveMyData(nicknameTextViewEdit.text.toString(), birthTextViewEdit.text.toString())
+                        saveMyData(
+                            nicknameTextViewEdit.text.toString(),
+                            birthTextViewEdit.text.toString()
+                        )
                         nicknameTextViewEdit.text.clear()
                         birthTextViewEdit.text.clear()
                     } else {
@@ -79,16 +79,6 @@ class MyPageActivity :
                         viewModel.setProfileImage(uri.toString())
                     }
             }
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun checkDate(dateString: String): Boolean {
-        val formatter = DateTimeFormatter.ofPattern(OWORI_DATE_FORMAT)
-        return try {
-            LocalDate.parse(dateString, formatter).isBefore(LocalDate.now())
-        } catch (e: DateTimeParseException) {
-            false
         }
     }
 

@@ -42,7 +42,7 @@ fun ImageView.setImageView(image: Any?) {
 fun ImageView.setRoundedCornerImageView(image: Any?) {
     this.load(image) {
         crossfade(false)
-        transformations(RoundedCornersTransformation(12f, 12f, 12f, 12f))
+        transformations(RoundedCornersTransformation(18f, 18f, 18f, 18f))
         placeholder(R.drawable.resource_default)
     }
 }
