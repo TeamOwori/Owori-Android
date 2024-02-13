@@ -18,7 +18,7 @@ class SearchActivity :
         binding.vm = viewModel
     }
 
-    override fun initView() {}
+    override fun initView() = Unit
 
     override fun onResume() {
         super.onResume()
@@ -29,6 +29,9 @@ class SearchActivity :
         with(viewModel) {
             finishButtonClicked.observe(this@SearchActivity) {
                 finish()
+            }
+            clearButtonClicked.observe(this@SearchActivity) {
+                clearSearchKeyWord()
             }
         }
     }
