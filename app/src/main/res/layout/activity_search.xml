@@ -110,6 +110,32 @@
             app:layout_constraintTop_toTopOf="@+id/label_recent_search_keyword"
             tools:text="전체 삭제" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recent_search_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:visibility="@{vm.recentSearchKeywords.empty ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_remove_recent_search_keyword"
+            tools:listitem="@layout/item_recent_search" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/search_result_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:visibility="@{vm.searchResult.empty == false &amp;&amp; vm.searchKeyWord.length > 0 ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_remove_recent_search_keyword"
+            tools:listitem="@layout/item_post" />
+
         <ImageView
             android:id="@+id/no_recent_search_image_view"
             android:layout_width="wrap_content"
