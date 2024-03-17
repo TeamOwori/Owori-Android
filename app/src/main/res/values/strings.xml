@@ -130,6 +130,9 @@
     <string name="label_remove_all_recent_search_keyword">전체 삭제</string>
     <string name="title_search_tip">검색이 안될 때 꿀팁!</string>
     <string name="contents_search_tip">· 검색어를 바르게 입력했는지 확인해 보세요.\n· 짧은 단어로 검색해 보세요 (예: 동해바다 > 동해)</string>
+    <string name="label_dateline">%1$s ~ %2$s</string>
+    <string name="label_author">by %1$s</string>
+    <string name="label_like_comment_count">좋아요 %1$d 댓글 %2$d</string>
 
     <!-- key -->
     <string name="kakao_login_key">6c28960f69d4c7f00043b02d890dd6e0</string>

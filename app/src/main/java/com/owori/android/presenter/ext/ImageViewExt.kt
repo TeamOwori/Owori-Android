@@ -5,8 +5,10 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.databinding.BindingAdapter
 import coil.load
+import coil.size.Scale
 import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.owori.android.R
 import com.owori.android.presenter.model.ColorStatus
 import com.owori.android.presenter.model.ColorStatus.ABLE
@@ -34,6 +36,15 @@ fun ImageView.setCircleImageView(image: Any?) {
 fun ImageView.setImageView(image: Any?) {
     this.load(image) {
         crossfade(false)
+        placeholder(R.drawable.image_placeholder)
+    }
+}
+
+@BindingAdapter("setImageViewCenterCrop")
+fun ImageView.setImageViewCenterCrop(image: Any?) {
+    this.load(image) {
+        crossfade(false)
+        scale(Scale.FILL)
         placeholder(R.drawable.image_placeholder)
     }
 }
