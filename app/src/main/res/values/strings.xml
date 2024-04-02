@@ -7,6 +7,8 @@
 
     <!-- 다이얼로그 -->
     <string name="dialog_delete">DeleteMyWordDialog</string>
+    <string name="dialog_delete_story">DeleteMyStoryDialog</string>
+    <string name="dialog_edit_story">EditMyStoryDialog</string>
     <string name="dialog_cancel">취소</string>
     <string name="dialog_filter">FilterBottomSheetFragmentDialog</string>
     <string name="dialog_logout">LogoutDialog</string>
@@ -21,6 +23,10 @@
     <string name="dialog_write_cancel_contents">작성한 내용 모두 사라집니다.\n작성을 취소하시겠습니까?</string>
     <string name="dialog_edit_cancel_contents">수정 이전 내용으로 되돌아갑니다.\n수정을 취소하시겠습니까?</string>
     <string name="dialog_change_cancel_contents">변경한 내용 모두 사라집니다.\n그래도 나가시겠습니까?</string>
+    <string name="dialog_delete_story_contents">게시글을 삭제하시겠습니까?</string>
+    <string name="dialog_delete_story_title">삭제하기</string>
+    <string name="dialog_edit_story_contents">게시글을 수정하시겠습니까?</string>
+    <string name="dialog_edit_story_title">수정하기</string>
 
     <!-- 로그인 + 가입 -->
     <string name="owori_splash_subtitle">모여봐요 우리 가족</string>
@@ -133,6 +139,8 @@
     <string name="label_dateline">%1$s ~ %2$s</string>
     <string name="label_author">by %1$s</string>
     <string name="label_like_comment_count">좋아요 %1$d 댓글 %2$d</string>
+    <string name="label_edit">수정하기</string>
+    <string name="label_delete">삭제하기</string>
 
     <!-- key -->
     <string name="kakao_login_key">6c28960f69d4c7f00043b02d890dd6e0</string>

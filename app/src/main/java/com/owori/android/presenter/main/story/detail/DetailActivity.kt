@@ -2,21 +2,24 @@ package com.owori.android.presenter.main.story.detail
 
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import com.owori.android.R
 import com.owori.android.core.BaseActivity
+import com.owori.android.core.BaseDialogFragment
 import com.owori.android.databinding.ActivityDetailBinding
 import com.owori.android.presenter.main.story.adapter.DetailPhotoAdapter
+import com.owori.android.presenter.main.story.post.PostActivity
 import com.owori.android.presenter.model.PostData
-import com.owori.android.presenter.onboarding.adapter.OnBoardingViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>(R.layout.activity_detail) {
+class DetailActivity :
+    BaseActivity<ActivityDetailBinding, DetailViewModel>(R.layout.activity_detail) {
     override val viewModel: DetailViewModel by viewModels()
-    private val familyPhotoAdapter: DetailPhotoAdapter by lazy { DetailPhotoAdapter {  } }
+    private val familyPhotoAdapter: DetailPhotoAdapter by lazy { DetailPhotoAdapter { } }
 
     override fun onPostResume() {
         super.onPostResume()
@@ -30,11 +33,43 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>(R.la
             finishButtonClicked.observe(this@DetailActivity) {
                 finish()
             }
+            deleteButtonClicked.observe(this@DetailActivity) {
+                BaseDialogFragment(title = getString(R.string.dialog_delete_title),
+                    contents = getString(R.string.dialog_delete_story_contents),
+                    positiveButtonText = getString(R.string.dialog_delete_story_title),
+                    onClickPositiveButton = {
+                        deleteStory()
+                        Toast.makeText(this@DetailActivity, "게시글을 삭제했어요.", Toast.LENGTH_SHORT).show()
+                        this@DetailActivity.finish()
+                    })
+                    .show(
+                        this@DetailActivity.supportFragmentManager,
+                        getString(R.string.dialog_delete_story)
+                    )
+            }
+            editButtonClicked.observe(this@DetailActivity) {
+                BaseDialogFragment(title = getString(R.string.dialog_edit_story_title),
+                    contents = getString(R.string.dialog_edit_story_contents),
+                    positiveButtonText = getString(R.string.dialog_edit_story_title),
+                    onClickPositiveButton = {
+                        deleteStory()
+                        this@DetailActivity.finish()
+                        PostActivity.run {
+
+                        }.apply {
+
+                        }
+                    })
+                    .show(
+                        this@DetailActivity.supportFragmentManager,
+                        getString(R.string.dialog_edit_story)
+                    )
+            }
         }
     }
 
     override fun setBindingVariables(binding: ActivityDetailBinding) {
-        with (binding) {
+        with(binding) {
             vm = viewModel
         }
     }

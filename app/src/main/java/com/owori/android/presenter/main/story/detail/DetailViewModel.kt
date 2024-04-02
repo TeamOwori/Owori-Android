@@ -23,6 +23,10 @@ class DetailViewModel @Inject constructor() : BaseViewModel() {
     val moreButtonClicked: LiveData<Unit> = _moreButtonClicked
     private val _postData: MutableLiveData<PostData> = MutableLiveData()
     val postData: LiveData<PostData> = _postData
+    private val _deleteButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val deleteButtonClicked: LiveData<Unit> = _deleteButtonClicked
+    private val _editButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val editButtonClicked: LiveData<Unit> = _editButtonClicked
 
     init {
         initPostData()
@@ -58,6 +62,18 @@ class DetailViewModel @Inject constructor() : BaseViewModel() {
 
     fun onClickShareButton() {
         _shareButtonClicked.call()
+    }
+
+    fun onClickDeleteButton() {
+        _deleteButtonClicked.call()
+    }
+
+    fun onClickEditButton() {
+        _editButtonClicked.call()
+    }
+
+    fun deleteStory() {
+
     }
 
     fun onClickLikedButton() {

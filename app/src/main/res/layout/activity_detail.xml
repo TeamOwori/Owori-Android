@@ -191,24 +191,64 @@
                     style="@style/TextBodyRegular"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:includeFontPadding="false"
                     android:layout_marginHorizontal="18dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider"
+                    android:includeFontPadding="false"
                     android:text="@{vm.postData.contents}"
                     android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider"
                     tools:text="종강하면 동해바다로 가족 여행." />
-                
+
                 <TextView
                     android:id="@+id/likeCommentCount"
+                    style="@style/TextCaptionMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:includeFontPadding="false"
                     android:text="@{@string/label_like_comment_count(vm.postData.likeCount, vm.postData.commentList.size)}"
                     app:layout_constraintStart_toStartOf="@id/titleTextView"
                     app:layout_constraintTop_toBottomOf="@id/contentsTextView"
-                    tools:text="좋아요 4 댓글 3"/>
+                    tools:text="좋아요 4 댓글 3" />
+
+                <View
+                    android:id="@+id/button_divider"
+                    android:layout_width="1dp"
+                    android:layout_height="12dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/grey_626262"
+                    app:layout_constraintBottom_toBottomOf="@+id/likeCommentCount"
+                    app:layout_constraintEnd_toStartOf="@+id/label_edit"
+                    app:layout_constraintTop_toTopOf="@+id/likeCommentCount" />
+
+                <TextView
+                    android:id="@+id/label_edit"
+                    style="@style/TextCaptionMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{() -> vm.onClickEditButton()}"
+                    android:text="@string/label_edit"
+                    app:layout_constraintBottom_toBottomOf="@+id/likeCommentCount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/likeCommentCount" />
+
+                <TextView
+                    android:id="@+id/label_delete"
+                    style="@style/TextCaptionMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{() -> vm.onClickDeleteButton()}"
+                    android:text="@string/label_delete"
+                    app:layout_constraintBottom_toBottomOf="@+id/likeCommentCount"
+                    app:layout_constraintEnd_toStartOf="@+id/button_divider"
+                    app:layout_constraintTop_toTopOf="@+id/likeCommentCount"
+                    app:layout_constraintVertical_bias="0.526" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
