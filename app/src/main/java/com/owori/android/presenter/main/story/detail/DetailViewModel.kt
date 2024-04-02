@@ -27,6 +27,8 @@ class DetailViewModel @Inject constructor() : BaseViewModel() {
     val deleteButtonClicked: LiveData<Unit> = _deleteButtonClicked
     private val _editButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
     val editButtonClicked: LiveData<Unit> = _editButtonClicked
+    private val _commentSubmitButtonClicked: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val commentSubmitButtonClicked: LiveData<Unit> = _commentSubmitButtonClicked
 
     init {
         initPostData()
@@ -70,6 +72,10 @@ class DetailViewModel @Inject constructor() : BaseViewModel() {
 
     fun onClickEditButton() {
         _editButtonClicked.call()
+    }
+
+    fun onClickCommentSubmitButton() {
+        _commentSubmitButtonClicked.call()
     }
 
     fun deleteStory() {
