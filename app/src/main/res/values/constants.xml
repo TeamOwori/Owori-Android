@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="base_url">http://owori.store/api/v1</string>
+    <string name="base_url">http://13.124.20.243/api/v1</string>
 </resources>

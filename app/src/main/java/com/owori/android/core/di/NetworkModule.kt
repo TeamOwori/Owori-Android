@@ -3,6 +3,7 @@ package com.owori.android.core.di
 import com.owori.android.R
 import com.owori.android.core.OworiApplication
 import com.owori.android.data.api.auth.AuthApi
+import com.owori.android.data.api.member.MemberApi
 import com.owori.android.module.HttpRequestInterceptor
 import dagger.Module
 import dagger.Provides
@@ -50,7 +51,17 @@ object NetworkModule {
         return retrofit.buildService()
     }
 
+    @Provides
+    @Singleton
+    fun provideMemberApi(retrofit: Retrofit): MemberApi {
+        return retrofit.buildService()
+    }
+
     private inline fun <reified T> Retrofit.buildService(): T {
         return this.create(T::class.java)
     }
+
+//    class AppInterceptor : HttpRequestInterceptor() {
+//
+//    }
 }

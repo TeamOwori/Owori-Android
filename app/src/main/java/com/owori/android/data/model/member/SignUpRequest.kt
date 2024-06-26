@@ -1,4 +1,4 @@
-package com.owori.android.data.model
+package com.owori.android.data.model.member
 
 import com.google.gson.annotations.SerializedName
 
