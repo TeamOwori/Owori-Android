@@ -6,6 +6,7 @@ import com.owori.android.data.api.auth.AuthApi
 import com.owori.android.data.api.comment.CommentApi
 import com.owori.android.data.api.family.FamilyApi
 import com.owori.android.data.api.heart.HeartApi
+import com.owori.android.data.api.image.ImageApi
 import com.owori.android.data.api.member.MemberApi
 import com.owori.android.module.HttpRequestInterceptor
 import dagger.Module
@@ -69,6 +70,12 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideHeartApi(retrofit: Retrofit): HeartApi {
+        return retrofit.buildService()
+    }
+
+    @Provides
+    @Singleton
+    fun provideImageApi(retrofit: Retrofit): ImageApi {
         return retrofit.buildService()
     }
 
