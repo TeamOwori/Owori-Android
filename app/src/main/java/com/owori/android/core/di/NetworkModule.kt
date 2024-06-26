@@ -3,6 +3,7 @@ package com.owori.android.core.di
 import com.owori.android.R
 import com.owori.android.core.OworiApplication
 import com.owori.android.data.api.auth.AuthApi
+import com.owori.android.data.api.comment.CommentApi
 import com.owori.android.data.api.member.MemberApi
 import com.owori.android.module.HttpRequestInterceptor
 import dagger.Module
@@ -48,6 +49,12 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideAuthApi(retrofit: Retrofit): AuthApi {
+        return retrofit.buildService()
+    }
+
+    @Provides
+    @Singleton
+    fun provideCommentApi(retrofit: Retrofit): CommentApi {
         return retrofit.buildService()
     }
 
