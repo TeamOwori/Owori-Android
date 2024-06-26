@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:name=".core.OworiApplication"
@@ -48,6 +52,21 @@
             android:screenOrientation="portrait" />
 
         <activity android:name=".presenter.main.home.familyname.FamilyNameActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|adjustUnspecified"/>
+
+        <activity android:name=".presenter.main.story.post.PostActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|adjustUnspecified"/>
+
+        <activity android:name=".presenter.main.story.search.SearchActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|adjustUnspecified"/>
+
+        <activity android:name=".presenter.main.story.detail.DetailActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustUnspecified"/>

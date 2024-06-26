@@ -5,7 +5,10 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.databinding.BindingAdapter
 import coil.load
+import coil.size.Scale
 import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.owori.android.R
 import com.owori.android.presenter.model.ColorStatus
 import com.owori.android.presenter.model.ColorStatus.ABLE
@@ -23,7 +26,7 @@ import com.owori.android.presenter.model.MyColorType.YELLOW
 @BindingAdapter("setCircleImageView")
 fun ImageView.setCircleImageView(image: Any?) {
     this.load(image) {
-        crossfade(true)
+        crossfade(false)
         placeholder(R.drawable.member_profile)
         transformations(CircleCropTransformation())
     }
@@ -32,8 +35,26 @@ fun ImageView.setCircleImageView(image: Any?) {
 @BindingAdapter("setImageView")
 fun ImageView.setImageView(image: Any?) {
     this.load(image) {
-        crossfade(true)
+        crossfade(false)
         placeholder(R.drawable.image_placeholder)
+    }
+}
+
+@BindingAdapter("setImageViewCenterCrop")
+fun ImageView.setImageViewCenterCrop(image: Any?) {
+    this.load(image) {
+        crossfade(false)
+        scale(Scale.FILL)
+        placeholder(R.drawable.image_placeholder)
+    }
+}
+
+@BindingAdapter("setRoundedCornerImageView")
+fun ImageView.setRoundedCornerImageView(image: Any?) {
+    this.load(image) {
+        crossfade(false)
+        transformations(RoundedCornersTransformation(18f, 18f, 18f, 18f))
+        placeholder(R.drawable.resource_default)
     }
 }
 

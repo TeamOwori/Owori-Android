@@ -7,7 +7,10 @@
 
     <!-- 다이얼로그 -->
     <string name="dialog_delete">DeleteMyWordDialog</string>
+    <string name="dialog_delete_story">DeleteMyStoryDialog</string>
+    <string name="dialog_edit_story">EditMyStoryDialog</string>
     <string name="dialog_cancel">취소</string>
+    <string name="dialog_filter">FilterBottomSheetFragmentDialog</string>
     <string name="dialog_logout">LogoutDialog</string>
     <string name="dialog_change_cancel">ChangeCancelDialog</string>
     <string name="dialog_change_cancel_title">나가기</string>
@@ -20,6 +23,10 @@
     <string name="dialog_write_cancel_contents">작성한 내용 모두 사라집니다.\n작성을 취소하시겠습니까?</string>
     <string name="dialog_edit_cancel_contents">수정 이전 내용으로 되돌아갑니다.\n수정을 취소하시겠습니까?</string>
     <string name="dialog_change_cancel_contents">변경한 내용 모두 사라집니다.\n그래도 나가시겠습니까?</string>
+    <string name="dialog_delete_story_contents">게시글을 삭제하시겠습니까?</string>
+    <string name="dialog_delete_story_title">삭제하기</string>
+    <string name="dialog_edit_story_contents">게시글을 수정하시겠습니까?</string>
+    <string name="dialog_edit_story_title">수정하기</string>
 
     <!-- 로그인 + 가입 -->
     <string name="owori_splash_subtitle">모여봐요 우리 가족</string>
@@ -108,6 +115,34 @@
     <string name="label_withdrawal_contents">서비스를 탈퇴하더라도 작성하신 글은 자동\n으로 삭제되지 않습니다.\n탈퇴 하시겠습니까?</string>
     <string name="label_change_group_name">변경할 가족 그룹명을 입력해주세요.</string>
     <string name="label_family_group_name">가족 그룹명</string>
+
+    <!-- 스토리 -->
+    <string name="label_story_title">우리가족 추억저장소</string>
+    <string name="label_filter_latest">최신순</string>
+    <string name="label_filter_date">날짜순</string>
+    <string name="label_post_story">기록하기</string>
+    <string name="label_save_post">작성 완료</string>
+    <string name="hint_search_edit">추억을 검색해보세요.</string>
+    <string name="hint_title">제목을 입력해주세요.</string>
+    <string name="hint_story">추억을 기록해봐요:)\n500자까지 입력할 수 있어요</string>
+    <string name="label_start_date">시작일</string>
+    <string name="label_end_date">종료일</string>
+    <string name="label_title">제목</string>
+    <string name="label_my_story">추억 이야기</string>
+    <string name="label_photo_title">사진(최대 10장)</string>
+    <string name="label_add_photo">사진올리기</string>
+    <string name="label_thumbnail">대표사진</string>
+    <string name="label_recent_search_keyword">최근 검색어</string>
+    <string name="label_remove_all_recent_search_keyword">전체 삭제</string>
+    <string name="title_search_tip">검색이 안될 때 꿀팁!</string>
+    <string name="contents_search_tip">· 검색어를 바르게 입력했는지 확인해 보세요.\n· 짧은 단어로 검색해 보세요 (예: 동해바다 > 동해)</string>
+    <string name="label_dateline">%1$s ~ %2$s</string>
+    <string name="label_author">by %1$s</string>
+    <string name="label_like_comment_count">좋아요 %1$d 댓글 %2$d</string>
+    <string name="label_edit">수정하기</string>
+    <string name="label_delete">삭제하기</string>
+    <string name="label_comment">가족에게 댓글을 남겨보세요.</string>
+    <string name="label_comment_apply">등록</string>
 
     <!-- key -->
     <string name="kakao_login_key">6c28960f69d4c7f00043b02d890dd6e0</string>

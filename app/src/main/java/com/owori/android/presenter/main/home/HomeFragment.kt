@@ -17,9 +17,13 @@ import com.owori.android.presenter.main.home.adapter.FamilyMemberWordAdapter
 import com.owori.android.presenter.main.home.adapter.FamilyPhotoAdapter
 import com.owori.android.presenter.main.home.mypage.MyPageActivity
 import com.owori.android.presenter.main.home.notice.NoticeActivity
+import com.owori.android.presenter.model.FamilyPhotoItem
+import com.owori.android.presenter.model.FamilyPhotoItem.FamilyPhotoViewType.PHOTO
+import com.owori.android.presenter.model.PhotoData
 import com.owori.android.presenter.util.SnapPagerScrollListener
 import com.owori.android.presenter.util.SnapPagerScrollListener.Companion.ON_SCROLL
 import dagger.hilt.android.AndroidEntryPoint
+import gun0912.tedimagepicker.builder.TedImagePicker
 
 
 @AndroidEntryPoint
@@ -46,7 +50,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             )
         }
     }
-    private val familyPhotoAdapter: FamilyPhotoAdapter by lazy { FamilyPhotoAdapter() }
+    private val familyPhotoAdapter: FamilyPhotoAdapter by lazy { FamilyPhotoAdapter { viewModel.onClickAddPhoto() } }
     private val dDaySnapHelper = PagerSnapHelper()
     private val dDayScrollListener =
         SnapPagerScrollListener(
@@ -136,6 +140,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
                     getString(R.string.dialog_edit)
                 )
             }
+            showTedImagePicker.observe(viewLifecycleOwner) {
+                TedImagePicker.with(requireContext())
+                    .max(MAX_PHOTO_SIZE - (familyPhotoList.value?.filter {it.photoData != null }?.size ?: 0), SIZE_WARN)
+                    .showCameraTile(false)
+                    .startMultiImage { uris ->
+                        viewModel.setFamilyPhotoList(uris.mapIndexed { index, uri ->
+                            FamilyPhotoItem(PHOTO, PhotoData(id = index, imageSrc = uri.toString()))
+                        })
+                    }
+            }
         }
     }
 
@@ -172,5 +186,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     private fun initFamilyMemberWordRecyclerView() {
         binding.familyMemberWordRecyclerView.adapter = familyMemberWordAdapter
+    }
+
+    companion object {
+        const val MAX_PHOTO_SIZE = 5
+        const val SIZE_WARN = "최대 5장의 사진만 선택 가능합니다."
     }
 }

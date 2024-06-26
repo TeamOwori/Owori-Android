@@ -96,6 +96,8 @@ dependencies {
     kapt(libs.dagger.hilt.compiler)
     implementation(libs.coil)
     implementation(libs.kakao.login)
+    implementation(libs.ted.image.picker)
+    implementation(libs.swipe.refresh.layout)
 }
 
 kapt {

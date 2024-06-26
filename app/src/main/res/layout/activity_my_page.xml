@@ -33,11 +33,13 @@
 
         <ImageView
             android:id="@+id/profile_image"
-            setImageView="@{vm.myProfile.profileImage == null ? @drawable/member_profile : vm.myProfile.profileImage}"
+            setCircleImageView="@{vm.myProfile.profileImage == null ? @drawable/member_profile : vm.myProfile.profileImage}"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="186dp"
+            android:layout_marginTop="188dp"
+            android:onClick="@{() -> vm.onClickEditProfileImage()}"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:background="@drawable/member_profile" />

@@ -40,8 +40,12 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
     private val _myProfile: MutableLiveData<MyPageData> = MutableLiveData()
     val myProfile: LiveData<MyPageData> = _myProfile
 
-    private val _myColorStatus: MutableLiveData<MutableMap<MyColorType, ColorStatus>> = MutableLiveData()
+    private val _myColorStatus: MutableLiveData<MutableMap<MyColorType, ColorStatus>> =
+        MutableLiveData()
     val myColorStatus: LiveData<MutableMap<MyColorType, ColorStatus>> = _myColorStatus
+
+    private val _showTedImagePicker: SingleLiveEvent<Unit> = SingleLiveEvent()
+    val showTedImagePicker: LiveData<Unit> = _showTedImagePicker
 
     init {
         fetchMyData()
@@ -89,7 +93,7 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
                 name,
                 birth,
                 myColor.filter { it.value == CHECKED }.keys.first(),
-                null,
+                _myProfile.value?.profileImage,
                 1, 3, 5
             )
         }
@@ -105,5 +109,15 @@ class MyPageViewModel @Inject constructor() : BaseViewModel() {
             }
         }
         _myColorStatus.value = _myColorStatus.value?.toMutableMap()
+    }
+
+    fun onClickEditProfileImage() {
+        if (_isEditMode.value == true) {
+            _showTedImagePicker.call()
+        }
+    }
+
+    fun setProfileImage(uriString: String) {
+        _myProfile.value = _myProfile.value?.copy(profileImage = uriString)
     }
 }
