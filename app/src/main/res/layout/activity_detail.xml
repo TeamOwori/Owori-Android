@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.owori.android.presenter.main.story.detail.DetailViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/actionBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/closeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{() -> vm.onClickFinishButton()}"
+                        android:padding="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="4dp"
+                            android:background="@drawable/icon_back_arrow"
+                            android:paddingStart="14dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{() -> vm.onClickShareButton()}"
+                        android:padding="16dp"
+                        app:layout_constraintEnd_toStartOf="@id/moreButton"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:background="@drawable/icon_share"
+                            android:paddingStart="12dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:background="@drawable/icon_share" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/moreButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{() -> vm.onClickMoreButton()}"
+                        android:padding="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/icon_more"
+                            android:paddingStart="12dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:background="@drawable/icon_more" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/imageLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actionBar">
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/postLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageLayout">
+
+                    <TextView
+                        android:id="@+id/datelineTextView"
+                        style="@style/TextCaptionMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="12dp"
+                        android:includeFontPadding="false"
+                        android:text="@{@string/label_dateline(vm.postData.startDate, vm.postData.endDate)}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="2023년 4월 17일 ~ 2023년 4월 23일" />
+
+                    <ImageView
+                        android:id="@+id/likedImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:background="@{vm.postData.liked == true ? @drawable/icon_liked : @drawable/icon_liked_yet}"
+                        android:onClick="@{() -> vm.onClickLikedButton()}"
+                        app:layout_constraintBottom_toBottomOf="@id/datelineTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/datelineTextView"
+                        tools:background="@drawable/icon_liked" />
+
+
+                    <TextView
+                        android:id="@+id/titleTextView"
+                        style="@style/TextTitle.01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:includeFontPadding="false"
+                        android:text="@{vm.postData.title}"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@+id/datelineTextView"
+                        app:layout_constraintTop_toBottomOf="@+id/datelineTextView"
+                        tools:text="기다리고 기다리던 하루" />
+
+                    <TextView
+                        android:id="@+id/authorTextView"
+                        style="@style/TextCaptionRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:includeFontPadding="false"
+                        android:text="@{@string/label_author(vm.postData.author)}"
+                        app:layout_constraintBottom_toBottomOf="@+id/titleTextView"
+                        app:layout_constraintStart_toEndOf="@id/titleTextView"
+                        tools:text="by 쥐렁이" />
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+                    <TextView
+                        android:id="@+id/contentsTextView"
+                        style="@style/TextBodyRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:includeFontPadding="false"
+                        android:text="@{vm.postData.contents}"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider"
+                        tools:text="종강하면 동해바다로 가족 여행." />
+
+                    <TextView
+                        android:id="@+id/likeCommentCount"
+                        style="@style/TextCaptionMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:includeFontPadding="false"
+                        android:text="@{@string/label_like_comment_count(vm.postData.likeCount, vm.postData.commentList.size)}"
+                        app:layout_constraintStart_toStartOf="@id/titleTextView"
+                        app:layout_constraintTop_toBottomOf="@id/contentsTextView"
+                        tools:text="좋아요 4 댓글 3" />
+
+                    <View
+                        android:id="@+id/button_divider"
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@color/grey_909090"
+                        app:layout_constraintBottom_toBottomOf="@+id/likeCommentCount"
+                        app:layout_constraintEnd_toStartOf="@+id/label_edit"
+                        app:layout_constraintTop_toTopOf="@+id/likeCommentCount" />
+
+                    <TextView
+                        android:id="@+id/label_edit"
+                        style="@style/TextCaptionMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{() -> vm.onClickEditButton()}"
+                        android:text="@string/label_edit"
+                        app:layout_constraintBottom_toBottomOf="@+id/likeCommentCount"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/likeCommentCount" />
+
+                    <TextView
+                        android:id="@+id/label_delete"
+                        style="@style/TextCaptionMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="@{() -> vm.onClickDeleteButton()}"
+                        android:text="@string/label_delete"
+                        app:layout_constraintBottom_toBottomOf="@+id/likeCommentCount"
+                        app:layout_constraintEnd_toStartOf="@+id/button_divider"
+                        app:layout_constraintTop_toTopOf="@+id/likeCommentCount"
+                        app:layout_constraintVertical_bias="0.526" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/comment_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="12dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <EditText
+                android:id="@+id/comment"
+                style="@style/TextBodyRegular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="@string/label_comment"
+                android:imeActionLabel="@string/label_comment"
+                android:imeOptions="actionSend"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="14dp"
+                android:paddingHorizontal="18dp"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/TextBodyRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@drawable/shp_owori_red"
+                android:includeFontPadding="false"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:onClick="@{() -> vm.onClickCommentSubmitButton()}"
+                android:text="@string/label_comment_apply"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/comment" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

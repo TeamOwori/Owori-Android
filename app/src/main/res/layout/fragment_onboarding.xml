@@ -93,7 +93,7 @@
             android:id="@+id/viewpager_button"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:background="@color/owori_red"
             android:onClick="@{() -> vm.onClickNextButton()}"
             android:text="@{vm.currentItemIndex >= 2 ? @string/onboarding_login : @string/onboarding_next}"

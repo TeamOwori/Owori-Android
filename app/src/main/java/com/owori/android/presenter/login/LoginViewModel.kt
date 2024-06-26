@@ -10,6 +10,7 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor() : BaseViewModel() {
     private val _callKakaoLogin: SingleLiveEvent<Unit> = SingleLiveEvent()
     val callKakaoLogin: LiveData<Unit> = _callKakaoLogin
+
     private val _callGoogleLogin: SingleLiveEvent<Unit> = SingleLiveEvent()
     val callGoogleLogin: LiveData<Unit> = _callGoogleLogin
 
@@ -20,4 +21,6 @@ class LoginViewModel @Inject constructor() : BaseViewModel() {
     fun onClickGoogleLogin() {
         _callGoogleLogin.call()
     }
+
+
 }
