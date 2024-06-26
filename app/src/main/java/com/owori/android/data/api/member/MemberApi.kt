@@ -7,12 +7,12 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface MemberApi {
-    @POST("/api/v1/members/kakao")
+    @POST("/members/kakao")
     fun kakaoLogin(@Body data: SignUpRequest) : DataResult<SignUpResponse>
 
-    @POST("/api/v1/members/google")
+    @POST("/members/google")
     fun googleLogin(@Body data: SignUpRequest) : DataResult<SignUpResponse>
 
-    @POST("/api/v1/members/apple")
+    @POST("/members/apple")
     fun appleLogin(@Body data: SignUpRequest) : DataResult<SignUpResponse>
 }

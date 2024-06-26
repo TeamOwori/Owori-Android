@@ -7,6 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 
 interface AuthApi {
-    @GET("/api/v1/auth/refresh")
+    @GET("/auth/refresh")
     fun getTokenByRefreshToken(@Body data: SignUpRequest) : DataResult<RefreshResponse>
 }
