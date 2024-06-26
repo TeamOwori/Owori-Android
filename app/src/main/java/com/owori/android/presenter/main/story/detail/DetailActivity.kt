@@ -52,13 +52,11 @@ class DetailActivity :
                     contents = getString(R.string.dialog_edit_story_contents),
                     positiveButtonText = getString(R.string.dialog_edit_story_title),
                     onClickPositiveButton = {
-                        deleteStory()
                         this@DetailActivity.finish()
-                        PostActivity.run {
-
-                        }.apply {
-
+                        postData.value?.let {
+                            PostActivity.startActivity(this@DetailActivity, it)
                         }
+
                     })
                     .show(
                         this@DetailActivity.supportFragmentManager,

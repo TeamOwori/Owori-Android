@@ -9,6 +9,7 @@ import android.view.MotionEvent
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat.getColor
+import androidx.core.os.bundleOf
 import androidx.core.util.Pair
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.owori.android.R
@@ -18,6 +19,7 @@ import com.owori.android.core.DateFormatter.toDashDateFormat
 import com.owori.android.databinding.ActivityPostBinding
 import com.owori.android.presenter.main.home.adapter.AddPhotoListAdapter
 import com.owori.android.presenter.model.PhotoData
+import com.owori.android.presenter.model.PostData
 import dagger.hilt.android.AndroidEntryPoint
 import gun0912.tedimagepicker.builder.TedImagePicker
 import java.util.Calendar
@@ -163,6 +165,13 @@ class PostActivity : BaseActivity<ActivityPostBinding, PostViewModel>(R.layout.a
         private const val SIZE_WARN = "최대 10장의 사진만 선택 가능합니다."
         fun startActivity(context: Context) {
             Intent(context, PostActivity::class.java).apply {
+                context.startActivity(this)
+            }
+        }
+
+        fun startActivity(context: Context, postData: PostData) {
+            Intent(context, PostActivity::class.java).apply {
+                putExtras(bundleOf("postData" to postData))
                 context.startActivity(this)
             }
         }
