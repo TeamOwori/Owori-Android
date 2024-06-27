@@ -10,6 +10,7 @@ import com.owori.android.data.api.image.ImageApi
 import com.owori.android.data.api.keyword.KeywordApi
 import com.owori.android.data.api.member.MemberApi
 import com.owori.android.data.api.saying.SayingApi
+import com.owori.android.data.api.schedule.ScheduleApi
 import com.owori.android.module.HttpRequestInterceptor
 import dagger.Module
 import dagger.Provides
@@ -90,6 +91,12 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideSayingApi(retrofit: Retrofit): SayingApi {
+        return retrofit.buildService()
+    }
+
+    @Provides
+    @Singleton
+    fun provideScheduleApi(retrofit: Retrofit): ScheduleApi {
         return retrofit.buildService()
     }
 
