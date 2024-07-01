@@ -10,20 +10,20 @@ data class SchedulePostRequest(
     @SerializedName("end_date")
     val endDate: String?,
     @SerializedName("schedule_type")
-    val scheduleType: ScheduleType,
-    val nickname: String,
-    val color: String,
+    val scheduleType: ScheduleType?,
+    val nickname: String?,
+    val color: String?,
     @SerializedName("dday_option")
-    val dDayOption: Boolean,
+    val dDayOption: Boolean?,
     @SerializedName("alarm_options")
-    val alarmOptions: List<String>,
+    val alarmOptions: List<String>?,
     @SerializedName("is_mine")
-    val isMine: Boolean,
+    val isMine: Boolean?,
 )
 
 data class ScheduleItem(
     @SerializedName("schedule_id")
-    val scheduleId: String,
+    val scheduleId: String?,
     val title: String,
     val content: String,
     @SerializedName("start_date")
@@ -31,15 +31,15 @@ data class ScheduleItem(
     @SerializedName("end_date")
     val endDate: String?,
     @SerializedName("schedule_type")
-    val scheduleType: ScheduleType,
-    val nickname: String,
-    val color: String,
+    val scheduleType: ScheduleType?,
+    val nickname: String?,
+    val color: String?,
     @SerializedName("dday_option")
-    val dDayOption: Boolean,
+    val dDayOption: Boolean?,
     @SerializedName("alarm_options")
-    val alarmOptions: List<String>,
+    val alarmOptions: List<String>?,
     @SerializedName("is_mine")
-    val isMine: Boolean,
+    val isMine: Boolean?,
 )
 
 enum class ScheduleType {

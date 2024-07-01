@@ -11,6 +11,7 @@ import com.owori.android.data.api.keyword.KeywordApi
 import com.owori.android.data.api.member.MemberApi
 import com.owori.android.data.api.saying.SayingApi
 import com.owori.android.data.api.schedule.ScheduleApi
+import com.owori.android.data.api.story.StoryApi
 import com.owori.android.module.HttpRequestInterceptor
 import dagger.Module
 import dagger.Provides
@@ -103,6 +104,12 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideMemberApi(retrofit: Retrofit): MemberApi {
+        return retrofit.buildService()
+    }
+
+    @Provides
+    @Singleton
+    fun provideStoryApi(retrofit: Retrofit): StoryApi {
         return retrofit.buildService()
     }
 
